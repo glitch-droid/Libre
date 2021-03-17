@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">Libre</string>
+    <string name="login">Login</string>
+    <string name="login_email">email</string>
+    <string name="login_pass">password</string>
+    <string name="login_or">OR</string>
+    <string name="login_newTo">New to Libre ?</string>
+    <string name="login_register"><u>Register!</u></string>
+
+
 </resources>
