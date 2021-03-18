@@ -50,8 +50,11 @@
                     android:drawablePadding="30dp"
                     android:fontFamily="@font/roboto_medium"
                     android:hint="@string/login_email"
+                    android:textColorHint="@color/gray"
                     android:textAlignment="viewStart"
                     android:textColor="@color/black"
+                    android:backgroundTint="@color/black"
+                    android:hapticFeedbackEnabled="true"
                     android:textSize="18sp" />
 
                 <EditText
@@ -63,11 +66,15 @@
                     android:drawablePadding="30dp"
                     android:fontFamily="@font/roboto_medium"
                     android:hint="@string/login_pass"
+                    android:textColorHint="@color/gray"
+                    android:backgroundTint="@color/black"
+                    android:hapticFeedbackEnabled="true"
                     android:inputType="textWebPassword"
                     android:maxLength="15"
                     android:textAlignment="viewStart"
                     android:textColor="@color/black"
                     android:textSize="18sp" />
+
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/login_button"
