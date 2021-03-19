@@ -33,7 +33,6 @@ public class MainActivity extends AppCompatActivity {
         getSupportActionBar().hide();
 
         recyclerView = findViewById(R.id.home_recyclerView);
-        books.add(new BookModel("Digital Electronics","Anand Kumar"));
 
         adapter = new HomeAdapter();
         adapter.setBooksList(books);
