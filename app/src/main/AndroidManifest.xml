@@ -11,6 +11,7 @@
         android:theme="@style/Theme.Libre">
         <activity android:name=".MainActivity" />
         <activity android:name=".RegisterActivity"/>
+        <activity android:name=".AuthenticationActivity"/>
         <activity android:name=".LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
