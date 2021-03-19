@@ -11,6 +11,7 @@ import com.example.libre.Adapters.HomeAdapter;
 import com.example.libre.Models.BookModel;
 import com.example.libre.Retrofit_Modules.API_Caller;
 import com.example.libre.Retrofit_Modules.Models.Products;
+import com.example.libre.Retrofit_Modules.Retrofit_Network_Caller;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,7 +25,6 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class MainActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private List<BookModel> books = new ArrayList<>();
-    private API_Caller api_caller;
     private HomeAdapter adapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,34 +39,11 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
         recyclerView.hasFixedSize();
         recyclerView.setAdapter(adapter);
-        getDataFromWeb();
+        showAllProducts();
     }
 
-    public void getDataFromWeb(){
-        Retrofit retrofit=new Retrofit.Builder()
-                .baseUrl("http://35.193.15.204:3000/")
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
-        api_caller=retrofit.create(API_Caller.class);
-        Call<List<Products>> call=api_caller.getAllProducts("products/?xerox=book");
-        Toast.makeText(getApplicationContext(),"Initialised!",Toast.LENGTH_SHORT).show();;
-        call.enqueue(new Callback<List<Products>>() {
-            @Override
-            public void onResponse(Call<List<Products>> call, Response<List<Products>> response) {
-                if(response.isSuccessful()){
-                    List<Products> allProds=response.body();
-
-                    for(Products prod:allProds){
-                        books.add(new BookModel(prod.getTitle(),prod.getBookauthor()));
-                    }
-                    adapter.notifyDataSetChanged();
-                }
-            }
-
-            @Override
-            public void onFailure(Call<List<Products>> call, Throwable t) {
-                System.out.println("ERROR: "+t);
-            }
-        });
+    private void showAllProducts(){
+        Retrofit_Network_Caller retrofit_network_caller=new Retrofit_Network_Caller(getApplicationContext());
+        retrofit_network_caller.getAllProducts();
     }
 }
