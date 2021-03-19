@@ -1,3 +1,23 @@
 <resources>
     <string name="app_name">Libre</string>
+
+    //Login Layout
+    <string name="login">Login</string>
+    <string name="login_email">email</string>
+    <string name="login_pass">password</string>
+    <string name="login_or">OR</string>
+    <string name="login_newTo">New to Libre ?</string>
+    <string name="login_register"><u>Register!</u></string>
+
+    //Register Layout
+    <string name="register">Register</string>
+    <string name="register_">Create Account</string>
+    <string name="name">name</string>
+    <string name="area">area</string>
+    <string name="city">city</string>
+    <string name="country">country</string>
+    <string name="confirm">confirm password</string>
+    <string name="msg">Already have an account ?</string>
+    <string name="login_here"><u>Login Here!</u></string>
+
 </resources>
