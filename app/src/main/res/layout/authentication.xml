@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/authentication_anim"
+        android:layout_width="match_parent"
+        android:layout_marginTop="20dp"
+        android:layout_height="150dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:lottie_rawRes="@raw/auth_fingerprint"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="20dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/authentication_anim"
+        app:layout_constraintVertical_bias="0.100000000">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/verify"
+            android:textColor="@color/black"
+            android:textSize="32sp"
+            android:layout_marginBottom="10dp"
+            android:fontFamily="@font/quicksand_bold"
+            />
+
+        <EditText
+            android:layout_marginTop="30dp"
+            android:padding="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:textColor="@color/black"
+            android:fontFamily="@font/roboto_medium"
+            android:background="@drawable/verification_edittext"
+            android:textSize="16sp"
+            android:hint="@string/verify_code"/>
+        <com.google.android.material.button.MaterialButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:backgroundTint="@color/design_default_color_secondary_variant"
+            android:text="@string/verify_button"
+            android:textColor="@color/white"
+            app:rippleColor="@color/white"
+            android:fontFamily="@font/quicksand_bold"
+            android:layout_gravity="end"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:layout_marginTop="20dp"
+            android:text="@string/message"
+            android:textSize="12sp"
+            android:textColor="@color/gray"
+            android:textStyle="bold"
+            android:fontFamily="@font/roboto_bold"
+            android:textAlignment="center"/>
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

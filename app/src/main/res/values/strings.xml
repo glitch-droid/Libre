@@ -20,4 +20,10 @@
     <string name="msg">Already have an account ?</string>
     <string name="login_here"><u>Login Here!</u></string>
 
+    //Authentication
+    <string name="verify">Verification</string>
+    <string name="message">Please Verify your account by entering the verification code send to the given email id</string>
+    <string name="verify_code">Verification Code Here</string>
+    <string name="verify_button">Verify</string>
+
 </resources>
