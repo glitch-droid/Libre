@@ -46,8 +46,8 @@
 
                 <EditText
                     android:id="@+id/register_emailTV"
-                    android:layout_width="340dp"
-                    android:layout_height="50dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
                     android:drawableStart="@drawable/mail_icon"
                     android:drawablePadding="30dp"
@@ -62,8 +62,8 @@
 
                 <EditText
                     android:id="@+id/register_nameTV"
-                    android:layout_width="340dp"
-                    android:layout_height="50dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
                     android:drawableStart="@drawable/register_account_icon"
                     android:drawablePadding="30dp"
@@ -87,8 +87,8 @@
 
                 <EditText
                     android:id="@+id/register_areaTV"
-                    android:layout_width="320dp"
-                    android:layout_height="50dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:backgroundTint="@color/black"
                     android:hapticFeedbackEnabled="true"
@@ -110,8 +110,8 @@
 
                     <EditText
                         android:id="@+id/register_cityTV"
-                        android:layout_width="130dp"
-                        android:layout_height="50dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
                         android:layout_marginStart="15dp"
                         android:backgroundTint="@color/black"
                         android:hapticFeedbackEnabled="true"
@@ -128,8 +128,8 @@
 
                     <EditText
                         android:id="@+id/register_countryTV"
-                        android:layout_width="130dp"
-                        android:layout_height="50dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
                         android:layout_marginStart="30dp"
                         android:layout_marginEnd="15dp"
@@ -149,8 +149,8 @@
 
                 <EditText
                     android:id="@+id/register_passwordTV"
-                    android:layout_width="340dp"
-                    android:layout_height="50dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     android:layout_marginTop="50dp"
                     android:backgroundTint="@color/black"
                     android:hapticFeedbackEnabled="true"
@@ -166,8 +166,8 @@
 
                 <EditText
                     android:id="@+id/register_confirmPasswordTV"
-                    android:layout_width="340dp"
-                    android:layout_height="50dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
                     android:inputType="textWebPassword"
                     android:drawableStart="@drawable/password_icon"
@@ -200,7 +200,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="60dp"
+                    android:layout_marginTop="40dp"
                     android:layout_gravity="center_horizontal"
                     android:textSize="14sp"
                     android:fontFamily="@font/quicksand_bold"
@@ -210,7 +210,7 @@
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="30dp"
+                    android:layout_marginTop="20dp"
                     android:layout_gravity="center_horizontal"
                     android:orientation="horizontal">
                     <TextView
@@ -231,6 +231,7 @@
                         android:text="@string/login_here"
                         android:textColor="@color/login_register"
                         android:textSize="16sp" />
+
                 </LinearLayout>
             </LinearLayout>
         </RelativeLayout>
