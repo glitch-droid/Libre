@@ -31,7 +31,8 @@ public class RegisterActivity extends AppCompatActivity {
         registerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //TODO
+                startActivity(new Intent(getApplicationContext(),AuthenticationActivity.class));
+                finish();
             }
         });
     }
