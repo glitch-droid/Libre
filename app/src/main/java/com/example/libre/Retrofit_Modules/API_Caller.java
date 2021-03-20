@@ -2,6 +2,8 @@ package com.example.libre.Retrofit_Modules;
 
 import com.example.libre.Retrofit_Modules.Models.LoginFormat;
 import com.example.libre.Retrofit_Modules.Models.Products;
+import com.example.libre.Retrofit_Modules.Models.RegisterFormat;
+import com.example.libre.Retrofit_Modules.Models.VerificationFormat;
 
 import java.util.List;
 
@@ -19,4 +21,10 @@ public interface API_Caller {
 
     @POST("login")
     Call<String> loginUser(@Body LoginFormat loginFormat);
+
+    @POST("register")
+    Call<String> registerUser(@Body RegisterFormat registerFormat);
+
+    @POST("verify")
+    Call<String> verifyUser(@Body VerificationFormat verificationFormat);
 }
