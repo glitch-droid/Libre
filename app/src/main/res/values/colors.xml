@@ -9,5 +9,14 @@
     <color name="white">#FFFFFFFF</color>
     <color name="login_button">#1890FF</color>
     <color name="login_register">#0F00FF</color>
+
+    //Palette
+    <color name="red_primary">#D00000</color>
+    <color name="burgundy_secondary">#6A040F</color>
+    <color name="black_accent">#03071e</color>
     <color name="gray">#969696</color>
+    <color name="palette_1">#DC2F02</color>
+    <color name="palette_2">#E85D04</color>
+    <color name="palette_3">#F48C06</color>
+    <color name="palette_4">#FFBA08</color>
 </resources>

@@ -1,5 +1,13 @@
 <resources>
     <string name="app_name">Libre</string>
+    <string name="loren_ipsum">How revolutionary is this idea of earth sheltered housing? How long has this technology been tested?
+        In Tunisia, the Romans built their courtyards on the ground surface
+        and their homes below for protection from the severe heat.
+        In central Turkey, archeologists have unearthed 41 earth sheltered cities.
+        Kansas City, Missouri has a growing industrial park where over 100 companies have rented
+        and bought space in solid limestone, 50 - 200 feet into the earth. St. Pierre de Feric, France
+        is the site of 47 homes built into a 45 degree slope. Sacramento, California has</string>
+    <string name="rupee_symbol">₹</string>
 
     //Login Layout
     <string name="login">Login</string>
@@ -28,5 +36,6 @@
     <string name="message">Please Verify your account by entering the verification code send to the given email id</string>
     <string name="verify_code">Verification Code Here</string>
     <string name="verify_button">Verify</string>
+
 
 </resources>

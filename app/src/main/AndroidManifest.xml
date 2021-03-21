@@ -10,10 +10,10 @@
         android:supportsRtl="true"
         android:usesCleartextTraffic="true"
         android:theme="@style/Theme.Libre">
-        <activity android:name=".MainActivity" />
-        <activity android:name=".RegisterActivity"/>
-        <activity android:name=".AuthenticationActivity"/>
-        <activity android:name=".LoginActivity">
+        <activity android:name=".Activities.MainActivity" />
+        <activity android:name=".Activities.RegisterActivity"/>
+        <activity android:name=".Activities.AuthenticationActivity"/>
+        <activity android:name=".Activities.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
