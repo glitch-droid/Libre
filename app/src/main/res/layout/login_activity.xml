@@ -23,7 +23,6 @@
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="50dp"
                 android:src="@drawable/login_a"/>
-
             <LinearLayout
                 android:layout_below="@+id/login_pic_a"
                 android:layout_width="match_parent"

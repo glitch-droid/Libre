@@ -30,6 +30,8 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> {
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         holder.bookName.setText(booksList.get(position).getBook());
         holder.authorName.setText(booksList.get(position).getAuthor());
+        holder.bookDescp.setText(booksList.get(position).getDescription());
+        holder.bookPrice.setText(booksList.get(position).getPrice());
     }
 
     @Override
@@ -44,10 +46,15 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> {
     static public class ViewHolder extends RecyclerView.ViewHolder {
         TextView bookName;
         TextView authorName;
+        TextView bookDescp;
+        TextView bookPrice;
+
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            bookName = itemView.findViewById(R.id.homeProduct_bookNameTV);
-            authorName = itemView.findViewById(R.id.homeProduct_bookAuthorTV);
+            bookName = itemView.findViewById(R.id.homeRV_itemNameTV);
+            authorName = itemView.findViewById(R.id.homeRV_itemAuthorTV);
+            bookDescp = itemView.findViewById(R.id.homeRV_itemDescpTV);
+            bookPrice = itemView.findViewById(R.id.homeRV_itemPriceTV);
         }
     }
 }
