@@ -23,7 +23,6 @@ public class AuthenticationActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.authentication);
-        getSupportActionBar().hide();
         tokenET=findViewById(R.id.verificationToken_ET);
     }
 

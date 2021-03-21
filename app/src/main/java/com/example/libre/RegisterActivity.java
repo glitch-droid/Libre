@@ -27,8 +27,6 @@ public class RegisterActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.register_activity);
-        getSupportActionBar().hide();
-
         emailET=findViewById(R.id.register_emailTV);
         nameET=findViewById(R.id.register_nameTV);
         areaET=findViewById(R.id.register_areaTV);
