@@ -26,6 +26,7 @@ public class LoginActivity extends AppCompatActivity {
 
     Button login;
     TextView register;
+    TextView verify;
     TextView emailTV;
     TextView passwordTV;
     @Override
@@ -52,6 +53,14 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(getApplicationContext(),RegisterActivity.class));
+            }
+        });
+
+        verify = findViewById(R.id.login_verify);
+        verify.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(),AuthenticationActivity.class));
             }
         });
     }

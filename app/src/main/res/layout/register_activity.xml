@@ -46,8 +46,8 @@
 
                 <EditText
                     android:id="@+id/register_emailTV"
-                    android:layout_width="340dp"
-                    android:layout_height="50dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
                     android:drawableStart="@drawable/mail_icon"
                     android:drawablePadding="30dp"
@@ -55,25 +55,28 @@
                     android:backgroundTint="@color/black"
                     android:hapticFeedbackEnabled="true"
                     android:hint="@string/login_email"
+                    android:maxLines="1"
                     android:textAlignment="viewStart"
                     android:textColor="@color/black"
                     android:textColorHint="@color/gray"
+                    android:inputType="textEmailAddress"
                     android:textSize="18sp" />
 
                 <EditText
                     android:id="@+id/register_nameTV"
-                    android:layout_width="340dp"
-                    android:layout_height="50dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
                     android:drawableStart="@drawable/register_account_icon"
                     android:drawablePadding="30dp"
                     android:fontFamily="@font/roboto_medium"
                     android:hint="@string/name"
+                    android:maxLines="1"
                     android:backgroundTint="@color/black"
                     android:hapticFeedbackEnabled="true"
                     android:textColorHint="@color/gray"
-                    android:maxLength="15"
                     android:textAlignment="viewStart"
+                    android:inputType="textPersonName"
                     android:textColor="@color/black"
                     android:textSize="18sp" />
 
@@ -87,9 +90,10 @@
 
                 <EditText
                     android:id="@+id/register_areaTV"
-                    android:layout_width="320dp"
-                    android:layout_height="50dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
+                    android:maxLines="1"
                     android:backgroundTint="@color/black"
                     android:hapticFeedbackEnabled="true"
                     android:drawableStart="@drawable/register_area_icon"
@@ -98,7 +102,7 @@
                     android:fontFamily="@font/roboto_medium"
                     android:hint="@string/area"
                     android:textColorHint="@color/gray"
-                    android:maxLength="15"
+                    android:inputType="textPostalAddress"
                     android:textColor="@color/black"
                     android:textSize="18sp" />
                 <LinearLayout
@@ -110,11 +114,12 @@
 
                     <EditText
                         android:id="@+id/register_cityTV"
-                        android:layout_width="130dp"
-                        android:layout_height="50dp"
-                        android:layout_marginStart="15dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
                         android:backgroundTint="@color/black"
                         android:hapticFeedbackEnabled="true"
+                        android:inputType="textPostalAddress"
+                        android:maxLines="1"
                         android:textColorHint="@color/gray"
                         android:drawableStart="@drawable/register_city_icon"
                         android:drawablePadding="30dp"
@@ -122,26 +127,25 @@
                         android:layout_gravity="center_horizontal"
                         android:fontFamily="@font/roboto_medium"
                         android:hint="@string/city"
-                        android:maxLength="20"
                         android:textColor="@color/black"
                         android:textSize="18sp" />
 
                     <EditText
                         android:id="@+id/register_countryTV"
-                        android:layout_width="130dp"
-                        android:layout_height="50dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
-                        android:layout_marginStart="30dp"
-                        android:layout_marginEnd="15dp"
+                        android:layout_marginStart="10dp"
                         android:layout_weight="1"
                         android:textColorHint="@color/gray"
                         android:backgroundTint="@color/black"
+                        android:inputType="textPostalAddress"
+                        android:maxLines="1"
                         android:hapticFeedbackEnabled="true"
                         android:drawableStart="@drawable/register_country_icon"
                         android:drawablePadding="30dp"
                         android:fontFamily="@font/roboto_medium"
                         android:hint="@string/country"
-                        android:maxLength="20"
                         android:textColor="@color/black"
                         android:textSize="18sp" />
 
@@ -149,14 +153,15 @@
 
                 <EditText
                     android:id="@+id/register_passwordTV"
-                    android:layout_width="340dp"
-                    android:layout_height="50dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     android:layout_marginTop="50dp"
                     android:backgroundTint="@color/black"
                     android:hapticFeedbackEnabled="true"
                     android:drawableStart="@drawable/password_icon"
                     android:drawablePadding="30dp"
                     android:inputType="textWebPassword"
+                    android:maxLines="1"
                     android:fontFamily="@font/roboto_medium"
                     android:hint="@string/login_pass"
                     android:textColorHint="@color/gray"
@@ -166,8 +171,8 @@
 
                 <EditText
                     android:id="@+id/register_confirmPasswordTV"
-                    android:layout_width="340dp"
-                    android:layout_height="50dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
                     android:inputType="textWebPassword"
                     android:drawableStart="@drawable/password_icon"
@@ -177,6 +182,7 @@
                     android:textColorHint="@color/gray"
                     android:textAlignment="viewStart"
                     android:backgroundTint="@color/black"
+                    android:maxLines="1"
                     android:hapticFeedbackEnabled="true"
                     android:textColor="@color/black"
                     android:textSize="18sp" />
@@ -200,7 +206,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="60dp"
+                    android:layout_marginTop="40dp"
                     android:layout_gravity="center_horizontal"
                     android:textSize="14sp"
                     android:fontFamily="@font/quicksand_bold"
@@ -210,7 +216,7 @@
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="30dp"
+                    android:layout_marginTop="20dp"
                     android:layout_gravity="center_horizontal"
                     android:orientation="horizontal">
                     <TextView
@@ -231,6 +237,7 @@
                         android:text="@string/login_here"
                         android:textColor="@color/login_register"
                         android:textSize="16sp" />
+
                 </LinearLayout>
             </LinearLayout>
         </RelativeLayout>
