@@ -37,8 +37,8 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
     implementation "com.airbnb.android:lottie:$lottieVersion"
-    implementation 'com.squareup.retrofit2:retrofit:2.5.0'
+    implementation 'com.squareup.retrofit2:retrofit:2.4.0'
     implementation 'com.squareup.retrofit2:converter-gson:2.4.0'
-
-    implementation 'androidx.cardview:cardview:1.0.0'
+    implementation 'com.squareup.retrofit2:converter-scalars:2.5.0'
+    implementation 'org.jsoup:jsoup:1.13.1'
 }

@@ -42,25 +42,28 @@
             />
 
         <EditText
-            android:layout_marginTop="30dp"
-            android:padding="10dp"
+            android:id="@+id/verificationToken_ET"
             android:layout_width="match_parent"
             android:layout_height="55dp"
-            android:textColor="@color/black"
-            android:fontFamily="@font/roboto_medium"
+            android:layout_marginTop="30dp"
             android:background="@drawable/verification_edittext"
-            android:textSize="16sp"
-            android:hint="@string/verify_code"/>
+            android:fontFamily="@font/roboto_medium"
+            android:hint="@string/verify_code"
+            android:padding="10dp"
+            android:textColor="@color/black"
+            android:textSize="16sp" />
+
         <com.google.android.material.button.MaterialButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="end"
             android:layout_marginTop="20dp"
             android:backgroundTint="@color/design_default_color_secondary_variant"
+            android:fontFamily="@font/quicksand_bold"
+            android:onClick="verifyUser"
             android:text="@string/verify_button"
             android:textColor="@color/white"
-            app:rippleColor="@color/white"
-            android:fontFamily="@font/quicksand_bold"
-            android:layout_gravity="end"/>
+            app:rippleColor="@color/white" />
 
         <TextView
             android:layout_width="match_parent"

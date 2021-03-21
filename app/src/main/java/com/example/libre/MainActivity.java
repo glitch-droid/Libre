@@ -1,4 +1,4 @@
-package com.example.libre.Activities;
+package com.example.libre;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
