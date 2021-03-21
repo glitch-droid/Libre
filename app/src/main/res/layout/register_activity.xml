@@ -72,7 +72,6 @@
                     android:backgroundTint="@color/black"
                     android:hapticFeedbackEnabled="true"
                     android:textColorHint="@color/gray"
-                    android:maxLength="15"
                     android:textAlignment="viewStart"
                     android:textColor="@color/black"
                     android:textSize="18sp" />
@@ -98,7 +97,6 @@
                     android:fontFamily="@font/roboto_medium"
                     android:hint="@string/area"
                     android:textColorHint="@color/gray"
-                    android:maxLength="15"
                     android:textColor="@color/black"
                     android:textSize="18sp" />
                 <LinearLayout
@@ -112,7 +110,6 @@
                         android:id="@+id/register_cityTV"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="15dp"
                         android:backgroundTint="@color/black"
                         android:hapticFeedbackEnabled="true"
                         android:textColorHint="@color/gray"
@@ -122,7 +119,6 @@
                         android:layout_gravity="center_horizontal"
                         android:fontFamily="@font/roboto_medium"
                         android:hint="@string/city"
-                        android:maxLength="20"
                         android:textColor="@color/black"
                         android:textSize="18sp" />
 
@@ -131,8 +127,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
-                        android:layout_marginStart="30dp"
-                        android:layout_marginEnd="15dp"
+                        android:layout_marginStart="10dp"
                         android:layout_weight="1"
                         android:textColorHint="@color/gray"
                         android:backgroundTint="@color/black"
@@ -141,7 +136,6 @@
                         android:drawablePadding="30dp"
                         android:fontFamily="@font/roboto_medium"
                         android:hint="@string/country"
-                        android:maxLength="20"
                         android:textColor="@color/black"
                         android:textSize="18sp" />
 
