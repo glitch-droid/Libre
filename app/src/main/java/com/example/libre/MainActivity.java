@@ -33,12 +33,6 @@ public class MainActivity extends AppCompatActivity {
     private List<BookModel> books = new ArrayList<>();
     private HomeAdapter adapter;
 
-    @Inject
-    Retrofit retrofit;
-
-    @Inject
-    Application application;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,7 +42,6 @@ public class MainActivity extends AppCompatActivity {
 
         recyclerView = findViewById(R.id.home_recyclerView);
 
-        ((MyApplication)getApplication()).getApiComponent().injectMain(this);
 
         adapter = new HomeAdapter();
         adapter.setBooksList(books);
@@ -56,25 +49,6 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.hasFixedSize();
         recyclerView.setAdapter(adapter);
 
-
-        //Using retrofit
-        API_Caller caller=retrofit.create(API_Caller.class);
-        Call<UserDetails> call=caller.getUserDetailsAfterLogin("products/?xerox=book");
-        call.enqueue(new Callback<UserDetails>() {
-            @Override
-            public void onResponse(Call<UserDetails> call, Response<UserDetails> response) {
-                if(response.isSuccessful()){
-                    List<Products> products=response.body().getProducts();
-                    CurrentUser user=response.body().getCurrentUser();
-                    System.out.println("USER: "+user.getUsername());
-                }
-            }
-
-            @Override
-            public void onFailure(Call<UserDetails> call, Throwable t) {
-                System.out.println("ERROR: "+t);
-            }
-        });
     }
 
 
