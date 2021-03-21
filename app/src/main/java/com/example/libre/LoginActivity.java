@@ -10,7 +10,10 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.libre.Retrofit_Modules.API_Caller;
+import com.example.libre.Retrofit_Modules.Models.CurrentUser;
 import com.example.libre.Retrofit_Modules.Models.LoginFormat;
+import com.example.libre.Retrofit_Modules.Models.Products;
+import com.example.libre.Retrofit_Modules.Models.UserDetails;
 import com.example.libre.Retrofit_Modules.Retrofit_Network_Caller;
 import com.google.android.material.button.MaterialButton;
 
@@ -18,9 +21,16 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
 
+import java.util.HashMap;
+import java.util.List;
+
+import javax.inject.Inject;
+
+import okhttp3.Headers;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+import retrofit2.Retrofit;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -29,6 +39,9 @@ public class LoginActivity extends AppCompatActivity {
     TextView verify;
     TextView emailTV;
     TextView passwordTV;
+    @Inject
+    Retrofit retrofit;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,6 +49,8 @@ public class LoginActivity extends AppCompatActivity {
 
         emailTV=findViewById(R.id.login_emailTV);
         passwordTV=findViewById(R.id.login_passwordTV);
+
+        ((MyApplication)getApplication()).getApiComponent().injectLogin(this);
 
         login = findViewById(R.id.login_button);
         login.setOnClickListener(new View.OnClickListener() {
@@ -67,13 +82,14 @@ public class LoginActivity extends AppCompatActivity {
         LoginFormat loginFormat=new LoginFormat();
         loginFormat.setPassword(password);
         loginFormat.setUsername(username);
-        Retrofit_Network_Caller retrofit_network_caller=new Retrofit_Network_Caller(getApplicationContext());
-        API_Caller api_caller=retrofit_network_caller.getApi_caller();
+
+        API_Caller api_caller=retrofit.create(API_Caller.class);
         Call<String> call=api_caller.loginUser(loginFormat);
         call.enqueue(new Callback<String>() {
             @Override
             public void onResponse(Call<String> call, Response<String> response) {
                 String responseBody=response.body();
+                Headers receivedHeader=response.headers();
                 System.out.println("USERNAME: "+responseBody);
                 Document document= Jsoup.parse(responseBody);
                 Elements elements=document.select("input");

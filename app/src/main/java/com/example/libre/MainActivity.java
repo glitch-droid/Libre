@@ -5,6 +5,8 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
+import android.app.Application;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -17,6 +19,13 @@ import com.example.libre.Fragments.HomeFragment;
 import com.example.libre.Fragments.ReadingFragment;
 import com.example.libre.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.example.libre.Adapters.HomeAdapter;
+import com.example.libre.Models.BookModel;
+import com.example.libre.Retrofit_Modules.API_Caller;
+import com.example.libre.Retrofit_Modules.Models.CurrentUser;
+import com.example.libre.Retrofit_Modules.Models.Products;
+import com.example.libre.Retrofit_Modules.Models.UserDetails;
+import com.example.libre.Retrofit_Modules.Retrofit_Network_Caller;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -24,6 +33,11 @@ public class MainActivity extends AppCompatActivity {
     private Fragment fragment;
     private FrameLayout container;
     private LinearLayout actionBarBG;
+
+
+    private RecyclerView recyclerView;
+    private List<BookModel> books = new ArrayList<>();
+    private HomeAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,6 +87,4 @@ public class MainActivity extends AppCompatActivity {
         });
 
     }
-
-
 }
