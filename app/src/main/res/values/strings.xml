@@ -8,6 +8,9 @@
     <string name="login_or">OR</string>
     <string name="login_newTo">New to Libre ?</string>
     <string name="login_register"><u>Register!</u></string>
+    <string name="verify_forgot">Forgot to verify your account ?</string>
+    <string name="verify_click"><u>Click Here</u></string>
+
 
     //Register Layout
     <string name="register">Register</string>
