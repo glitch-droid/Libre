@@ -23,7 +23,7 @@
                 android:id="@+id/homeRV_itemIV"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:src="@mipmap/ic_launcher"
+                android:src="@drawable/sample_book"
                 android:scaleType="centerCrop"/>
         </com.google.android.material.card.MaterialCardView>
 
