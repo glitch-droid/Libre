@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:backgroundTint="@color/white"
+    android:background="@color/white"
+    tools:context=".AddBook">
+    <include layout="@layout/add_book_actionbar"/>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:backgroundTint="@color/white"
+        android:layout_marginTop="80dp"
+        android:background="@color/white">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingBottom="20dp"
+            android:paddingLeft="10dp"
+            android:background="@color/white"
+            android:backgroundTint="@color/white"
+            android:paddingRight="10dp"
+            android:paddingTop="20dp">
+               <androidx.cardview.widget.CardView
+                   android:id="@+id/addBook_bookImageHolderCV"
+                   android:layout_margin="20dp"
+                   android:layout_width="match_parent"
+                   app:cardElevation="10dp"
+                   app:cardCornerRadius="10dp"
+                   android:background="@color/white"
+                   android:layout_height="180dp">
+                   <RelativeLayout
+                       android:layout_width="match_parent"
+                       android:background="@color/white"
+                       android:backgroundTint="@color/white"
+                       android:layout_height="match_parent">
+                       <ImageView
+                           android:id="@+id/addBook_bookImageIV"
+                           android:layout_width="match_parent"
+                           android:layout_height="match_parent"
+                           android:src="@drawable/sample_book"
+                           android:layout_centerInParent="true"
+                           android:scaleType="centerInside"/>
+
+                       <com.google.android.material.floatingactionbutton.FloatingActionButton
+                           android:id="@+id/floatingActionButton_main"
+                           android:layout_width="wrap_content"
+                           android:layout_height="wrap_content"
+                           android:layout_alignParentEnd="true"
+                           android:backgroundTint="@color/palette_1"
+                           android:clickable="true"
+                           android:focusable="true"
+                           app:elevation="5dp"
+                           android:translationZ="10dp"
+                           app:backgroundTint="@color/white"
+                           android:layout_alignParentBottom="true"
+                           android:layout_alignParentLeft="true"
+                           android:layout_marginEnd="10dp"
+                           android:layout_marginBottom="10dp"
+                           app:srcCompat="@drawable/add_photo_icon" />
+                   </RelativeLayout>
+
+               </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:id="@+id/addBook_filldetailTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="10dp"
+                android:layout_below="@id/addBook_bookImageHolderCV"
+                android:text="@string/fiillDetail"
+                android:fontFamily="@font/roboto_bold"
+                android:textColor="@color/black_accent"
+                android:textSize="20sp"/>
+    <androidx.cardview.widget.CardView
+        android:id="@+id/CV_1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        app:cardElevation="5dp"
+        app:cardCornerRadius="7dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="10dp"
+        android:layout_below="@id/addBook_filldetailTV">
+
+        <EditText
+            android:id="@+id/addBook_bookNameET"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:background="@drawable/verification_edittext"
+            android:fontFamily="@font/roboto_medium"
+            android:hint="Book Name"
+            android:hapticFeedbackEnabled="true"
+            android:pointerIcon="arrow"
+            android:textColorHint="@color/gray"
+            android:inputType="textNoSuggestions"
+            android:padding="10dp"
+            android:textColor="@color/black"
+            android:textSize="16sp" />
+
+    </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/CV_2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                app:cardElevation="5dp"
+                app:cardCornerRadius="7dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="10dp"
+                android:layout_below="@id/CV_1">
+
+                <EditText
+                    android:id="@+id/addBook_bookAuthorET"
+                    android:layout_width="match_parent"
+                    android:layout_height="55dp"
+                    android:background="@drawable/verification_edittext"
+                    android:fontFamily="@font/roboto_medium"
+                    android:hint="Author Name"
+                    android:inputType="textNoSuggestions"
+                    android:textColorHint="@color/gray"
+                    android:pointerIcon="arrow"
+                    android:hapticFeedbackEnabled="true"
+                    android:padding="10dp"
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
+
+            </androidx.cardview.widget.CardView>
+
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/CV_3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                app:cardElevation="5dp"
+                app:cardCornerRadius="7dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="10dp"
+                android:layout_below="@id/CV_2">
+
+                <EditText
+                    android:id="@+id/addBook_bookDescpET"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:background="@drawable/verification_edittext"
+                    android:fontFamily="@font/roboto"
+                    android:hint="Description (max. 200 )"
+                    android:gravity="start"
+                    android:textColorHint="@color/gray"
+                    android:maxLength="200"
+                    android:inputType="textNoSuggestions"
+                    android:pointerIcon="arrow"
+                    android:padding="10dp"
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
+
+
+
+            </androidx.cardview.widget.CardView>
+
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/CV_4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                app:cardElevation="5dp"
+                app:cardCornerRadius="7dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="10dp"
+                android:layout_below="@id/CV_3">
+
+                <EditText
+                    android:id="@+id/addBook_bookPriceET"
+                    android:layout_width="match_parent"
+                    android:layout_height="55dp"
+                    android:background="@drawable/verification_edittext"
+                    android:fontFamily="@font/roboto_medium"
+                    android:hint="Price"
+                    android:inputType="number"
+                    android:textColorHint="@color/gray"
+                    android:pointerIcon="arrow"
+                    android:hapticFeedbackEnabled="true"
+                    android:padding="10dp"
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
+
+            </androidx.cardview.widget.CardView>
+
+
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/addBook_done"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50dp"
+                android:text="Done"
+                android:backgroundTint="@color/palette_1"
+                android:textColor="@color/white"
+                android:layout_centerHorizontal="true"
+                android:fontFamily="@font/quicksand_bold"
+                android:layout_below="@id/CV_4"/>
+
+        </RelativeLayout>
+    </ScrollView>
+</RelativeLayout>

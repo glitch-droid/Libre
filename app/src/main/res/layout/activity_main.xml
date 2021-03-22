@@ -16,7 +16,8 @@
         android:layout_below="@+id/mainActionBar"
         android:paddingRight="10dp"
         android:paddingLeft="10dp"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent"
+        android:background="@color/white"/>
 
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
@@ -27,13 +28,12 @@
         android:layout_marginEnd="20dp"
         android:layout_centerHorizontal="true"
         android:layout_width="match_parent"
-        android:layout_height="80dp"
+        android:layout_height="70dp"
         android:background="@drawable/navbar_bgr"
         android:layout_alignParentBottom="true"
-        app:itemRippleColor="@color/red_primary"
+        app:itemRippleColor="@color/palette_4"
         android:fitsSystemWindows="true"
-        app:itemIconTint="@color/black"
-        app:itemTextColor="@color/white"
+        app:itemIconTint="@color/black_accent"
         app:labelVisibilityMode="unlabeled"
 
         app:menu="@menu/navbar_options" />
@@ -46,9 +46,9 @@
         app:srcCompat="@drawable/reading_icon_filled"
         android:backgroundTint="@color/palette_4"
         android:layout_alignParentEnd="true"
+        app:backgroundTint="@color/white"
         android:focusable="true"
         android:layout_alignParentBottom="true"
-        android:tint="@color/red_primary"
         android:layout_marginEnd="20dp"
         android:layout_marginBottom="100dp"
         />

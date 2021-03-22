@@ -5,6 +5,7 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -60,7 +61,7 @@ public class MainActivity extends AppCompatActivity {
         fab1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getApplicationContext(), "Fab1", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(getApplicationContext(),AddBook.class));
             }
         });
 
@@ -81,27 +82,36 @@ public class MainActivity extends AppCompatActivity {
                 switch(item.getItemId()){
                     case R.id.explore :
                         fragment = new HomeFragment();
+
                         item.setIcon(R.drawable.explore_icon_filled);
+
                         actionBarBG.setBackgroundColor(getResources().getColor(R.color.red_primary));
+
                         navigationBar.getMenu().getItem(1).setIcon(R.drawable.reading_icon_outline);
                         navigationBar.getMenu().getItem(2).setIcon(R.drawable.bookmarked_icon_outlined);
 
                         break;
                     case R.id.reading :
                         fragment = new ReadingFragment();
+
                         item.setIcon(R.drawable.reading_icon_filled);
+
                         actionBarBG.setBackgroundColor(getResources().getColor(R.color.palette_2));
+
                         navigationBar.getMenu().getItem(0).setIcon(R.drawable.explore_icon_outline);
                         navigationBar.getMenu().getItem(2).setIcon(R.drawable.bookmarked_icon_outlined);
-
 
                         break;
                     case R.id.bookmark :
                         fragment = new BookmarkedFragment();
+
                         item.setIcon(R.drawable.bookmarker_icon_filled);
-                        actionBarBG.setBackgroundColor(getResources().getColor(R.color.palette_4));
+
+                        actionBarBG.setBackgroundColor(getResources().getColor(R.color.black_accent));
+
                         navigationBar.getMenu().getItem(0).setIcon(R.drawable.explore_icon_outline);
                         navigationBar.getMenu().getItem(1).setIcon(R.drawable.reading_icon_outline);
+
 
                         break;
                 }
