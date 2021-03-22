@@ -35,15 +35,13 @@ public class HomeFragment extends Fragment {
         HomeAdapter adapter = new HomeAdapter();
         List<BookModel> bookModelList = new ArrayList<>();
 
-        String rr = String.valueOf(R.string.loren_ipsum);
-
-        bookModelList.add(new BookModel("Modern Control Engineering","By  Katsuhiko Ogata",rr,"₹559"));
-        bookModelList.add(new BookModel("Modern Control Engineering","By  Katsuhiko Ogata",rr,"₹559"));
-        bookModelList.add(new BookModel("Modern Control Engineering","By  Katsuhiko Ogata",rr,"₹559"));
-        bookModelList.add(new BookModel("Modern Control Engineering","By  Katsuhiko Ogata",rr,"₹559"));
-        bookModelList.add(new BookModel("Modern Control Engineering","By  Katsuhiko Ogata",rr,"₹559"));
-        bookModelList.add(new BookModel("Modern Control Engineering","By  Katsuhiko Ogata",rr,"₹559"));
-        bookModelList.add(new BookModel("Modern Control Engineering","By  Katsuhiko Ogata",rr,"₹559"));
+        bookModelList.add(new BookModel("Modern Control Engineering","By  Katsuhiko Ogata","their courtyards on the ground surface and their homes below for protection from the severe heat In central Turkey, archeologists have unearthed 41 earth sheltered cities. Kansas City","₹559"));
+        bookModelList.add(new BookModel("Modern Control Engineering","By  Katsuhiko Ogata","their courtyards on the ground surface and their homes below for protection from the severe heat In central Turkey, archeologists have unearthed 41 earth sheltered cities. Kansas City","₹559"));
+        bookModelList.add(new BookModel("Modern Control Engineering","By  Katsuhiko Ogata","their courtyards on the ground surface and their homes below for protection from the severe heat In central Turkey, archeologists have unearthed 41 earth sheltered cities. Kansas City","₹559"));
+        bookModelList.add(new BookModel("Modern Control Engineering","By  Katsuhiko Ogata","their courtyards on the ground surface and their homes below for protection from the severe heat In central Turkey, archeologists have unearthed 41 earth sheltered cities. Kansas City","₹559"));
+        bookModelList.add(new BookModel("Modern Control Engineering","By  Katsuhiko Ogata","their courtyards on the ground surface and their homes below for protection from the severe heat In central Turkey, archeologists have unearthed 41 earth sheltered cities. Kansas City","₹559"));
+        bookModelList.add(new BookModel("Modern Control Engineering","By  Katsuhiko Ogata","their courtyards on the ground surface and their homes below for protection from the severe heat In central Turkey, archeologists have unearthed 41 earth sheltered cities. Kansas City","₹559"));
+        bookModelList.add(new BookModel("Modern Control Engineering","By  Katsuhiko Ogata","their courtyards on the ground surface and their homes below for protection from the severe heat In central Turkey, archeologists have unearthed 41 earth sheltered cities. Kansas City","₹559"));
         adapter.setBooksList(bookModelList);
 
         recyclerView.setAdapter(adapter);
