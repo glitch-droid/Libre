@@ -17,15 +17,30 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.libre.Adapters.HomeAdapter;
+import com.example.libre.MainActivity;
 import com.example.libre.Models.BookModel;
+import com.example.libre.MyApplication;
 import com.example.libre.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.example.libre.Retrofit_Modules.API_Caller;
+import com.example.libre.Retrofit_Modules.Models.CurrentUser;
+import com.example.libre.Retrofit_Modules.Models.Products;
+import com.example.libre.Retrofit_Modules.Models.UserDetails;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.inject.Inject;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+
 public class HomeFragment extends Fragment {
+
+    private Retrofit retrofit;
 
     private boolean clicked = false;
     @RequiresApi(api = Build.VERSION_CODES.M)
@@ -38,23 +53,42 @@ public class HomeFragment extends Fragment {
         HomeAdapter adapter = new HomeAdapter();
         List<BookModel> bookModelList = new ArrayList<>();
 
-        bookModelList.add(new BookModel("Modern Control Engineering","By  Katsuhiko Ogata","their courtyards on the ground surface and their homes below for protection from the severe heat In central Turkey, archeologists have unearthed 41 earth sheltered cities. Kansas City","₹559"));
-        bookModelList.add(new BookModel("Modern Control Engineering","By  Katsuhiko Ogata","their courtyards on the ground surface and their homes below for protection from the severe heat In central Turkey, archeologists have unearthed 41 earth sheltered cities. Kansas City","₹559"));
-        bookModelList.add(new BookModel("Modern Control Engineering","By  Katsuhiko Ogata","their courtyards on the ground surface and their homes below for protection from the severe heat In central Turkey, archeologists have unearthed 41 earth sheltered cities. Kansas City","₹559"));
-        bookModelList.add(new BookModel("Modern Control Engineering","By  Katsuhiko Ogata","their courtyards on the ground surface and their homes below for protection from the severe heat In central Turkey, archeologists have unearthed 41 earth sheltered cities. Kansas City","₹559"));
-        bookModelList.add(new BookModel("Modern Control Engineering","By  Katsuhiko Ogata","their courtyards on the ground surface and their homes below for protection from the severe heat In central Turkey, archeologists have unearthed 41 earth sheltered cities. Kansas City","₹559"));
-        bookModelList.add(new BookModel("Modern Control Engineering","By  Katsuhiko Ogata","their courtyards on the ground surface and their homes below for protection from the severe heat In central Turkey, archeologists have unearthed 41 earth sheltered cities. Kansas City","₹559"));
-        bookModelList.add(new BookModel("Modern Control Engineering","By  Katsuhiko Ogata","their courtyards on the ground surface and their homes below for protection from the severe heat In central Turkey, archeologists have unearthed 41 earth sheltered cities. Kansas City","₹559"));
-        adapter.setBooksList(bookModelList);
+        API_Caller caller=retrofit.create(API_Caller.class);
+        Call<UserDetails> call=caller.getUserDetailsAfterLogin("products/?xerox=book");
+        call.enqueue(new Callback<UserDetails>() {
+            @Override
+            public void onResponse(Call<UserDetails> call, Response<UserDetails> response) {
+                if(response.isSuccessful()){
+                    List<Products> books=response.body().getProducts();
+                    CurrentUser user=response.body().getCurrentUser();
+                    System.out.println("CURRENT USER: "+user.getUsername());
+                    for(Products prod:books){
+                        if(prod.getImage().size()!=0){
+                            bookModelList.add(new BookModel(prod.getTitle(),prod.getBookauthor(),prod.getDescription(),String.valueOf(prod.getAmount()),prod.getImage().get(0),prod.getId()));
+                        }else{
+                            bookModelList.add(new BookModel(prod.getTitle(),prod.getBookauthor(),prod.getDescription(),String.valueOf(prod.getAmount()),"",prod.getId()));
+                        }
+                    }
+                    adapter.notifyDataSetChanged();
+                }
+            }
 
+            @Override
+            public void onFailure(Call<UserDetails> call, Throwable t) {
+                System.out.println("ERROR: "+t);
+            }
+        });
+        adapter.setBooksList(bookModelList);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(view.getContext()));
         recyclerView.hasFixedSize();
+        adapter.notifyDataSetChanged();
 
         return view;
     }
 
 
-    public HomeFragment() {
+    public HomeFragment(Retrofit retrofit) {
+        this.retrofit=retrofit;
     }
 }

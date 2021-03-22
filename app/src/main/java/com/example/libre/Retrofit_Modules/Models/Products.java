@@ -3,15 +3,16 @@ package com.example.libre.Retrofit_Modules.Models;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Products {
 
     private Author author;
 
-    private List<String> image = null;
+    private List<String> image = new ArrayList<>();
 
-    private List<String> comments = null;
+    private List<String> comments = new ArrayList<>();
 
     private String id;
 

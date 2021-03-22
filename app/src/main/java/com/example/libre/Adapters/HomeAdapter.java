@@ -3,6 +3,7 @@ package com.example.libre.Adapters;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -10,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.libre.Models.BookModel;
 import com.example.libre.R;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,6 +34,13 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> {
         holder.authorName.setText(booksList.get(position).getAuthor());
         holder.bookDescp.setText(booksList.get(position).getDescription());
         holder.bookPrice.setText(booksList.get(position).getPrice());
+        String base="http://35.193.15.204:3000/";
+        if(booksList.get(position).getUrl().length()!=0){
+            Picasso.get().load(base+booksList.get(position).getUrl())
+                    .fit()
+                    .centerInside()
+                    .into(holder.productImage);
+        }
     }
 
     @Override
@@ -48,6 +57,7 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> {
         TextView authorName;
         TextView bookDescp;
         TextView bookPrice;
+        ImageView productImage;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -55,6 +65,7 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> {
             authorName = itemView.findViewById(R.id.homeRV_itemAuthorTV);
             bookDescp = itemView.findViewById(R.id.homeRV_itemDescpTV);
             bookPrice = itemView.findViewById(R.id.homeRV_itemPriceTV);
+            productImage=itemView.findViewById(R.id.homeRV_itemIV);
         }
     }
 }

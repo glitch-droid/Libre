@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -25,6 +26,13 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import static java.security.AccessController.getContext;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.inject.Inject;
+
+import retrofit2.Retrofit;
+
 public class MainActivity extends AppCompatActivity {
 
     private BottomNavigationView navigationBar ;
@@ -35,6 +43,8 @@ public class MainActivity extends AppCompatActivity {
     FloatingActionButton fab1;
     FloatingActionButton fab2;
     private boolean clicked = false;
+    @Inject
+    public Retrofit retrofit;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
         fab1 = findViewById(R.id.floatingActionButton_1);
         fab2 = findViewById(R.id.floatingActionButton_2);
 
-
+        ((MyApplication) getApplication()).getApiComponent().injectMain(this);
 
         buttonMain.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -81,7 +91,8 @@ public class MainActivity extends AppCompatActivity {
 
                 switch(item.getItemId()){
                     case R.id.explore :
-                        fragment = new HomeFragment();
+
+                        fragment = new HomeFragment(retrofit);
 
                         item.setIcon(R.drawable.explore_icon_filled);
 
