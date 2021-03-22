@@ -8,6 +8,9 @@
         and bought space in solid limestone, 50 - 200 feet into the earth. St. Pierre de Feric, France
         is the site of 47 homes built into a 45 degree slope. Sacramento, California has</string>
     <string name="rupee_symbol">₹</string>
+    <string name="Wlecome"><u>Welcome to Libre</u></string>
+    <string name="reading"><u>Reading</u></string>
+    <string name="bookmarked"><u>Bookmarked</u></string>
 
     //Login Layout
     <string name="login">Login</string>

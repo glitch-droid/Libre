@@ -70,9 +70,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingLeft="10dp"
+                android:layout_marginTop="10dp"
                 android:layout_below="@id/addBook_bookImageHolderCV"
                 android:text="@string/fiillDetail"
-                android:fontFamily="@font/roboto_bold"
+                android:fontFamily="@font/quicksand_bold"
                 android:textColor="@color/black_accent"
                 android:textSize="22sp"/>
     <androidx.cardview.widget.CardView
@@ -81,10 +82,8 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
-        app:cardElevation="5dp"
         app:cardCornerRadius="7dp"
         android:layout_marginTop="20dp"
-        android:outlineSpotShadowColor="@color/black"
         android:layout_marginBottom="10dp"
         android:layout_below="@id/addBook_filldetailTV">
 
@@ -111,11 +110,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
-                app:cardElevation="5dp"
                 app:cardCornerRadius="7dp"
                 android:layout_marginTop="20dp"
                 android:layout_marginBottom="10dp"
-                android:outlineSpotShadowColor="@color/black"
                 android:layout_below="@id/CV_1">
 
                 <EditText
@@ -142,11 +139,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
-                app:cardElevation="5dp"
                 app:cardCornerRadius="7dp"
                 android:layout_marginTop="20dp"
                 android:layout_marginBottom="10dp"
-                android:outlineSpotShadowColor="@color/black"
                 android:layout_below="@id/CV_2">
 
                 <EditText
@@ -176,11 +171,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
-                app:cardElevation="5dp"
                 app:cardCornerRadius="7dp"
                 android:layout_marginTop="20dp"
                 android:layout_marginBottom="10dp"
-                android:outlineSpotShadowColor="@color/black"
                 android:layout_below="@id/CV_3">
 
                 <EditText
@@ -218,11 +211,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
-                app:cardElevation="5dp"
                 app:cardCornerRadius="7dp"
                 android:layout_marginTop="20dp"
                 android:layout_marginBottom="10dp"
-                android:outlineSpotShadowColor="@color/black"
                 android:layout_below="@id/addBook_additionalTV">
 
                 <EditText
@@ -249,11 +240,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
-                app:cardElevation="5dp"
                 app:cardCornerRadius="7dp"
                 android:layout_marginTop="20dp"
                 android:layout_marginBottom="10dp"
-                android:outlineSpotShadowColor="@color/black"
                 android:layout_below="@id/CV_5">
 
                 <EditText
@@ -279,11 +268,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
-                app:cardElevation="5dp"
                 app:cardCornerRadius="7dp"
                 android:layout_marginTop="20dp"
                 android:layout_marginBottom="10dp"
-                android:outlineSpotShadowColor="@color/black"
                 android:layout_below="@id/CV_6">
 
                 <EditText
@@ -310,11 +297,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
-                app:cardElevation="5dp"
                 app:cardCornerRadius="7dp"
                 android:layout_marginTop="20dp"
                 android:layout_marginBottom="10dp"
-                android:outlineSpotShadowColor="@color/black"
                 android:layout_below="@id/CV_7">
 
                 <EditText
@@ -340,11 +325,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
-                app:cardElevation="5dp"
                 app:cardCornerRadius="7dp"
                 android:layout_marginTop="20dp"
                 android:layout_marginBottom="10dp"
-                android:outlineSpotShadowColor="@color/black"
                 android:layout_below="@id/CV_8">
 
                 <EditText
@@ -371,7 +354,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="50dp"
                 android:text="Done"
-                android:backgroundTint="@color/burgundy_secondary"
+                android:backgroundTint="@color/black_accent"
                 android:textColor="@color/white"
                 android:layout_centerHorizontal="true"
                 android:fontFamily="@font/quicksand_bold"

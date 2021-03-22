@@ -14,7 +14,7 @@
         android:theme="@style/Theme.Libre"
         android:usesCleartextTraffic="true">
         <activity android:name=".AddBook"></activity>
-        <activity android:name=".MainActivity" />
+        <activity android:name=".MainActivity" android:windowSoftInputMode="adjustPan" />
         <activity android:name=".RegisterActivity" />
         <activity android:name=".AuthenticationActivity" />
         <activity android:name=".LoginActivity">

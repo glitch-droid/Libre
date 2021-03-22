@@ -10,8 +10,7 @@
 
     <include
         android:id="@+id/mainActionBar"
-        layout="@layout/custom_actionbar"
-        android:layout_width="match_parent" />
+        layout="@layout/custom_actionbar" />
 
     <FrameLayout
         android:id="@+id/fragmentContainer"
@@ -38,7 +37,6 @@
         android:fitsSystemWindows="true"
         app:itemIconTint="@color/black_accent"
         app:labelVisibilityMode="unlabeled"
-
         app:menu="@menu/navbar_options" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
