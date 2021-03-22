@@ -15,18 +15,29 @@ import com.example.libre.Retrofit_Modules.API_Caller;
 import com.example.libre.Retrofit_Modules.Models.RegisterFormat;
 import com.example.libre.Retrofit_Modules.Retrofit_Network_Caller;
 
+import javax.inject.Inject;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+import retrofit2.Retrofit;
 
 public class RegisterActivity extends AppCompatActivity {
     TextView loginHere;
     EditText emailET,nameET,areaET,cityET,countryET,passwordET,confirmPasswordET;
     Button registerButton;
+
+    @Inject
+    Retrofit retrofit;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.register_activity);
+        getSupportActionBar().hide();
+
+        ((MyApplication)getApplication()).getApiComponent().injectRegister(this);
+
         emailET=findViewById(R.id.register_emailTV);
         nameET=findViewById(R.id.register_nameTV);
         areaET=findViewById(R.id.register_areaTV);
@@ -71,8 +82,7 @@ public class RegisterActivity extends AppCompatActivity {
                 !city.equals("")&&
                 !country.equals("")&&
                 !password.equals("")){
-            Retrofit_Network_Caller retrofit_network_caller=new Retrofit_Network_Caller(getApplicationContext());
-            API_Caller api_caller=retrofit_network_caller.getApi_caller();
+            API_Caller api_caller=retrofit.create(API_Caller.class);
             RegisterFormat registerFormat=new RegisterFormat();
             registerFormat.setEmail(email);
             registerFormat.setName(name);
