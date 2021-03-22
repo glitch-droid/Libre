@@ -7,8 +7,11 @@
     android:layout_height="match_parent"
     android:background="@color/white"
     tools:context=".MainActivity">
-    <include layout="@layout/custom_actionbar"
-        android:id="@+id/mainActionBar"/>
+
+    <include
+        android:id="@+id/mainActionBar"
+        layout="@layout/custom_actionbar"
+        android:layout_width="match_parent" />
 
     <FrameLayout
         android:id="@+id/fragmentContainer"
