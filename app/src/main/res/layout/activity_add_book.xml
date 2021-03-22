@@ -76,77 +76,53 @@
                 android:fontFamily="@font/quicksand_bold"
                 android:textColor="@color/black_accent"
                 android:textSize="22sp"/>
-    <androidx.cardview.widget.CardView
-        android:id="@+id/CV_1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        app:cardCornerRadius="7dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="10dp"
-        android:layout_below="@id/addBook_filldetailTV">
 
-        <EditText
-            android:id="@+id/addBook_bookNameET"
-            android:layout_width="match_parent"
-            android:layout_height="55dp"
-            android:background="@drawable/verification_edittext"
-            android:fontFamily="@font/roboto_medium"
-            android:hint="Book Name"
-            android:hapticFeedbackEnabled="true"
-            android:pointerIcon="arrow"
-            android:textColorHint="@color/gray"
-            android:inputType="textNoSuggestions"
-            android:padding="10dp"
-            android:textColor="@color/black"
-            android:textSize="20sp" />
-
-    </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-                android:id="@+id/CV_2"
+            <EditText
+                android:id="@+id/addBook_bookNameET"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                app:cardCornerRadius="7dp"
+                android:maxLines="1"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
                 android:layout_marginTop="20dp"
-                android:layout_marginBottom="10dp"
-                android:layout_below="@id/CV_1">
-
-                <EditText
-                    android:id="@+id/addBook_bookAuthorET"
-                    android:layout_width="match_parent"
-                    android:layout_height="55dp"
-                    android:background="@drawable/verification_edittext"
-                    android:fontFamily="@font/roboto_medium"
-                    android:hint="Author Name"
-                    android:inputType="textNoSuggestions"
-                    android:textColorHint="@color/gray"
-                    android:pointerIcon="arrow"
-                    android:hapticFeedbackEnabled="true"
-                    android:padding="10dp"
-                    android:textColor="@color/black"
-                    android:textSize="20sp"  />
-
-            </androidx.cardview.widget.CardView>
+                android:drawablePadding="30dp"
+                android:fontFamily="@font/roboto_medium"
+                android:hint="Book Name"
+                android:inputType="textNoSuggestions"
+                android:textColorHint="@color/gray"
+                android:textAlignment="viewStart"
+                android:textColor="@color/black"
+                android:backgroundTint="@color/black"
+                android:hapticFeedbackEnabled="true"
+                android:layout_below="@+id/addBook_filldetailTV"
+                android:textSize="19sp" />
 
 
-            <androidx.cardview.widget.CardView
-                android:id="@+id/CV_3"
+            <EditText
+                android:id="@+id/addBook_bookAuthorET"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                app:cardCornerRadius="7dp"
+                android:maxLines="1"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
                 android:layout_marginTop="20dp"
-                android:layout_marginBottom="10dp"
-                android:layout_below="@id/CV_2">
+                android:drawablePadding="30dp"
+                android:fontFamily="@font/roboto_medium"
+                android:hint="Author Name"
+                android:inputType="textNoSuggestions"
+                android:textColorHint="@color/gray"
+                android:textAlignment="viewStart"
+                android:textColor="@color/black"
+                android:backgroundTint="@color/black"
+                android:hapticFeedbackEnabled="true"
+                android:layout_below="@+id/addBook_bookNameET"
+                android:textSize="19sp" />
+
 
                 <EditText
                     android:id="@+id/addBook_bookDescpET"
                     android:layout_width="match_parent"
+                    android:layout_marginTop="20dp"
                     android:layout_height="200dp"
                     android:background="@drawable/verification_edittext"
                     android:fontFamily="@font/roboto"
@@ -158,11 +134,8 @@
                     android:pointerIcon="arrow"
                     android:padding="10dp"
                     android:textColor="@color/black"
+                    android:layout_below="@id/addBook_bookAuthorET"
                     android:textSize="20sp"  />
-
-
-
-            </androidx.cardview.widget.CardView>
 
 
             <androidx.cardview.widget.CardView
@@ -174,14 +147,14 @@
                 app:cardCornerRadius="7dp"
                 android:layout_marginTop="20dp"
                 android:layout_marginBottom="10dp"
-                android:layout_below="@id/CV_3">
+                android:layout_below="@id/addBook_bookDescpET">
 
                 <EditText
                     android:id="@+id/addBook_bookPriceET"
                     android:layout_width="match_parent"
                     android:layout_height="55dp"
-                    android:background="@drawable/verification_edittext"
                     android:fontFamily="@font/roboto_medium"
+                    android:background="@drawable/verification_edittext"
                     android:hint="Price"
                     android:inputType="number"
                     android:textColorHint="@color/gray"
@@ -205,147 +178,110 @@
                 android:layout_height="50dp"
                 android:layout_below="@+id/CV_4"
                 android:textColor="@color/black_accent"/>
-            <androidx.cardview.widget.CardView
-                android:id="@+id/CV_5"
+
+
+
+            <EditText
+                android:id="@+id/addBook_sellerPhoneET"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                app:cardCornerRadius="7dp"
+                android:maxLines="1"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
                 android:layout_marginTop="20dp"
-                android:layout_marginBottom="10dp"
-                android:layout_below="@id/addBook_additionalTV">
+                android:drawablePadding="30dp"
+                android:fontFamily="@font/roboto_medium"
+                android:hint="Phone No."
+                android:inputType="number"
+                android:textColorHint="@color/gray"
+                android:textAlignment="viewStart"
+                android:textColor="@color/black"
+                android:backgroundTint="@color/black"
+                android:hapticFeedbackEnabled="true"
+                android:layout_below="@+id/addBook_additionalTV"
+                android:textSize="19sp" />
 
-                <EditText
-                    android:id="@+id/addBook_sellerPhoneET"
-                    android:layout_width="match_parent"
-                    android:layout_height="55dp"
-                    android:background="@drawable/verification_edittext"
-                    android:fontFamily="@font/roboto_medium"
-                    android:hint="Phone No."
-                    android:inputType="number"
-                    android:textColorHint="@color/gray"
-                    android:pointerIcon="arrow"
-                    android:hapticFeedbackEnabled="true"
-                    android:padding="10dp"
-                    android:textColor="@color/black"
-                    android:textSize="20sp" />
-
-            </androidx.cardview.widget.CardView>
-
-
-            <androidx.cardview.widget.CardView
-                android:id="@+id/CV_6"
+            <EditText
+                android:id="@+id/addBook_sellerCountryET"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                app:cardCornerRadius="7dp"
+                android:maxLines="1"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
                 android:layout_marginTop="20dp"
-                android:layout_marginBottom="10dp"
-                android:layout_below="@id/CV_5">
+                android:drawablePadding="30dp"
+                android:fontFamily="@font/roboto_medium"
+                android:hint="Your Country"
+                android:inputType="textNoSuggestions"
+                android:textColorHint="@color/gray"
+                android:textAlignment="viewStart"
+                android:textColor="@color/black"
+                android:backgroundTint="@color/black"
+                android:hapticFeedbackEnabled="true"
+                android:layout_below="@+id/addBook_sellerPhoneET"
+                android:textSize="19sp" />
 
-                <EditText
-                    android:id="@+id/addBook_sellerCountryET"
-                    android:layout_width="match_parent"
-                    android:layout_height="55dp"
-                    android:background="@drawable/verification_edittext"
-                    android:fontFamily="@font/roboto_medium"
-                    android:hint="Your Country"
-                    android:inputType="textNoSuggestions"
-                    android:textColorHint="@color/gray"
-                    android:pointerIcon="arrow"
-                    android:hapticFeedbackEnabled="true"
-                    android:padding="10dp"
-                    android:textColor="@color/black"
-                    android:textSize="20sp" />
 
-            </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-                android:id="@+id/CV_7"
+            <EditText
+                android:id="@+id/addBook_sellerStateET"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                app:cardCornerRadius="7dp"
+                android:maxLines="1"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
                 android:layout_marginTop="20dp"
-                android:layout_marginBottom="10dp"
-                android:layout_below="@id/CV_6">
-
-                <EditText
-                    android:id="@+id/addBook_sellerStateET"
-                    android:layout_width="match_parent"
-                    android:layout_height="55dp"
-                    android:background="@drawable/verification_edittext"
-                    android:fontFamily="@font/roboto_medium"
-                    android:hint="Your State"
-                    android:inputType="textNoSuggestions"
-                    android:textColorHint="@color/gray"
-                    android:pointerIcon="arrow"
-                    android:hapticFeedbackEnabled="true"
-                    android:padding="10dp"
-                    android:textColor="@color/black"
-                    android:textSize="20sp"  />
-
-            </androidx.cardview.widget.CardView>
+                android:drawablePadding="30dp"
+                android:fontFamily="@font/roboto_medium"
+                android:hint="Your State"
+                android:inputType="textNoSuggestions"
+                android:textColorHint="@color/gray"
+                android:textAlignment="viewStart"
+                android:textColor="@color/black"
+                android:backgroundTint="@color/black"
+                android:hapticFeedbackEnabled="true"
+                android:layout_below="@+id/addBook_sellerCountryET"
+                android:textSize="19sp" />
 
 
-            <androidx.cardview.widget.CardView
-                android:id="@+id/CV_8"
+            <EditText
+                android:id="@+id/addBook_sellerCityET"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                app:cardCornerRadius="7dp"
+                android:maxLines="1"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
                 android:layout_marginTop="20dp"
-                android:layout_marginBottom="10dp"
-                android:layout_below="@id/CV_7">
+                android:drawablePadding="30dp"
+                android:fontFamily="@font/roboto_medium"
+                android:hint="Your City"
+                android:inputType="textNoSuggestions"
+                android:textColorHint="@color/gray"
+                android:textAlignment="viewStart"
+                android:textColor="@color/black"
+                android:backgroundTint="@color/black"
+                android:hapticFeedbackEnabled="true"
+                android:layout_below="@+id/addBook_sellerStateET"
+                android:textSize="19sp" />
 
-                <EditText
-                    android:id="@+id/addBook_sellerCityET"
-                    android:layout_width="match_parent"
-                    android:layout_height="55dp"
-                    android:background="@drawable/verification_edittext"
-                    android:fontFamily="@font/roboto_medium"
-                    android:hint="Your City"
-                    android:inputType="textNoSuggestions"
-                    android:textColorHint="@color/gray"
-                    android:pointerIcon="arrow"
-                    android:hapticFeedbackEnabled="true"
-                    android:padding="10dp"
-                    android:textColor="@color/black"
-                    android:textSize="20sp"  />
-
-            </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-                android:id="@+id/CV_9"
+            <EditText
+                android:id="@+id/addBook_sellerAreaET"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                app:cardCornerRadius="7dp"
+                android:maxLines="1"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
                 android:layout_marginTop="20dp"
-                android:layout_marginBottom="10dp"
-                android:layout_below="@id/CV_8">
-
-                <EditText
-                    android:id="@+id/addBook_sellerAreaET"
-                    android:layout_width="match_parent"
-                    android:layout_height="55dp"
-                    android:background="@drawable/verification_edittext"
-                    android:fontFamily="@font/roboto_medium"
-                    android:hint="Your Area"
-                    android:inputType="textNoSuggestions"
-                    android:textColorHint="@color/gray"
-                    android:pointerIcon="arrow"
-                    android:hapticFeedbackEnabled="true"
-                    android:padding="10dp"
-                    android:textColor="@color/black"
-                    android:textSize="20sp"  />
-
-            </androidx.cardview.widget.CardView>
+                android:drawablePadding="30dp"
+                android:fontFamily="@font/roboto_medium"
+                android:hint="Your Area"
+                android:inputType="textNoSuggestions"
+                android:textColorHint="@color/gray"
+                android:textAlignment="viewStart"
+                android:textColor="@color/black"
+                android:backgroundTint="@color/black"
+                android:hapticFeedbackEnabled="true"
+                android:layout_below="@+id/addBook_sellerCityET"
+                android:textSize="19sp" />
 
 
             <com.google.android.material.button.MaterialButton
@@ -359,7 +295,7 @@
                 android:layout_centerHorizontal="true"
                 android:fontFamily="@font/quicksand_bold"
                 app:rippleColor="@color/palette_4"
-                android:layout_below="@id/CV_9"/>
+                android:layout_below="@id/addBook_sellerAreaET"/>
 
         </RelativeLayout>
     </ScrollView>
