@@ -12,7 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:backgroundTint="@color/white"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="60dp"
         android:background="@color/white">
         <RelativeLayout
             android:layout_width="match_parent"
@@ -30,6 +30,7 @@
                    app:cardElevation="10dp"
                    app:cardCornerRadius="10dp"
                    android:background="@color/white"
+                   android:outlineSpotShadowColor="@color/palette_2"
                    android:layout_height="180dp">
                    <RelativeLayout
                        android:layout_width="match_parent"
@@ -45,11 +46,11 @@
                            android:scaleType="centerInside"/>
 
                        <com.google.android.material.floatingactionbutton.FloatingActionButton
-                           android:id="@+id/floatingActionButton_main"
+                           android:id="@+id/addBook_fabAddImage"
                            android:layout_width="wrap_content"
                            android:layout_height="wrap_content"
                            android:layout_alignParentEnd="true"
-                           android:backgroundTint="@color/palette_1"
+                           android:backgroundTint="@color/black_accent"
                            android:clickable="true"
                            android:focusable="true"
                            app:elevation="5dp"
@@ -73,7 +74,7 @@
                 android:text="@string/fiillDetail"
                 android:fontFamily="@font/roboto_bold"
                 android:textColor="@color/black_accent"
-                android:textSize="20sp"/>
+                android:textSize="22sp"/>
     <androidx.cardview.widget.CardView
         android:id="@+id/CV_1"
         android:layout_width="match_parent"
@@ -83,6 +84,7 @@
         app:cardElevation="5dp"
         app:cardCornerRadius="7dp"
         android:layout_marginTop="20dp"
+        android:outlineSpotShadowColor="@color/black"
         android:layout_marginBottom="10dp"
         android:layout_below="@id/addBook_filldetailTV">
 
@@ -99,7 +101,7 @@
             android:inputType="textNoSuggestions"
             android:padding="10dp"
             android:textColor="@color/black"
-            android:textSize="16sp" />
+            android:textSize="20sp" />
 
     </androidx.cardview.widget.CardView>
 
@@ -113,6 +115,7 @@
                 app:cardCornerRadius="7dp"
                 android:layout_marginTop="20dp"
                 android:layout_marginBottom="10dp"
+                android:outlineSpotShadowColor="@color/black"
                 android:layout_below="@id/CV_1">
 
                 <EditText
@@ -128,7 +131,7 @@
                     android:hapticFeedbackEnabled="true"
                     android:padding="10dp"
                     android:textColor="@color/black"
-                    android:textSize="16sp" />
+                    android:textSize="20sp"  />
 
             </androidx.cardview.widget.CardView>
 
@@ -143,6 +146,7 @@
                 app:cardCornerRadius="7dp"
                 android:layout_marginTop="20dp"
                 android:layout_marginBottom="10dp"
+                android:outlineSpotShadowColor="@color/black"
                 android:layout_below="@id/CV_2">
 
                 <EditText
@@ -151,15 +155,15 @@
                     android:layout_height="200dp"
                     android:background="@drawable/verification_edittext"
                     android:fontFamily="@font/roboto"
-                    android:hint="Description (max. 200 )"
+                    android:hint="Description (max. 300 )"
                     android:gravity="start"
                     android:textColorHint="@color/gray"
                     android:maxLength="200"
-                    android:inputType="textNoSuggestions"
+                    android:inputType="textMultiLine"
                     android:pointerIcon="arrow"
                     android:padding="10dp"
                     android:textColor="@color/black"
-                    android:textSize="16sp" />
+                    android:textSize="20sp"  />
 
 
 
@@ -176,6 +180,7 @@
                 app:cardCornerRadius="7dp"
                 android:layout_marginTop="20dp"
                 android:layout_marginBottom="10dp"
+                android:outlineSpotShadowColor="@color/black"
                 android:layout_below="@id/CV_3">
 
                 <EditText
@@ -191,10 +196,173 @@
                     android:hapticFeedbackEnabled="true"
                     android:padding="10dp"
                     android:textColor="@color/black"
-                    android:textSize="16sp" />
+                    android:outlineSpotShadowColor="@color/black"
+                    android:textSize="20sp"  />
 
             </androidx.cardview.widget.CardView>
 
+            <TextView
+                android:id="@+id/addBook_additionalTV"
+                android:layout_width="match_parent"
+                android:text="Additional Details"
+                android:fontFamily="@font/quicksand_bold"
+                android:textSize="20sp"
+                android:layout_marginTop="40dp"
+                android:layout_marginStart="10dp"
+                android:layout_height="50dp"
+                android:layout_below="@+id/CV_4"
+                android:textColor="@color/black_accent"/>
+            <androidx.cardview.widget.CardView
+                android:id="@+id/CV_5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                app:cardElevation="5dp"
+                app:cardCornerRadius="7dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="10dp"
+                android:outlineSpotShadowColor="@color/black"
+                android:layout_below="@id/addBook_additionalTV">
+
+                <EditText
+                    android:id="@+id/addBook_sellerPhoneET"
+                    android:layout_width="match_parent"
+                    android:layout_height="55dp"
+                    android:background="@drawable/verification_edittext"
+                    android:fontFamily="@font/roboto_medium"
+                    android:hint="Phone No."
+                    android:inputType="number"
+                    android:textColorHint="@color/gray"
+                    android:pointerIcon="arrow"
+                    android:hapticFeedbackEnabled="true"
+                    android:padding="10dp"
+                    android:textColor="@color/black"
+                    android:textSize="20sp" />
+
+            </androidx.cardview.widget.CardView>
+
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/CV_6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                app:cardElevation="5dp"
+                app:cardCornerRadius="7dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="10dp"
+                android:outlineSpotShadowColor="@color/black"
+                android:layout_below="@id/CV_5">
+
+                <EditText
+                    android:id="@+id/addBook_sellerCountryET"
+                    android:layout_width="match_parent"
+                    android:layout_height="55dp"
+                    android:background="@drawable/verification_edittext"
+                    android:fontFamily="@font/roboto_medium"
+                    android:hint="Your Country"
+                    android:inputType="textNoSuggestions"
+                    android:textColorHint="@color/gray"
+                    android:pointerIcon="arrow"
+                    android:hapticFeedbackEnabled="true"
+                    android:padding="10dp"
+                    android:textColor="@color/black"
+                    android:textSize="20sp" />
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/CV_7"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                app:cardElevation="5dp"
+                app:cardCornerRadius="7dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="10dp"
+                android:outlineSpotShadowColor="@color/black"
+                android:layout_below="@id/CV_6">
+
+                <EditText
+                    android:id="@+id/addBook_sellerStateET"
+                    android:layout_width="match_parent"
+                    android:layout_height="55dp"
+                    android:background="@drawable/verification_edittext"
+                    android:fontFamily="@font/roboto_medium"
+                    android:hint="Your State"
+                    android:inputType="textNoSuggestions"
+                    android:textColorHint="@color/gray"
+                    android:pointerIcon="arrow"
+                    android:hapticFeedbackEnabled="true"
+                    android:padding="10dp"
+                    android:textColor="@color/black"
+                    android:textSize="20sp"  />
+
+            </androidx.cardview.widget.CardView>
+
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/CV_8"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                app:cardElevation="5dp"
+                app:cardCornerRadius="7dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="10dp"
+                android:outlineSpotShadowColor="@color/black"
+                android:layout_below="@id/CV_7">
+
+                <EditText
+                    android:id="@+id/addBook_sellerCityET"
+                    android:layout_width="match_parent"
+                    android:layout_height="55dp"
+                    android:background="@drawable/verification_edittext"
+                    android:fontFamily="@font/roboto_medium"
+                    android:hint="Your City"
+                    android:inputType="textNoSuggestions"
+                    android:textColorHint="@color/gray"
+                    android:pointerIcon="arrow"
+                    android:hapticFeedbackEnabled="true"
+                    android:padding="10dp"
+                    android:textColor="@color/black"
+                    android:textSize="20sp"  />
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/CV_9"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                app:cardElevation="5dp"
+                app:cardCornerRadius="7dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="10dp"
+                android:outlineSpotShadowColor="@color/black"
+                android:layout_below="@id/CV_8">
+
+                <EditText
+                    android:id="@+id/addBook_sellerAreaET"
+                    android:layout_width="match_parent"
+                    android:layout_height="55dp"
+                    android:background="@drawable/verification_edittext"
+                    android:fontFamily="@font/roboto_medium"
+                    android:hint="Your Area"
+                    android:inputType="textNoSuggestions"
+                    android:textColorHint="@color/gray"
+                    android:pointerIcon="arrow"
+                    android:hapticFeedbackEnabled="true"
+                    android:padding="10dp"
+                    android:textColor="@color/black"
+                    android:textSize="20sp"  />
+
+            </androidx.cardview.widget.CardView>
 
 
             <com.google.android.material.button.MaterialButton
@@ -203,11 +371,12 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="50dp"
                 android:text="Done"
-                android:backgroundTint="@color/palette_1"
+                android:backgroundTint="@color/burgundy_secondary"
                 android:textColor="@color/white"
                 android:layout_centerHorizontal="true"
                 android:fontFamily="@font/quicksand_bold"
-                android:layout_below="@id/CV_4"/>
+                app:rippleColor="@color/palette_4"
+                android:layout_below="@id/CV_9"/>
 
         </RelativeLayout>
     </ScrollView>
