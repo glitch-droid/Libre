@@ -1,122 +1,130 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:layout_margin="20dp"
+    android:padding="20dp"
+    app:cardElevation="20dp"
+    app:cardCornerRadius="10dp"
+    android:backgroundTint="@color/white"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="240dp"
-        android:orientation="horizontal"
-        android:padding="10dp"
-        android:elevation="10dp"
-        android:weightSum="2">
-        <com.google.android.material.card.MaterialCardView
-            android:id="@+id/homeRV_itemCV"
-            android:layout_width="150dp"
-            android:layout_height="match_parent"
-            android:backgroundTint="@color/black"
-            app:cardCornerRadius="10dp"
-            android:elevation="10dp">
-            <ImageView
-                android:id="@+id/homeRV_itemIV"
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="240dp"
+            android:orientation="horizontal"
+            android:paddingBottom="20dp"
+            android:padding="10dp"
+            android:elevation="10dp"
+            android:weightSum="2">
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/homeRV_itemCV"
+                android:layout_width="150dp"
+                android:layout_height="match_parent"
+                android:backgroundTint="@color/black"
+                app:cardCornerRadius="10dp"
+                android:elevation="10dp">
+                <ImageView
+                    android:id="@+id/homeRV_itemIV"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/sample_book"
+                    android:scaleType="centerCrop"/>
+            </com.google.android.material.card.MaterialCardView>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:src="@drawable/sample_book"
-                android:scaleType="centerCrop"/>
-        </com.google.android.material.card.MaterialCardView>
+                android:padding="10dp">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:padding="10dp">
+                <TextView
+                    android:id="@+id/homeRV_itemNameTV"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto_bold"
+                    android:text="Modern Control Engineering"
+                    android:textAlignment="viewStart"
+                    android:textColor="@color/black"
+                    android:maxHeight="70dp"
+                    android:textSize="20sp"
+                    android:maxLength="40"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-            <TextView
-                android:id="@+id/homeRV_itemNameTV"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/roboto_bold"
-                android:text="Modern Control Engineering"
-                android:textAlignment="viewStart"
-                android:textColor="@color/black"
-                android:maxHeight="50dp"
-                android:textSize="20sp"
-                android:maxLength="40"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                <TextView
+                    android:id="@+id/homeRV_itemAuthorTV"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto_medium"
+                    android:paddingTop="5dp"
+                    android:paddingBottom="5dp"
+                    android:maxHeight="40dp"
+                    android:maxLength="50"
+                    android:text="By  Katsuhiko Ogata"
+                    android:textAlignment="viewStart"
+                    android:textColor="@color/gray"
+                    android:textSize="12sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/homeRV_itemNameTV" />
 
-            <TextView
-                android:id="@+id/homeRV_itemAuthorTV"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/roboto_medium"
-                android:paddingTop="5dp"
-                android:paddingBottom="5dp"
-                android:maxHeight="40dp"
-                android:maxLength="50"
-                android:text="By  Katsuhiko Ogata"
-                android:textAlignment="viewStart"
-                android:textColor="@color/gray"
-                android:textSize="12sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/homeRV_itemNameTV" />
+                <TextView
+                    android:id="@+id/homeRV_itemDescpTV"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto"
+                    android:maxHeight="70dp"
+                    android:maxLines="3"
+                    android:paddingTop="5dp"
+                    android:paddingBottom="5dp"
+                    android:maxLength="150"
+                    android:text="@string/loren_ipsum"
+                    android:textColor="@color/gray"
+                    android:textSize="10sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/homeRV_itemAuthorTV" />
 
-            <TextView
-                android:id="@+id/homeRV_itemDescpTV"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/roboto"
-                android:maxHeight="70dp"
-                android:maxLines="3"
-                android:paddingTop="5dp"
-                android:paddingBottom="5dp"
-                android:maxLength="150"
-                android:text="@string/loren_ipsum"
-                android:textSize="10sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/homeRV_itemAuthorTV" />
+                <TextView
+                    android:id="@+id/homeRV_itemPriceTV"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto_bold"
+                    android:maxHeight="30dp"
+                    android:maxLength="6"
+                    android:maxLines="1"
+                    android:paddingTop="5dp"
+                    android:paddingBottom="5dp"
+                    android:text="₹ 579"
+                    android:textColor="@color/black"
+                    android:textSize="18sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.87" />
 
-            <TextView
-                android:id="@+id/homeRV_itemPriceTV"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/roboto_bold"
-                android:maxHeight="30dp"
-                android:maxLength="6"
-                android:maxLines="1"
-                android:paddingTop="5dp"
-                android:paddingBottom="5dp"
-                android:text="₹ 579"
-                android:textColor="@color/black"
-                android:textSize="18sp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="1.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.75" />
+                <ImageButton
+                    android:id="@+id/homeRV_itemDetailsIB"
+                    android:layout_width="10dp"
+                    android:layout_height="15dp"
+                    android:layout_gravity="end"
+                    android:background="@drawable/ahead_arrow_icon"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="1.0" />
 
-            <ImageButton
-                android:id="@+id/homeRV_itemDetailsIB"
-                android:layout_width="10dp"
-                android:layout_height="15dp"
-                android:layout_gravity="end"
-                android:background="@drawable/ahead_arrow_icon"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="1.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="1.0" />
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
 
 
-    </LinearLayout>
-</RelativeLayout>
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>

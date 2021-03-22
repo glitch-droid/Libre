@@ -58,6 +58,7 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View v) {
                 String email=emailTV.getText().toString();
                 String password=passwordTV.getText().toString();
+                //startActivity(new Intent(getApplicationContext(),MainActivity.class));
                 loginUser(email,password);
             }
         });

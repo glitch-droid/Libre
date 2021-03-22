@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/actionBar_bg"
+    android:layout_width="match_parent"
+    android:layout_height="80dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:padding="10dp"
+    android:background="@drawable/add_book_actionbar_bgr">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <ImageView
+            android:id="@+id/close_addBook"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_centerVertical="true"
+            android:src='@drawable/cut_activity_icon' />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/addBook"
+            android:textSize="24sp"
+            android:layout_centerInParent="true"
+            android:textColor="@color/white"
+            android:fontFamily="@font/quicksand_bold"/>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginStart="20dp"
+            android:backgroundTint="@color/white"
+            android:layout_alignParentEnd="true"
+            app:cardCornerRadius="30dp">
+            <androidx.cardview.widget.CardView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                app:cardCornerRadius="25dp">
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/placeholder"/>
+
+            </androidx.cardview.widget.CardView>
+        </androidx.cardview.widget.CardView>
+    </RelativeLayout>
+
+
+
+</LinearLayout>
