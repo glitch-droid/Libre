@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -47,7 +48,7 @@ public class HomeFragment extends Fragment {
         call.enqueue(new Callback<UserDetails>() {
             @Override
             public void onResponse(Call<UserDetails> call, Response<UserDetails> response) {
-                if(response.isSuccessful()){
+                if(response.isSuccessful()&&response.body().getCurrentUser()!=null){
                     List<Products> books=response.body().getProducts();
                     CurrentUser user=response.body().getCurrentUser();
                     System.out.println("CURRENT USER: "+user.getUsername());
@@ -59,6 +60,8 @@ public class HomeFragment extends Fragment {
                         }
                     }
                     adapter.notifyDataSetChanged();
+                }else{
+                    Toast.makeText(getContext(),"Internal server error! Please restart the app or wait till the error gets resolved!",Toast.LENGTH_LONG).show();
                 }
             }
 

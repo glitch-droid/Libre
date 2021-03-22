@@ -13,6 +13,7 @@ import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
+import com.example.libre.Adapters.HomeAdapter;
 import com.example.libre.DaggerSetupFiles.MyApplication;
 import com.example.libre.Fragments.BookmarkedFragment;
 import com.example.libre.Fragments.HomeFragment;
@@ -82,29 +83,32 @@ public class MainActivity extends AppCompatActivity {
 
                 switch(item.getItemId()){
                     case R.id.explore :
-                        fragment = new HomeFragment(retrofit);
-                        item.setIcon(R.drawable.explore_icon_filled);
-                        actionBarBG.setBackgroundColor(getResources().getColor(R.color.red_primary));
-                        navigationBar.getMenu().getItem(1).setIcon(R.drawable.reading_icon_outline);
-                        navigationBar.getMenu().getItem(2).setIcon(R.drawable.bookmarked_icon_outlined);
-
+                        if(!(fragment instanceof HomeFragment)){
+                            fragment = new HomeFragment(retrofit);
+                            item.setIcon(R.drawable.explore_icon_filled);
+                            actionBarBG.setBackgroundColor(getResources().getColor(R.color.red_primary));
+                            navigationBar.getMenu().getItem(1).setIcon(R.drawable.reading_icon_outline);
+                            navigationBar.getMenu().getItem(2).setIcon(R.drawable.bookmarked_icon_outlined);
+                        }
                         break;
                     case R.id.reading :
-                        fragment = new ReadingFragment();
-                        item.setIcon(R.drawable.reading_icon_filled);
-                        actionBarBG.setBackgroundColor(getResources().getColor(R.color.palette_2));
-                        navigationBar.getMenu().getItem(0).setIcon(R.drawable.explore_icon_outline);
-                        navigationBar.getMenu().getItem(2).setIcon(R.drawable.bookmarked_icon_outlined);
-
+                        if(!(fragment instanceof ReadingFragment)){
+                            fragment = new ReadingFragment();
+                            item.setIcon(R.drawable.reading_icon_filled);
+                            actionBarBG.setBackgroundColor(getResources().getColor(R.color.palette_2));
+                            navigationBar.getMenu().getItem(0).setIcon(R.drawable.explore_icon_outline);
+                            navigationBar.getMenu().getItem(2).setIcon(R.drawable.bookmarked_icon_outlined);
+                        }
 
                         break;
                     case R.id.bookmark :
-                        fragment = new BookmarkedFragment();
-                        item.setIcon(R.drawable.bookmarker_icon_filled);
-                        actionBarBG.setBackgroundColor(getResources().getColor(R.color.palette_4));
-                        navigationBar.getMenu().getItem(0).setIcon(R.drawable.explore_icon_outline);
-                        navigationBar.getMenu().getItem(1).setIcon(R.drawable.reading_icon_outline);
-
+                        if(!(fragment instanceof BookmarkedFragment)){
+                            fragment = new BookmarkedFragment();
+                            item.setIcon(R.drawable.bookmarker_icon_filled);
+                            actionBarBG.setBackgroundColor(getResources().getColor(R.color.palette_4));
+                            navigationBar.getMenu().getItem(0).setIcon(R.drawable.explore_icon_outline);
+                            navigationBar.getMenu().getItem(1).setIcon(R.drawable.reading_icon_outline);
+                        }
                         break;
                 }
 
@@ -113,7 +117,7 @@ public class MainActivity extends AppCompatActivity {
                 return true;
             }
         });
-
+        getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer,new HomeFragment(retrofit)).commit();
     }
     private void onMainClicked() {
         setVisibility(clicked);
