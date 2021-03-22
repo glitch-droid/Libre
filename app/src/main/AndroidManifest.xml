@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.libre">
-<uses-permission android:name="android.permission.INTERNET"/>
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:name=".DaggerSetupFiles.MyApplication"
         android:allowBackup="true"
@@ -9,11 +11,12 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:usesCleartextTraffic="true"
-        android:theme="@style/Theme.Libre">
+        android:theme="@style/Theme.Libre"
+        android:usesCleartextTraffic="true">
+        <activity android:name=".AddBook"></activity>
         <activity android:name=".MainActivity" />
-        <activity android:name=".RegisterActivity"/>
-        <activity android:name=".AuthenticationActivity"/>
+        <activity android:name=".RegisterActivity" />
+        <activity android:name=".AuthenticationActivity" />
         <activity android:name=".LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -21,6 +24,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />

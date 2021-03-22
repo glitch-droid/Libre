@@ -37,5 +37,9 @@
     <string name="verify_code">Verification Code Here</string>
     <string name="verify_button">Verify</string>
 
+    //AddBook
+    <string name="addBook">Add Book</string>
+    <string name="fiillDetail"><u>Fill the details</u></string>
+
 
 </resources>
