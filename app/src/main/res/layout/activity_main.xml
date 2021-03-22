@@ -7,14 +7,17 @@
     android:layout_height="match_parent"
     android:background="@color/white"
     tools:context=".MainActivity">
-    <include layout="@layout/custom_actionbar"/>
+    <include layout="@layout/custom_actionbar"
+        android:id="@+id/mainActionBar"/>
 
     <FrameLayout
         android:id="@+id/fragmentContainer"
         android:layout_width="match_parent"
-        android:layout_marginTop="80dp"
-        android:padding="10dp"
-        android:layout_height="match_parent" />
+        android:layout_below="@+id/mainActionBar"
+        android:paddingRight="10dp"
+        android:paddingLeft="10dp"
+        android:layout_height="match_parent"/>
+
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNavBar"
@@ -32,6 +35,7 @@
         app:itemIconTint="@color/black"
         app:itemTextColor="@color/white"
         app:labelVisibilityMode="unlabeled"
+
         app:menu="@menu/navbar_options" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -59,7 +63,7 @@
         android:layout_marginBottom="24dp"
         android:focusable="true"
         android:backgroundTint="@color/palette_4"
-        android:visibility="invisible"
+        android:visibility="gone"
         android:clickable="true"
         android:tint="@color/red_primary"
         app:srcCompat="@drawable/sell_fab" />
@@ -72,7 +76,7 @@
         android:layout_alignEnd="@+id/floatingActionButton_1"
         android:layout_marginEnd="0dp"
         android:layout_marginBottom="11dp"
-        android:visibility="invisible"
+        android:visibility="gone"
         android:focusable="true"
         android:tint="@color/red_primary"
         android:backgroundTint="@color/palette_4"

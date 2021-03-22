@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         container = findViewById(R.id.fragmentContainer);
-        actionBarBG = findViewById(R.id.actionBar_bg);
+        actionBarBG = findViewById(R.id.mainActionBar);
         navigationBar = findViewById(R.id.bottomNavBar);
         buttonMain = findViewById(R.id.floatingActionButton_main);
         fab1 = findViewById(R.id.floatingActionButton_1);
@@ -112,6 +112,8 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+
+
     }
     private void onMainClicked() {
         setVisibility(clicked);
@@ -121,11 +123,15 @@ public class MainActivity extends AppCompatActivity {
 
     private void setAnimation(boolean clicked) {
         if(clicked){
-            fab1.setVisibility(View.INVISIBLE);
-            fab2.setVisibility(View.INVISIBLE);
+            fab1.setVisibility(View.GONE);
+            fab1.setEnabled(false);
+            fab2.setVisibility(View.GONE);
+            fab2.setEnabled(false);
         }else{
             fab1.setVisibility(View.VISIBLE);
+            fab1.setEnabled(true);
             fab2.setVisibility(View.VISIBLE);
+            fab2.setEnabled(true);
         }
     }
 
