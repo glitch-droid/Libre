@@ -5,27 +5,24 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
-import android.app.Application;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
+import android.widget.Toast;
 
 import com.example.libre.Fragments.BookmarkedFragment;
 import com.example.libre.Fragments.HomeFragment;
 import com.example.libre.Fragments.ReadingFragment;
 import com.example.libre.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.example.libre.Adapters.HomeAdapter;
-import com.example.libre.Models.BookModel;
-import com.example.libre.Retrofit_Modules.API_Caller;
-import com.example.libre.Retrofit_Modules.Models.CurrentUser;
-import com.example.libre.Retrofit_Modules.Models.Products;
-import com.example.libre.Retrofit_Modules.Models.UserDetails;
-import com.example.libre.Retrofit_Modules.Retrofit_Network_Caller;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
+import static java.security.AccessController.getContext;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -33,11 +30,10 @@ public class MainActivity extends AppCompatActivity {
     private Fragment fragment;
     private FrameLayout container;
     private LinearLayout actionBarBG;
-
-
-    private RecyclerView recyclerView;
-    private List<BookModel> books = new ArrayList<>();
-    private HomeAdapter adapter;
+    FloatingActionButton buttonMain;
+    FloatingActionButton fab1;
+    FloatingActionButton fab2;
+    private boolean clicked = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +44,36 @@ public class MainActivity extends AppCompatActivity {
         container = findViewById(R.id.fragmentContainer);
         actionBarBG = findViewById(R.id.actionBar_bg);
         navigationBar = findViewById(R.id.bottomNavBar);
+        buttonMain = findViewById(R.id.floatingActionButton_main);
+        fab1 = findViewById(R.id.floatingActionButton_1);
+        fab2 = findViewById(R.id.floatingActionButton_2);
+
+
+
+        buttonMain.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onMainClicked();
+            }
+        });
+
+        fab1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getApplicationContext(), "Fab1", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        fab2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getApplicationContext(), "Fab2", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+
+
+
         navigationBar.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -87,4 +113,39 @@ public class MainActivity extends AppCompatActivity {
         });
 
     }
+    private void onMainClicked() {
+        setVisibility(clicked);
+        setAnimation(clicked);
+        clicked = !clicked;
+    }
+
+    private void setAnimation(boolean clicked) {
+        if(clicked){
+            fab1.setVisibility(View.INVISIBLE);
+            fab2.setVisibility(View.INVISIBLE);
+        }else{
+            fab1.setVisibility(View.VISIBLE);
+            fab2.setVisibility(View.VISIBLE);
+        }
+    }
+
+    private void setVisibility(boolean clicked) {
+
+        Animation rotateOpen = AnimationUtils.loadAnimation(this,R.anim.rotate_open);
+        Animation rotateClose = AnimationUtils.loadAnimation(this,R.anim.rotate_close);
+        Animation toBottom = AnimationUtils.loadAnimation(this,R.anim.to_bottom);
+        Animation fromBottom = AnimationUtils.loadAnimation(this,R.anim.from_bottom);
+
+        if(!clicked){
+            fab1.startAnimation(fromBottom);
+            fab2.startAnimation(fromBottom);
+            buttonMain.startAnimation(rotateOpen);
+        }else{
+            fab1.startAnimation(toBottom);
+            fab2.startAnimation(toBottom);
+            buttonMain.startAnimation(rotateClose);
+        }
+    }
+
+
 }
