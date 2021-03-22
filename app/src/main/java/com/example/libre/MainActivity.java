@@ -1,12 +1,9 @@
 package com.example.libre;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.RecyclerView;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -14,20 +11,15 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 import android.widget.Toast;
 
+import com.example.libre.Adapters.HomeAdapter;
+import com.example.libre.DaggerSetupFiles.MyApplication;
 import com.example.libre.Fragments.BookmarkedFragment;
 import com.example.libre.Fragments.HomeFragment;
 import com.example.libre.Fragments.ReadingFragment;
-import com.example.libre.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-
-import static java.security.AccessController.getContext;
-
-import java.util.ArrayList;
-import java.util.List;
 
 import javax.inject.Inject;
 
@@ -53,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         container = findViewById(R.id.fragmentContainer);
-        actionBarBG = findViewById(R.id.mainActionBar);
+        actionBarBG = findViewById(R.id.actionBar_bg);
         navigationBar = findViewById(R.id.bottomNavBar);
         buttonMain = findViewById(R.id.floatingActionButton_main);
         fab1 = findViewById(R.id.floatingActionButton_1);
@@ -71,7 +63,7 @@ public class MainActivity extends AppCompatActivity {
         fab1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getApplicationContext(),AddBook.class));
+                Toast.makeText(getApplicationContext(), "Fab1", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -91,39 +83,32 @@ public class MainActivity extends AppCompatActivity {
 
                 switch(item.getItemId()){
                     case R.id.explore :
-
-                        fragment = new HomeFragment(retrofit);
-
-                        item.setIcon(R.drawable.explore_icon_filled);
-
-                        actionBarBG.setBackgroundColor(getResources().getColor(R.color.red_primary));
-
-                        navigationBar.getMenu().getItem(1).setIcon(R.drawable.reading_icon_outline);
-                        navigationBar.getMenu().getItem(2).setIcon(R.drawable.bookmarked_icon_outlined);
-
+                        if(!(fragment instanceof HomeFragment)){
+                            fragment = new HomeFragment(retrofit);
+                            item.setIcon(R.drawable.explore_icon_filled);
+                            actionBarBG.setBackgroundColor(getResources().getColor(R.color.red_primary));
+                            navigationBar.getMenu().getItem(1).setIcon(R.drawable.reading_icon_outline);
+                            navigationBar.getMenu().getItem(2).setIcon(R.drawable.bookmarked_icon_outlined);
+                        }
                         break;
                     case R.id.reading :
-                        fragment = new ReadingFragment();
-
-                        item.setIcon(R.drawable.reading_icon_filled);
-
-                        actionBarBG.setBackgroundColor(getResources().getColor(R.color.palette_2));
-
-                        navigationBar.getMenu().getItem(0).setIcon(R.drawable.explore_icon_outline);
-                        navigationBar.getMenu().getItem(2).setIcon(R.drawable.bookmarked_icon_outlined);
+                        if(!(fragment instanceof ReadingFragment)){
+                            fragment = new ReadingFragment();
+                            item.setIcon(R.drawable.reading_icon_filled);
+                            actionBarBG.setBackgroundColor(getResources().getColor(R.color.palette_2));
+                            navigationBar.getMenu().getItem(0).setIcon(R.drawable.explore_icon_outline);
+                            navigationBar.getMenu().getItem(2).setIcon(R.drawable.bookmarked_icon_outlined);
+                        }
 
                         break;
                     case R.id.bookmark :
-                        fragment = new BookmarkedFragment();
-
-                        item.setIcon(R.drawable.bookmarker_icon_filled);
-
-                        actionBarBG.setBackgroundColor(getResources().getColor(R.color.black_accent));
-
-                        navigationBar.getMenu().getItem(0).setIcon(R.drawable.explore_icon_outline);
-                        navigationBar.getMenu().getItem(1).setIcon(R.drawable.reading_icon_outline);
-
-
+                        if(!(fragment instanceof BookmarkedFragment)){
+                            fragment = new BookmarkedFragment();
+                            item.setIcon(R.drawable.bookmarker_icon_filled);
+                            actionBarBG.setBackgroundColor(getResources().getColor(R.color.palette_4));
+                            navigationBar.getMenu().getItem(0).setIcon(R.drawable.explore_icon_outline);
+                            navigationBar.getMenu().getItem(1).setIcon(R.drawable.reading_icon_outline);
+                        }
                         break;
                 }
 
@@ -132,9 +117,7 @@ public class MainActivity extends AppCompatActivity {
                 return true;
             }
         });
-
-
-
+        getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer,new HomeFragment(retrofit)).commit();
     }
     private void onMainClicked() {
         setVisibility(clicked);
@@ -144,15 +127,11 @@ public class MainActivity extends AppCompatActivity {
 
     private void setAnimation(boolean clicked) {
         if(clicked){
-            fab1.setVisibility(View.GONE);
-            fab1.setEnabled(false);
-            fab2.setVisibility(View.GONE);
-            fab2.setEnabled(false);
+            fab1.setVisibility(View.INVISIBLE);
+            fab2.setVisibility(View.INVISIBLE);
         }else{
             fab1.setVisibility(View.VISIBLE);
-            fab1.setEnabled(true);
             fab2.setVisibility(View.VISIBLE);
-            fab2.setEnabled(true);
         }
     }
 

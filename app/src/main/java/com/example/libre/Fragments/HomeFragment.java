@@ -5,8 +5,6 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -17,21 +15,16 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.libre.Adapters.HomeAdapter;
-import com.example.libre.MainActivity;
 import com.example.libre.Models.BookModel;
-import com.example.libre.MyApplication;
 import com.example.libre.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.example.libre.Retrofit_Modules.API_Caller;
 import com.example.libre.Retrofit_Modules.Models.CurrentUser;
 import com.example.libre.Retrofit_Modules.Models.Products;
 import com.example.libre.Retrofit_Modules.Models.UserDetails;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import javax.inject.Inject;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -58,7 +51,7 @@ public class HomeFragment extends Fragment {
         call.enqueue(new Callback<UserDetails>() {
             @Override
             public void onResponse(Call<UserDetails> call, Response<UserDetails> response) {
-                if(response.isSuccessful()){
+                if(response.isSuccessful()&&response.body().getCurrentUser()!=null){
                     List<Products> books=response.body().getProducts();
                     CurrentUser user=response.body().getCurrentUser();
                     System.out.println("CURRENT USER: "+user.getUsername());
@@ -70,6 +63,8 @@ public class HomeFragment extends Fragment {
                         }
                     }
                     adapter.notifyDataSetChanged();
+                }else{
+                    Toast.makeText(getContext(),"Internal server error! Please restart the app or wait till the error gets resolved!",Toast.LENGTH_LONG).show();
                 }
             }
 

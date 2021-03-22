@@ -2,7 +2,6 @@ package com.example.libre;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Message;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -10,10 +9,10 @@ import android.widget.Toast;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.libre.DaggerSetupFiles.MyApplication;
 import com.example.libre.Retrofit_Modules.API_Caller;
 import com.example.libre.Retrofit_Modules.Models.MessageFormat;
 import com.example.libre.Retrofit_Modules.Models.VerificationFormat;
-import com.example.libre.Retrofit_Modules.Retrofit_Network_Caller;
 
 import javax.inject.Inject;
 

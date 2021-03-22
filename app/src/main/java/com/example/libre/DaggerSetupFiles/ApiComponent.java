@@ -1,9 +1,13 @@
-package com.example.libre;
+package com.example.libre.DaggerSetupFiles;
+
+import com.example.libre.AuthenticationActivity;
+import com.example.libre.LoginActivity;
+import com.example.libre.MainActivity;
+import com.example.libre.RegisterActivity;
 
 import javax.inject.Singleton;
 
 import dagger.Component;
-import dagger.Provides;
 
 @Singleton
 @Component(modules = {RetrofitClientModule.class,AppModule.class})

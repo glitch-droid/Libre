@@ -1,6 +1,8 @@
-package com.example.libre;
+package com.example.libre.DaggerSetupFiles;
 
 import android.app.Application;
+
+import com.example.libre.DaggerSetupFiles.DaggerApiComponent;
 
 public class MyApplication extends Application {
     private ApiComponent apiComponent;
@@ -8,7 +10,7 @@ public class MyApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        apiComponent=DaggerApiComponent.builder()
+        apiComponent= DaggerApiComponent.builder()
                 .appModule(new AppModule(this))
                 .retrofitClientModule(new RetrofitClientModule(getApplicationContext()))
                 .build();

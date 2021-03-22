@@ -9,20 +9,13 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.libre.DaggerSetupFiles.MyApplication;
 import com.example.libre.Retrofit_Modules.API_Caller;
-import com.example.libre.Retrofit_Modules.Models.CurrentUser;
 import com.example.libre.Retrofit_Modules.Models.LoginFormat;
-import com.example.libre.Retrofit_Modules.Models.Products;
-import com.example.libre.Retrofit_Modules.Models.UserDetails;
-import com.example.libre.Retrofit_Modules.Retrofit_Network_Caller;
-import com.google.android.material.button.MaterialButton;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
-
-import java.util.HashMap;
-import java.util.List;
 
 import javax.inject.Inject;
 

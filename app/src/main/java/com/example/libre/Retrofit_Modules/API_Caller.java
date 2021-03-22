@@ -37,4 +37,5 @@ public interface API_Caller {
     @GET
     Call<UserDetails> getUserDetailsAfterLogin(@Url String url);
 
+
 }
