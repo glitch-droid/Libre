@@ -34,7 +34,6 @@ public class RegisterActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.register_activity);
-        getSupportActionBar().hide();
 
         ((MyApplication)getApplication()).getApiComponent().injectRegister(this);
 
