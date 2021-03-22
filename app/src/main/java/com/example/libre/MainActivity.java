@@ -1,10 +1,8 @@
 package com.example.libre;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -13,20 +11,14 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 import android.widget.Toast;
 
+import com.example.libre.DaggerSetupFiles.MyApplication;
 import com.example.libre.Fragments.BookmarkedFragment;
 import com.example.libre.Fragments.HomeFragment;
 import com.example.libre.Fragments.ReadingFragment;
-import com.example.libre.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-
-import static java.security.AccessController.getContext;
-
-import java.util.ArrayList;
-import java.util.List;
 
 import javax.inject.Inject;
 

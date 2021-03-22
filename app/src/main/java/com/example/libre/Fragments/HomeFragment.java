@@ -4,9 +4,6 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -15,20 +12,15 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.libre.Adapters.HomeAdapter;
-import com.example.libre.MainActivity;
 import com.example.libre.Models.BookModel;
-import com.example.libre.MyApplication;
 import com.example.libre.R;
 import com.example.libre.Retrofit_Modules.API_Caller;
 import com.example.libre.Retrofit_Modules.Models.CurrentUser;
 import com.example.libre.Retrofit_Modules.Models.Products;
 import com.example.libre.Retrofit_Modules.Models.UserDetails;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import javax.inject.Inject;
 
 import retrofit2.Call;
 import retrofit2.Callback;
