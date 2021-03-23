@@ -1,8 +1,5 @@
 package com.example.libre.Retrofit_Modules;
 
-import android.service.autofill.UserData;
-
-import com.example.libre.Retrofit_Modules.Models.CurrentUser;
 import com.example.libre.Retrofit_Modules.Models.LoginFormat;
 import com.example.libre.Retrofit_Modules.Models.MessageFormat;
 import com.example.libre.Retrofit_Modules.Models.Products;
@@ -12,13 +9,13 @@ import com.example.libre.Retrofit_Modules.Models.VerificationFormat;
 
 import java.util.List;
 
-import okhttp3.ResponseBody;
+import okhttp3.MultipartBody;
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
-import retrofit2.http.Header;
 import retrofit2.http.Multipart;
 import retrofit2.http.POST;
+import retrofit2.http.Part;
 import retrofit2.http.Query;
 import retrofit2.http.Url;
 
@@ -38,4 +35,17 @@ public interface API_Caller {
     @GET
     Call<UserDetails> getUserDetailsAfterLogin(@Url String url);
 
+    @Multipart
+    @POST
+    Call<MessageFormat> createProduct(@Url String url,
+                                     @Query("title") String title,
+                                      @Query("description") String description,
+                                      @Query("amount") String amount,
+                                      @Query("bookauthor") String bookauthor,
+                                      @Query("phoneNumber") String phoneNumber,
+                                      @Query("area") String area,
+                                      @Query("city") String city,
+                                      @Query("state") String state,
+                                      @Query("country") String country,
+                                      @Part MultipartBody.Part image);
 }
