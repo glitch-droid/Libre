@@ -370,14 +370,15 @@
                 android:id="@+id/addBook_done"
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="50dp"
-                android:text="Done"
-                android:backgroundTint="@color/burgundy_secondary"
-                android:textColor="@color/white"
+                android:layout_below="@id/CV_9"
                 android:layout_centerHorizontal="true"
+                android:layout_marginTop="50dp"
+                android:backgroundTint="@color/burgundy_secondary"
                 android:fontFamily="@font/quicksand_bold"
-                app:rippleColor="@color/palette_4"
-                android:layout_below="@id/CV_9"/>
+                android:onClick="saveChangesToBook"
+                android:text="Done"
+                android:textColor="@color/white"
+                app:rippleColor="@color/palette_4" />
 
         </RelativeLayout>
     </ScrollView>

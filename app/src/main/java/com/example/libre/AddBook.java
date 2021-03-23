@@ -2,23 +2,36 @@ package com.example.libre;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.ContentResolver;
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.view.View;
-import android.webkit.MimeTypeMap;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.example.libre.DaggerSetupFiles.MyApplication;
+import com.example.libre.Retrofit_Modules.API_Caller;
+import com.example.libre.Retrofit_Modules.Models.FileUtils;
+import com.example.libre.Retrofit_Modules.Models.MessageFormat;
 
+import java.io.File;
 import java.io.IOException;
 
 import javax.inject.Inject;
 
+import okhttp3.MediaType;
+import okhttp3.MultipartBody;
+import okhttp3.RequestBody;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 import retrofit2.Retrofit;
 
 public class AddBook extends AppCompatActivity {
@@ -28,13 +41,15 @@ public class AddBook extends AppCompatActivity {
     private ImageView selectedImage;
     private EditText bookNameET,authorNameET,descriptionET,priceET,phoneNumberET,countryET,stateET,areaET,cityET;
     private ImageView cutAddBook;
-
+    private Button submitButton;
     private Uri imagePath;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_book);
+
+        submitButton=findViewById(R.id.addBook_done);
         cutAddBook = findViewById(R.id.close_addBook);
         bookNameET=findViewById(R.id.addBook_bookNameET);
         authorNameET=findViewById(R.id.addBook_bookAuthorET);
@@ -58,20 +73,85 @@ public class AddBook extends AppCompatActivity {
     }
 
     public void saveChangesToBook(View view){
+        submitButton.setEnabled(false);
+        String city=cityET.getText().toString();
+        String area=areaET.getText().toString();
+        String state=stateET.getText().toString();
+        String country=countryET.getText().toString();
+        String phoneNo=phoneNumberET.getText().toString();
+        String bookName=bookNameET.getText().toString();
+        String authorName=authorNameET.getText().toString();
+        String description=descriptionET.getText().toString();
+        String price=priceET.getText().toString();
 
-    }
+        try {
+            File file=FileUtils.getFileFromUri(getApplicationContext(),imagePath);
 
-    private String getFileExtension(Uri fileUri) {
-        ContentResolver contentResolver=getContentResolver();
-        MimeTypeMap mime=MimeTypeMap.getSingleton();
-        return mime.getExtensionFromMimeType(contentResolver.getType(fileUri));
+
+        RequestBody imageRequest=RequestBody.create(MediaType.parse("image/jpeg"),file);
+        MultipartBody.Part imageBody=MultipartBody.Part.createFormData("image",String.valueOf(System.currentTimeMillis())+".jpeg",imageRequest);
+
+            if(!city.equals("")&&
+               !area.equals("")&&
+               !state.equals("")&&
+               !country.equals("")&&
+                !phoneNo.equals("")&&
+               !bookName.equals("")&&
+               !authorName.equals("")&&
+               !description.equals("")&&
+                !price.equals("")&&
+               imagePath!=null){
+                API_Caller caller=retrofit.create(API_Caller.class);
+                Call<MessageFormat> call=caller.createProduct("products/xeroxbook/",bookName,description,price,authorName,phoneNo,area,city,state,country,imageBody);
+                call.enqueue(new Callback<MessageFormat>() {
+                    @Override
+                    public void onResponse(Call<MessageFormat> call, Response<MessageFormat> response) {
+                        if(response.isSuccessful()){
+                            String message=response.body().getMessage();
+                            if(message.equals("Success")){
+                                finish();
+                            }else{
+                                Toast.makeText(getApplicationContext(),"Failed to create product!",Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                        submitButton.setEnabled(true);
+                    }
+
+                    @Override
+                    public void onFailure(Call<MessageFormat> call, Throwable t) {
+                        System.out.println("ERROR: "+t);
+                        submitButton.setEnabled(true);
+                    }
+                });
+            }else{
+                Toast.makeText(getApplicationContext(),"Please enter all the details!",Toast.LENGTH_SHORT).show();
+            }
+
+        }catch (Exception e){
+            System.out.println("ERROR: "+e);
+        }
     }
 
     public void selectImage(View view){
-        Intent galleryIntent = new Intent(Intent.ACTION_PICK,
-                MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-        galleryIntent.setType("image/*");
-        startActivityForResult(galleryIntent, 1);
+
+        if (Build.VERSION.SDK_INT >= 23) {
+            int REQUEST_CODE_CONTACT = 101;
+            String[] permissions = {
+                    Manifest.permission.WRITE_EXTERNAL_STORAGE};
+            // Verify permissions
+            for (String str : permissions) {
+                if (AddBook.this.checkSelfPermission(str) != PackageManager.PERMISSION_GRANTED) {
+                    //request for access
+                    AddBook.this.requestPermissions(permissions, REQUEST_CODE_CONTACT);
+                    return;
+                } else {
+                    Intent galleryIntent = new Intent(Intent.ACTION_PICK,
+                            MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+                    galleryIntent.setType("image/*");
+                    startActivityForResult(galleryIntent, 1);
+                }
+            }
+        }
     }
     @Override
     protected void onActivityResult(int requestCode,
@@ -102,4 +182,8 @@ public class AddBook extends AppCompatActivity {
             }
         }
     }
+
+
+
+
 }
