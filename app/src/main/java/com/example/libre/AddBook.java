@@ -119,7 +119,7 @@ public class AddBook extends AppCompatActivity {
 
                     @Override
                     public void onFailure(Call<MessageFormat> call, Throwable t) {
-                        System.out.println("ERROR: "+t);
+                        Toast.makeText(getApplicationContext(),"Failed to add the book!",Toast.LENGTH_SHORT).show();
                         submitButton.setEnabled(true);
                     }
                 });
@@ -128,8 +128,7 @@ public class AddBook extends AppCompatActivity {
             }
 
         }catch (Exception e){
-            System.out.println("ERROR: "+e);
-        }
+            Toast.makeText(getApplicationContext(),"Unexpected error occurred!",Toast.LENGTH_SHORT).show(); }
     }
 
     public void selectImage(View view){
