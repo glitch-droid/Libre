@@ -37,29 +37,34 @@ public class AuthenticationActivity extends AppCompatActivity {
 
     public void verifyUser(View view){
         String token=tokenET.getText().toString();
-        VerificationFormat verificationFormat=new VerificationFormat();
-        verificationFormat.setToken(token);
-        API_Caller caller=retrofit.create(API_Caller.class);
-        Call<MessageFormat> call=caller.verifyUser(verificationFormat,"verify/?xerox=book");
-        call.enqueue(new Callback<MessageFormat>() {
-            @Override
-            public void onResponse(Call<MessageFormat> call, Response<MessageFormat> response) {
-                if(response.isSuccessful()){
-                    String message=response.body().getMessage();
-                    if(message.equals("Wrong code")){
-                        Toast.makeText(getApplicationContext(),"Please enter correct code!",Toast.LENGTH_SHORT).show();
-                    }else{
-                        Toast.makeText(getApplicationContext(),"Account Verified!",Toast.LENGTH_SHORT).show();
-                        startActivity(new Intent(getApplicationContext(),LoginActivity.class));
-                        finish();
+        if(!token.equals("")){
+            VerificationFormat verificationFormat=new VerificationFormat();
+            verificationFormat.setToken(token);
+            API_Caller caller=retrofit.create(API_Caller.class);
+            Call<MessageFormat> call=caller.verifyUser(verificationFormat,"verify/?xerox=book");
+            call.enqueue(new Callback<MessageFormat>() {
+                @Override
+                public void onResponse(Call<MessageFormat> call, Response<MessageFormat> response) {
+                    if(response.isSuccessful()){
+                        String message=response.body().getMessage();
+                        if(message.equals("Wrong code")){
+                            Toast.makeText(getApplicationContext(),"Please enter correct code!",Toast.LENGTH_SHORT).show();
+                        }else{
+                            Toast.makeText(getApplicationContext(),"Account Verified!",Toast.LENGTH_SHORT).show();
+                            startActivity(new Intent(getApplicationContext(),LoginActivity.class));
+                            finish();
+                        }
                     }
                 }
-            }
 
-            @Override
-            public void onFailure(Call<MessageFormat> call, Throwable t) {
-                Toast.makeText(getApplicationContext(),"Account verification failed!",Toast.LENGTH_SHORT).show();
-            }
-        });
+                @Override
+                public void onFailure(Call<MessageFormat> call, Throwable t) {
+                    Toast.makeText(getApplicationContext(),"Account verification failed!",Toast.LENGTH_SHORT).show();
+                }
+            });
+        }else{
+            Toast.makeText(getApplicationContext(),"Please enter the token!",Toast.LENGTH_SHORT).show();
+        }
+
     }
 }

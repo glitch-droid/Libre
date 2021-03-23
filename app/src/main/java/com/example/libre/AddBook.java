@@ -109,6 +109,7 @@ public class AddBook extends AppCompatActivity {
                         if(response.isSuccessful()){
                             String message=response.body().getMessage();
                             if(message.equals("Success")){
+                                Toast.makeText(getApplicationContext(),"Product added successfully!",Toast.LENGTH_SHORT).show();
                                 finish();
                             }else{
                                 Toast.makeText(getApplicationContext(),"Failed to create product!",Toast.LENGTH_SHORT).show();
