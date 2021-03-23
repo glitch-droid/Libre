@@ -13,8 +13,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Libre"
         android:usesCleartextTraffic="true">
-        <activity android:name=".AddBook"></activity>
-        <activity android:name=".MainActivity" android:windowSoftInputMode="adjustPan" />
+        <activity android:name=".BookDetail"></activity>
+        <activity android:name=".AddBook" />
+        <activity
+            android:name=".MainActivity"
+            android:windowSoftInputMode="adjustPan" />
         <activity android:name=".RegisterActivity" />
         <activity android:name=".AuthenticationActivity" />
         <activity android:name=".LoginActivity">

@@ -44,5 +44,9 @@
     <string name="addBook">Add Book</string>
     <string name="fiillDetail"><u>Fill the details</u></string>
 
+    //Book Details
+    <string name="detail">Book Details</string>
+    <string name="descp">Description</string>
+
 
 </resources>

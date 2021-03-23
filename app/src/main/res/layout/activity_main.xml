@@ -19,18 +19,17 @@
         android:paddingRight="10dp"
         android:paddingLeft="10dp"
         android:layout_height="match_parent"
+        android:layout_above="@+id/bottomNavBar"
         android:background="@color/white"/>
 
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNavBar"
-        android:layout_marginStart="20dp"
         android:elevation="40dp"
         android:fadingEdgeLength="@dimen/cardview_default_elevation"
-        android:layout_marginEnd="20dp"
         android:layout_centerHorizontal="true"
         android:layout_width="match_parent"
-        android:layout_height="70dp"
+        android:layout_height="60dp"
         android:background="@drawable/navbar_bgr"
         android:layout_alignParentBottom="true"
         app:itemRippleColor="@color/palette_4"
@@ -45,7 +44,7 @@
         android:layout_height="wrap_content"
         android:clickable="true"
         app:srcCompat="@drawable/reading_icon_filled"
-        android:backgroundTint="@color/palette_4"
+        android:backgroundTint="@color/red_primary"
         android:layout_alignParentEnd="true"
         app:backgroundTint="@color/white"
         android:focusable="true"
@@ -63,7 +62,7 @@
         android:layout_marginEnd="-1dp"
         android:layout_marginBottom="24dp"
         android:focusable="true"
-        android:backgroundTint="@color/palette_4"
+        android:backgroundTint="@color/burgundy_secondary"
         android:visibility="gone"
         android:clickable="true"
         android:tint="@color/red_primary"
@@ -80,7 +79,7 @@
         android:visibility="gone"
         android:focusable="true"
         android:tint="@color/red_primary"
-        android:backgroundTint="@color/palette_4"
+        android:backgroundTint="@color/black_accent"
         android:clickable="true"
         app:srcCompat="@drawable/bookmarker_icon_filled" />
 
