@@ -39,13 +39,13 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> {
         holder.authorName.setText(booksList.get(position).getAuthor());
         holder.bookDescp.setText(booksList.get(position).getDescription());
         holder.bookPrice.setText(booksList.get(position).getPrice());
-        /*String base="http://35.193.15.204:3000/";
+        String base="http://35.193.15.204:3000/";
         if(booksList.get(position).getUrl().length()!=0){
             Picasso.get().load(base+booksList.get(position).getUrl())
                     .fit()
                     .centerInside()
                     .into(holder.productImage);
-        }*/
+        }
     }
 
     @Override

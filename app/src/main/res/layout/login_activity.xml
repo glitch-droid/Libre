@@ -81,16 +81,17 @@
                     android:id="@+id/login_button"
                     android:layout_width="280dp"
                     android:layout_height="53dp"
-                    android:backgroundTint="@color/palette_2"
                     android:layout_gravity="center_horizontal"
                     android:layout_marginTop="50dp"
+                    android:backgroundTint="@color/palette_2"
+                    android:fontFamily="@font/quicksand_bold"
+                    android:onClick="loginUser"
                     android:text="@string/login"
+                    android:textAlignment="inherit"
                     android:textAllCaps="false"
                     android:textColor="@color/white"
-                    android:fontFamily="@font/quicksand_bold"
                     android:textSize="18sp"
-                    app:rippleColor="@color/burgundy_secondary"
-                    android:textAlignment="inherit"/>
+                    app:rippleColor="@color/burgundy_secondary" />
 
                 <TextView
                     android:layout_width="wrap_content"
