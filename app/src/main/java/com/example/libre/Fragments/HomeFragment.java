@@ -54,7 +54,7 @@ public class HomeFragment extends Fragment implements HomeAdapter.OnBookListener
         HomeAdapter adapter = new HomeAdapter(this);
         bookModelList = new ArrayList<>();
 
-        /*API_Caller caller=retrofit.create(API_Caller.class);
+        API_Caller caller=retrofit.create(API_Caller.class);
         Call<UserDetails> call=caller.getUserDetailsAfterLogin("products/?xerox=book");
         call.enqueue(new Callback<UserDetails>() {
             @Override
@@ -80,13 +80,13 @@ public class HomeFragment extends Fragment implements HomeAdapter.OnBookListener
             public void onFailure(Call<UserDetails> call, Throwable t) {
                 System.out.println("ERROR: "+t);
             }
-        }); */
+        });
 
+        /*bookModelList.add(new BookModel("Hello","Gaandu","main don hu","420"));
         bookModelList.add(new BookModel("Hello","Gaandu","main don hu","420"));
         bookModelList.add(new BookModel("Hello","Gaandu","main don hu","420"));
         bookModelList.add(new BookModel("Hello","Gaandu","main don hu","420"));
-        bookModelList.add(new BookModel("Hello","Gaandu","main don hu","420"));
-        bookModelList.add(new BookModel("Hello","Gaandu","main don hu","420"));
+        bookModelList.add(new BookModel("Hello","Gaandu","main don hu","420"));*/
 
 
 

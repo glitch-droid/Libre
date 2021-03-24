@@ -46,7 +46,7 @@
         app:srcCompat="@drawable/reading_icon_filled"
         android:backgroundTint="@color/red_primary"
         android:layout_alignParentEnd="true"
-        app:backgroundTint="@color/white"
+        app:backgroundTint="@color/red_primary"
         android:focusable="true"
         android:layout_alignParentBottom="true"
         android:layout_marginEnd="20dp"
