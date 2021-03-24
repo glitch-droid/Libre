@@ -1,5 +1,135 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="match_parent">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/white">
+
+    <TextView
+        android:id="@+id/account_titleTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Account"
+        android:fontFamily="@font/quicksand_bold"
+        android:textColor="@color/black_accent"
+        android:drawableBottom="@drawable/underline"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="20dp"
+        android:textSize="28sp"/>
+
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/account_anim"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:lottie_rawRes="@raw/profile_bgr_anim"
+        android:layout_below="@+id/account_titleTV"
+        app:lottie_speed="0.3"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        />
+    <androidx.cardview.widget.CardView
+        android:id="@+id/account_titleHolder"
+        android:layout_width="130dp"
+        app:cardCornerRadius="65dp"
+        android:backgroundTint="@color/black_accent"
+        android:layout_below="@id/account_titleTV"
+        android:layout_marginTop="40dp"
+        android:layout_centerHorizontal="true"
+        app:cardElevation="20dp"
+        android:outlineSpotShadowColor="@color/palette_3"
+        android:layout_height="130dp">
+
+        <TextView
+            android:id="@+id/account_firstLetterTV"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="M"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:fontFamily="@font/quicksand_bold"
+            android:textSize="50sp"/>
+
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:id="@+id/account_userNameTV"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_width="match_parent"
+        android:padding="10dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/account_titleHolder"
+        android:layout_marginTop="50dp"
+        android:text="User Name"
+        android:textAlignment="viewEnd"
+        android:textDirection="rtl"
+        android:textSize="20sp"
+        android:fontFamily="@font/quicksand_bold"
+        android:textColor="@color/black_accent"
+        android:drawablePadding="20dp"
+        android:background="@drawable/account_details_bgr"
+        android:drawableStart="@drawable/man_icon"/>
+
+    <TextView
+        android:id="@+id/account_userAddressTV"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_width="match_parent"
+        android:padding="10dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/account_userNameTV"
+        android:layout_marginTop="30dp"
+        android:text="User Address"
+        android:textAlignment="viewEnd"
+        android:textDirection="rtl"
+        android:textSize="20sp"
+        android:fontFamily="@font/quicksand_bold"
+        android:textColor="@color/black_accent"
+        android:drawablePadding="20dp"
+        android:background="@drawable/account_details_bgr"
+        android:drawableStart="@drawable/register_area_icon"/>
+
+    <TextView
+        android:id="@+id/account_userNumberTV"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_width="match_parent"
+        android:padding="10dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/account_userAddressTV"
+        android:layout_marginTop="30dp"
+        android:text="User Phone Number"
+        android:textAlignment="viewEnd"
+        android:textDirection="rtl"
+        android:textSize="20sp"
+        android:fontFamily="@font/quicksand_bold"
+        android:textColor="@color/black_accent"
+        android:drawablePadding="20dp"
+        android:background="@drawable/account_details_bgr"
+        android:drawableStart="@drawable/phone_icon"/>
+
+    <TextView
+        android:id="@+id/account_userEmailTV"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_width="match_parent"
+        android:padding="10dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/account_userNumberTV"
+        android:layout_marginTop="30dp"
+        android:text="User Mail Id"
+        android:textAlignment="viewEnd"
+        android:textDirection="rtl"
+        android:textSize="20sp"
+        android:fontFamily="@font/quicksand_bold"
+        android:textColor="@color/black_accent"
+        android:drawablePadding="20dp"
+        android:background="@drawable/account_details_bgr"
+        android:drawableStart="@drawable/mail_filled"/>
+
 
 </RelativeLayout>
