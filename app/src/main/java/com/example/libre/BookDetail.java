@@ -35,7 +35,6 @@ public class BookDetail extends AppCompatActivity {
     private Button getItButton;
     private ImageView backButton,productImage;
     private TextView bookName,authorName,description,bookPrice,sellerName,sellerEmail,sellerPhoneNo,sellerAddress;
-    private String sellerUID;
     private FloatingActionButton toComments;
     private String sellerUID,pNo;
 
