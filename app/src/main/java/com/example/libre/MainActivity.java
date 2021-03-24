@@ -89,30 +89,18 @@ public class MainActivity extends AppCompatActivity {
                             fragment = new HomeFragment(retrofit);
                             item.setIcon(R.drawable.explore_icon_filled);
 
-                            navigationBar.getMenu().getItem(1).setIcon(R.drawable.reading_icon_outline);
-                            navigationBar.getMenu().getItem(2).setIcon(R.drawable.man_icon_outline);
-                            navigationBar.getMenu().getItem(3).setIcon(R.drawable.bookmarked_icon_outlined);
+                            navigationBar.getMenu().getItem(1).setIcon(R.drawable.man_icon_outline);
+                            navigationBar.getMenu().getItem(2).setIcon(R.drawable.bookmarked_icon_outlined);
                         }
                         break;
-                    case R.id.reading :
-                        if(!(fragment instanceof ReadingFragment)){
-                            fragment = new ReadingFragment();
-                            item.setIcon(R.drawable.reading_icon_filled);
 
-                            navigationBar.getMenu().getItem(0).setIcon(R.drawable.explore_icon_outline);
-                            navigationBar.getMenu().getItem(2).setIcon(R.drawable.man_icon_outline);
-                            navigationBar.getMenu().getItem(3).setIcon(R.drawable.bookmarked_icon_outlined);
-                        }
-
-                        break;
                     case R.id.account :
                         if(!(fragment instanceof AccountFragment)){
                             fragment = new AccountFragment();
                             item.setIcon(R.drawable.man_icon);
 
                             navigationBar.getMenu().getItem(0).setIcon(R.drawable.explore_icon_outline);
-                            navigationBar.getMenu().getItem(1).setIcon(R.drawable.reading_icon_outline);
-                            navigationBar.getMenu().getItem(3).setIcon(R.drawable.bookmarked_icon_outlined);
+                            navigationBar.getMenu().getItem(2).setIcon(R.drawable.bookmarked_icon_outlined);
                         }
 
                         break;
@@ -122,8 +110,7 @@ public class MainActivity extends AppCompatActivity {
                             item.setIcon(R.drawable.bookmarker_icon_filled);
 
                             navigationBar.getMenu().getItem(0).setIcon(R.drawable.explore_icon_outline);
-                            navigationBar.getMenu().getItem(1).setIcon(R.drawable.reading_icon_outline);
-                            navigationBar.getMenu().getItem(2).setIcon(R.drawable.man_icon_outline);
+                            navigationBar.getMenu().getItem(1).setIcon(R.drawable.man_icon_outline);
                         }
                         break;
 

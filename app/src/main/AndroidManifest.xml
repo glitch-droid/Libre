@@ -18,6 +18,7 @@
         android:theme="@style/Theme.Libre"
         android:usesCleartextTraffic="true">
         <activity android:name=".BookDetail"></activity>
+        <activity android:name=".CommentsActivity"></activity>
         <activity android:name=".AddBook" />
         <activity
             android:name=".MainActivity"

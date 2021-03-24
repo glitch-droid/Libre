@@ -20,6 +20,7 @@ import com.example.libre.Retrofit_Modules.Models.CurrentUser;
 import com.example.libre.Retrofit_Modules.Models.Products;
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.squareup.picasso.Picasso;
 
 import javax.inject.Inject;
@@ -34,6 +35,8 @@ public class BookDetail extends AppCompatActivity {
     private Button getItButton;
     private ImageView backButton,productImage;
     private TextView bookName,authorName,description,bookPrice,sellerName,sellerEmail,sellerPhoneNo,sellerAddress;
+    private String sellerUID;
+    private FloatingActionButton toComments;
     private String sellerUID,pNo;
 
     @Inject
@@ -51,7 +54,7 @@ public class BookDetail extends AppCompatActivity {
         bookName=findViewById(R.id.bookDetail_bookName2TV);
         authorName=findViewById(R.id.bookDetail_bookAuthorTV);
         description=findViewById(R.id.bookDetail_bookDescriptionTV);
-
+        toComments = findViewById(R.id.bookDetail_commentsFAB);
 
         Intent intent=getIntent();
         String id=intent.getStringExtra("id");
@@ -68,6 +71,13 @@ public class BookDetail extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 finish();
+            }
+        });
+
+        toComments.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(),CommentsActivity.class));
             }
         });
     }
