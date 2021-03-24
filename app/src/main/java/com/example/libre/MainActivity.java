@@ -16,6 +16,7 @@ import android.widget.Toast;
 
 import com.example.libre.Adapters.HomeAdapter;
 import com.example.libre.DaggerSetupFiles.MyApplication;
+import com.example.libre.Fragments.AccountFragment;
 import com.example.libre.Fragments.BookmarkedFragment;
 import com.example.libre.Fragments.HomeFragment;
 import com.example.libre.Fragments.ReadingFragment;
@@ -46,7 +47,6 @@ public class MainActivity extends AppCompatActivity {
 
 
         container = findViewById(R.id.fragmentContainer);
-        actionBarBG = findViewById(R.id.mainActionBar);
         navigationBar = findViewById(R.id.bottomNavBar);
         buttonMain = findViewById(R.id.floatingActionButton_main);
         fab1 = findViewById(R.id.floatingActionButton_1);
@@ -90,7 +90,8 @@ public class MainActivity extends AppCompatActivity {
                             item.setIcon(R.drawable.explore_icon_filled);
 
                             navigationBar.getMenu().getItem(1).setIcon(R.drawable.reading_icon_outline);
-                            navigationBar.getMenu().getItem(2).setIcon(R.drawable.bookmarked_icon_outlined);
+                            navigationBar.getMenu().getItem(2).setIcon(R.drawable.man_icon_outline);
+                            navigationBar.getMenu().getItem(3).setIcon(R.drawable.bookmarked_icon_outlined);
                         }
                         break;
                     case R.id.reading :
@@ -99,7 +100,19 @@ public class MainActivity extends AppCompatActivity {
                             item.setIcon(R.drawable.reading_icon_filled);
 
                             navigationBar.getMenu().getItem(0).setIcon(R.drawable.explore_icon_outline);
-                            navigationBar.getMenu().getItem(2).setIcon(R.drawable.bookmarked_icon_outlined);
+                            navigationBar.getMenu().getItem(2).setIcon(R.drawable.man_icon_outline);
+                            navigationBar.getMenu().getItem(3).setIcon(R.drawable.bookmarked_icon_outlined);
+                        }
+
+                        break;
+                    case R.id.account :
+                        if(!(fragment instanceof AccountFragment)){
+                            fragment = new AccountFragment();
+                            item.setIcon(R.drawable.man_icon);
+
+                            navigationBar.getMenu().getItem(0).setIcon(R.drawable.explore_icon_outline);
+                            navigationBar.getMenu().getItem(1).setIcon(R.drawable.reading_icon_outline);
+                            navigationBar.getMenu().getItem(3).setIcon(R.drawable.bookmarked_icon_outlined);
                         }
 
                         break;
@@ -110,8 +123,11 @@ public class MainActivity extends AppCompatActivity {
 
                             navigationBar.getMenu().getItem(0).setIcon(R.drawable.explore_icon_outline);
                             navigationBar.getMenu().getItem(1).setIcon(R.drawable.reading_icon_outline);
+                            navigationBar.getMenu().getItem(2).setIcon(R.drawable.man_icon_outline);
                         }
                         break;
+
+
                 }
 
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer,fragment).commit();
