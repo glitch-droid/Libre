@@ -14,6 +14,7 @@ import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.example.libre.Adapters.HomeAdapter;
 import com.example.libre.BookDetail;
@@ -38,7 +39,7 @@ public class HomeFragment extends Fragment implements HomeAdapter.OnBookListener
     private Retrofit retrofit;
     private List<BookModel> bookModelList;
     private boolean clicked = false;
-
+    private SwipeRefreshLayout refreshLayout;
     public HomeFragment() {
     }
 
@@ -53,16 +54,36 @@ public class HomeFragment extends Fragment implements HomeAdapter.OnBookListener
 
         HomeAdapter adapter = new HomeAdapter(this);
         bookModelList = new ArrayList<>();
+        refreshLayout= view.findViewById(R.id.swipeRefreshLayout);
 
+
+        adapter.setBooksList(bookModelList);
+        recyclerView.setAdapter(adapter);
+        recyclerView.setLayoutManager(new LinearLayoutManager(view.getContext()));
+        recyclerView.hasFixedSize();
+        loadDataIntoRecyclerView(adapter);
+        adapter.notifyDataSetChanged();
+
+        refreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                loadDataIntoRecyclerView(adapter);
+            }
+        });
+
+        return view;
+    }
+
+    private void loadDataIntoRecyclerView(HomeAdapter adapter){
         API_Caller caller=retrofit.create(API_Caller.class);
         Call<UserDetails> call=caller.getUserDetailsAfterLogin("products/?xerox=book");
         call.enqueue(new Callback<UserDetails>() {
             @Override
             public void onResponse(Call<UserDetails> call, Response<UserDetails> response) {
                 if(response.isSuccessful()&&response.body().getCurrentUser()!=null){
+                    bookModelList.clear();
                     List<Products> books=response.body().getProducts();
                     CurrentUser user=response.body().getCurrentUser();
-                    System.out.println("CURRENT USER: "+user.getUsername());
                     for(Products prod:books){
                         if(prod.getImage().size()!=0){
                             bookModelList.add(new BookModel(prod.getTitle(),prod.getBookauthor(),prod.getDescription(),String.valueOf(prod.getAmount()),prod.getImage().get(0),prod.get_id()));
@@ -71,26 +92,20 @@ public class HomeFragment extends Fragment implements HomeAdapter.OnBookListener
                         }
                     }
                     adapter.notifyDataSetChanged();
+                    refreshLayout.setRefreshing(false);
                 }else{
                     Toast.makeText(getContext(),"Internal server error! Please restart the app or wait till the error gets resolved!",Toast.LENGTH_LONG).show();
+                    refreshLayout.setRefreshing(false);
                 }
             }
 
             @Override
             public void onFailure(Call<UserDetails> call, Throwable t) {
                 System.out.println("ERROR: "+t);
+                refreshLayout.setRefreshing(false);
             }
         });
-
-        adapter.setBooksList(bookModelList);
-        recyclerView.setAdapter(adapter);
-        recyclerView.setLayoutManager(new LinearLayoutManager(view.getContext()));
-        recyclerView.hasFixedSize();
-        adapter.notifyDataSetChanged();
-
-        return view;
     }
-
 
     public HomeFragment(Retrofit retrofit) {
         this.retrofit=retrofit;
