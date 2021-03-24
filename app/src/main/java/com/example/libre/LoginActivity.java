@@ -68,7 +68,7 @@ public class LoginActivity extends AppCompatActivity {
         String password=passwordTV.getText().toString();
         LoginFormat loginFormat=new LoginFormat();
         loginFormat.setPassword(password);
-        loginFormat.setUsername(username);
+        loginFormat.setUsername(email);
 
         API_Caller api_caller=retrofit.create(API_Caller.class);
         Call<String> call=api_caller.loginUser(loginFormat);
