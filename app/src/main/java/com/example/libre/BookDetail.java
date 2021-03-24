@@ -3,6 +3,7 @@ package com.example.libre;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -36,6 +37,8 @@ public class BookDetail extends AppCompatActivity {
     private TextView bookName,authorName,description,bookPrice,sellerName,sellerEmail,sellerPhoneNo,sellerAddress;
     private String sellerUID;
     private FloatingActionButton toComments;
+    private String sellerUID,pNo;
+
     @Inject
     Retrofit retrofit;
 
@@ -136,6 +139,7 @@ public class BookDetail extends AppCompatActivity {
                     bookPrice.setText("₹"+currentProd.getAmount()+"/Week");
                     sellerEmail.setText("Email: "+currentProd.getAuthor().getUsername());
                     sellerPhoneNo.setText("Contact No.: "+currentProd.getPhoneNumber());
+                    pNo=currentProd.getPhoneNumber();
                     Call<CurrentUser> seller=caller.getUserFromID("profiles/"+currentProd.getAuthor().getId()+"/?xerox=book");
                     seller.enqueue(new Callback<CurrentUser>() {
                         @Override
@@ -162,7 +166,9 @@ public class BookDetail extends AppCompatActivity {
         sheetView.findViewById(R.id.bookDetail_contactSeller).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(BookDetail.this, "Seller Contact", Toast.LENGTH_SHORT).show();
+                Intent intent1=new Intent(Intent.ACTION_DIAL);
+                intent1.setData(Uri.parse("tel:"+pNo));
+                startActivity(intent1);
             }
         });
         bottomSheetDialog.setContentView(sheetView);
