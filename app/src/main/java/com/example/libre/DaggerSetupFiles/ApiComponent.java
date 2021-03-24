@@ -1,5 +1,6 @@
 package com.example.libre.DaggerSetupFiles;
 
+import com.example.libre.AddBook;
 import com.example.libre.AuthenticationActivity;
 import com.example.libre.LoginActivity;
 import com.example.libre.MainActivity;
@@ -20,4 +21,6 @@ public interface ApiComponent {
     void injectRegister(RegisterActivity registerActivity);
 
     void injectAuth(AuthenticationActivity authenticationActivity);
+
+    void injectInAddBook(AddBook addBook);
 }
