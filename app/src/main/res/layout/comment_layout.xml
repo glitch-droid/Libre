@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="5dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        app:cardElevation="10dp"
+        app:cardCornerRadius="20dp"
+        android:background="@color/white"
+        android:layout_margin="20dp"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="7dp"
+            android:background="@color/light_yellow"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/comment_userNameTV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="User Name"
+                android:layout_marginStart="5dp"
+                android:fontFamily="@font/quicksand_bold"
+                android:textColor="@color/black_accent"
+                android:textSize="18sp"
+                android:textDirection="ltr"
+                android:textAlignment="viewStart"/>
+            <TextView
+                android:id="@+id/comment_userCommentTV"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="12dp"
+                android:textDirection="ltr"
+                android:layout_marginRight="5dp"
+                android:layout_marginLeft="5dp"
+                android:text="@string/loren_ipsum"
+                android:textSize="14sp"
+                android:textColor="@color/black_accent"/>
+
+            <ImageView
+                android:id="@+id/comment_deleteIconMyComment"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:src="@drawable/delete_icon"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="5dp"
+                android:layout_gravity="end"/>
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+</RelativeLayout>
