@@ -38,7 +38,7 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> {
         holder.bookName.setText(booksList.get(position).getBook());
         holder.authorName.setText(booksList.get(position).getAuthor());
         holder.bookDescp.setText(booksList.get(position).getDescription());
-        holder.bookPrice.setText(booksList.get(position).getPrice());
+        holder.bookPrice.setText("₹"+booksList.get(position).getPrice()+"/Week");
         String base="http://35.193.15.204:3000/";
         if(booksList.get(position).getUrl().length()!=0){
             Picasso.get().load(base+booksList.get(position).getUrl())

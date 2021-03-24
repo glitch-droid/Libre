@@ -32,18 +32,19 @@
             android:textStyle="bold" />
 
         <TextView
+            android:id="@+id/book_priceTV"
             android:layout_width="0dp"
-            android:gravity="right"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:textStyle="bold"
-            android:textSize="20sp"
-            android:textColor="@color/white"
-            android:padding="5dp"
             android:background="@color/palette_2"
-            android:textDirection="rtl"
             android:fontFamily="@font/quicksand_bold"
-            android:text="₹435.00"/>
+            android:gravity="right"
+            android:padding="5dp"
+            android:text="Loading..."
+            android:textColor="@color/white"
+            android:textDirection="ltr"
+            android:textSize="20sp"
+            android:textStyle="bold" />
     </LinearLayout>
 
 
@@ -51,58 +52,60 @@
         android:id="@+id/bookDetail_sellerNameTV"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Seller Name here"
-        android:drawableStart="@drawable/man_icon"
-        android:textDirection="ltr"
-        android:textAlignment="viewStart"
-        android:drawableTint="@color/black_accent"
-        android:drawablePadding="5dp"
-        android:fontFamily="@font/quicksand_medium"
         android:background="@color/white"
-        android:textColor="@color/black"/>
+        android:drawableStart="@drawable/man_icon"
+        android:drawablePadding="5dp"
+        android:drawableTint="@color/black_accent"
+        android:fontFamily="@font/quicksand_medium"
+        android:text="Loading..."
+        android:textAlignment="viewStart"
+        android:textColor="@color/black"
+        android:textDirection="ltr" />
+
     <TextView
         android:id="@+id/bookDetail_sellerEmailTV"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Seller Email here"
-        android:drawableStart="@drawable/mail_filled"
-        android:textDirection="ltr"
-        android:textAlignment="viewStart"
-        android:drawableTint="@color/black_accent"
-        android:drawablePadding="5dp"
         android:layout_marginTop="5dp"
-        android:fontFamily="@font/quicksand_medium"
         android:background="@color/white"
-        android:textColor="@color/black"/>
+        android:drawableStart="@drawable/mail_filled"
+        android:drawablePadding="5dp"
+        android:drawableTint="@color/black_accent"
+        android:fontFamily="@font/quicksand_medium"
+        android:text="Loading..."
+        android:textAlignment="viewStart"
+        android:textColor="@color/black"
+        android:textDirection="ltr" />
 
     <TextView
         android:id="@+id/bookDetail_sellerContactNoTV"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:drawableStart="@drawable/phone_icon"
-        android:text="6003477056"
-        android:background="@color/white"
-        android:textDirection="ltr"
         android:layout_marginTop="5dp"
-        android:textAlignment="viewStart"
-        android:drawableTint="@color/black_accent"
+        android:background="@color/white"
+        android:drawableStart="@drawable/phone_icon"
         android:drawablePadding="5dp"
+        android:drawableTint="@color/black_accent"
         android:fontFamily="@font/quicksand_medium"
-        android:textColor="@color/black" />
+        android:text="Loading..."
+        android:textAlignment="viewStart"
+        android:textColor="@color/black"
+        android:textDirection="ltr" />
 
     <TextView
+        android:id="@+id/product_seller_address"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
         android:background="@color/white"
         android:drawableStart="@drawable/register_city_icon"
-        android:text="Flat No 404, Skyline Apartments, Vizag - 500576, Andhra Pradesh, India"
-        android:textDirection="ltr"
-        android:layout_marginTop="5dp"
-        android:textAlignment="viewStart"
-        android:drawableTint="@color/black_accent"
         android:drawablePadding="5dp"
+        android:drawableTint="@color/black_accent"
         android:fontFamily="@font/quicksand_medium"
-        android:textColor="@color/black" />
+        android:text="Loading..."
+        android:textAlignment="viewStart"
+        android:textColor="@color/black"
+        android:textDirection="ltr" />
 
 
     <Button

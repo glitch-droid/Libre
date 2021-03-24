@@ -65,9 +65,9 @@ public class HomeFragment extends Fragment implements HomeAdapter.OnBookListener
                     System.out.println("CURRENT USER: "+user.getUsername());
                     for(Products prod:books){
                         if(prod.getImage().size()!=0){
-                            bookModelList.add(new BookModel(prod.getTitle(),prod.getBookauthor(),prod.getDescription(),String.valueOf(prod.getAmount()),prod.getImage().get(0),prod.getId()));
+                            bookModelList.add(new BookModel(prod.getTitle(),prod.getBookauthor(),prod.getDescription(),String.valueOf(prod.getAmount()),prod.getImage().get(0),prod.get_id()));
                         }else{
-                            bookModelList.add(new BookModel(prod.getTitle(),prod.getBookauthor(),prod.getDescription(),String.valueOf(prod.getAmount()),"",prod.getId()));
+                            bookModelList.add(new BookModel(prod.getTitle(),prod.getBookauthor(),prod.getDescription(),String.valueOf(prod.getAmount()),"",prod.get_id()));
                         }
                     }
                     adapter.notifyDataSetChanged();
@@ -81,14 +81,6 @@ public class HomeFragment extends Fragment implements HomeAdapter.OnBookListener
                 System.out.println("ERROR: "+t);
             }
         });
-
-        /*bookModelList.add(new BookModel("Hello","Gaandu","main don hu","420"));
-        bookModelList.add(new BookModel("Hello","Gaandu","main don hu","420"));
-        bookModelList.add(new BookModel("Hello","Gaandu","main don hu","420"));
-        bookModelList.add(new BookModel("Hello","Gaandu","main don hu","420"));
-        bookModelList.add(new BookModel("Hello","Gaandu","main don hu","420"));*/
-
-
 
         adapter.setBooksList(bookModelList);
         recyclerView.setAdapter(adapter);
@@ -107,6 +99,8 @@ public class HomeFragment extends Fragment implements HomeAdapter.OnBookListener
     @Override
     public void onBookClick(int position) {
         BookModel bookModel = bookModelList.get(position);
-        startActivity(new Intent(getContext(), BookDetail.class));
+        Intent intent=new Intent(getContext(),BookDetail.class);
+        intent.putExtra("id",bookModel.getId());
+        startActivity(intent);
     }
 }

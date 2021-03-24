@@ -33,16 +33,17 @@
                     android:layout_weight="3">
 
                     <ImageView
+                        android:id="@+id/product_Image_IV"
                         android:layout_width="match_parent"
                         android:layout_height="300dp"
-                        android:scaleType="centerCrop"
                         android:layout_centerInParent="true"
-                        android:src="@drawable/sample_book" />
+                        android:scaleType="centerInside" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:background="@drawable/fade"/>
+
                     <TextView
                         android:id="@+id/bookDetail_bookName2TV"
                         android:layout_width="match_parent"
@@ -53,7 +54,7 @@
                         android:layout_marginEnd="100dp"
                         android:layout_marginBottom="20dp"
                         android:fontFamily="@font/quicksand_bold"
-                        android:text="The Book Name Here"
+                        android:text="Loading..."
                         android:textColor="@color/white"
                         android:textSize="30sp" />
 
@@ -94,10 +95,10 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="20dp"
-                        android:fontFamily="@font/roboto"
-                        android:textColor="@color/burgundy_secondary"
-                        android:text="Author Name Here"
                         android:layout_toLeftOf="@id/bookDetail_commentsFAB"
+                        android:fontFamily="@font/roboto"
+                        android:text="Loading..."
+                        android:textColor="@color/burgundy_secondary"
                         android:textSize="20sp" />
 
                     <TextView
@@ -115,11 +116,11 @@
                         android:id="@+id/bookDetail_bookDescriptionTV"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="20dp"
                         android:layout_below="@+id/bookDetail_descpTagTV"
-                        android:text="@string/loren_ipsum"
+                        android:layout_marginTop="20dp"
+                        android:text="Loading..."
                         android:textColor="@color/gray"
-                        android:textSize="16sp"/>
+                        android:textSize="16sp" />
 
                     <com.google.android.material.button.MaterialButton
                         android:id="@+id/bookDetail_getItButton"

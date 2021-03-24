@@ -14,21 +14,31 @@ public class Products {
 
     private List<String> comments = new ArrayList<>();
 
-    private String id;
+    private String _id;
 
     private String title;
 
     private String description;
 
-    private Integer amount;
+    private String amount;
 
     private String created;
 
-    private String location;
+    private Address address;
 
     private String bookauthor;
 
+    private String phoneNumber;
+
     private Integer v;
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
 
     public Author getAuthor() {
         return author;
@@ -54,12 +64,12 @@ public class Products {
         this.comments = comments;
     }
 
-    public String getId() {
-        return id;
+    public String get_id() {
+        return _id;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void set_id(String _id) {
+        this._id = _id;
     }
 
     public String getTitle() {
@@ -78,11 +88,11 @@ public class Products {
         this.description = description;
     }
 
-    public Integer getAmount() {
+    public String getAmount() {
         return amount;
     }
 
-    public void setAmount(Integer amount) {
+    public void setAmount(String amount) {
         this.amount = amount;
     }
 
@@ -94,12 +104,12 @@ public class Products {
         this.created = created;
     }
 
-    public String getLocation() {
-        return location;
+    public Address getAddress() {
+        return address;
     }
 
-    public void setLocation(String location) {
-        this.location = location;
+    public void setAddress(Address address) {
+        this.address = address;
     }
 
     public String getBookauthor() {
