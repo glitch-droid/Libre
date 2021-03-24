@@ -42,10 +42,16 @@ public class LoginActivity extends AppCompatActivity {
 
         emailTV=findViewById(R.id.login_emailTV);
         passwordTV=findViewById(R.id.login_passwordTV);
+        login = findViewById(R.id.login_button);
 
         ((MyApplication)getApplication()).getApiComponent().injectLogin(this);
 
-       
+       login.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View v) {
+               loginUser(v);
+           }
+       });
 
         register = findViewById(R.id.login_register);
         register.setOnClickListener(new View.OnClickListener() {
@@ -68,7 +74,7 @@ public class LoginActivity extends AppCompatActivity {
         String password=passwordTV.getText().toString();
         LoginFormat loginFormat=new LoginFormat();
         loginFormat.setPassword(password);
-        loginFormat.setUsername(username);
+        loginFormat.setUsername(email);
 
         API_Caller api_caller=retrofit.create(API_Caller.class);
         Call<String> call=api_caller.loginUser(loginFormat);

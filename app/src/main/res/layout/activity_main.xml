@@ -8,19 +8,14 @@
     android:background="@color/white"
     tools:context=".MainActivity">
 
-    <include
-        android:id="@+id/mainActionBar"
-        layout="@layout/custom_actionbar" />
-
     <FrameLayout
         android:id="@+id/fragmentContainer"
         android:layout_width="match_parent"
-        android:layout_below="@+id/mainActionBar"
-        android:paddingRight="10dp"
-        android:paddingLeft="10dp"
         android:layout_height="match_parent"
         android:layout_above="@+id/bottomNavBar"
-        android:background="@color/white"/>
+        android:background="@color/white"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp" />
 
 
     <com.google.android.material.bottomnavigation.BottomNavigationView

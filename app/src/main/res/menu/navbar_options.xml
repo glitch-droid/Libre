@@ -2,6 +2,7 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item android:id="@+id/explore" android:title="Explore"  android:icon="@drawable/explore_icon_filled" android:iconTint="@color/black"/>
     <item android:iconTint="@color/black" android:icon="@drawable/reading_icon_outline" android:title="Reading" android:id="@+id/reading"/>
+    <item android:id="@+id/account" android:title="Account" android:icon="@drawable/man_icon_outline" android:iconTint="@color/black"/>
     <item android:id="@+id/bookmark" android:title="Bookmarked" android:icon="@drawable/bookmarked_icon_outlined" android:iconTint="@color/black"/>
 
 </menu>
