@@ -14,7 +14,7 @@
         android:layout_marginTop="20dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
-    
+
     <androidx.appcompat.widget.SearchView
         android:id="@+id/homeFrag_searchView"
         android:layout_width="match_parent"
@@ -32,14 +32,20 @@
         app:searchIcon="@drawable/search_icon"
         android:layout_marginTop="20dp"/>
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/homeFragmentRV"
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swipeRefreshLayout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:overScrollMode="never"
-        android:layout_marginTop="10dp"
+        android:layout_height="wrap_content"
         android:layout_below="@+id/homeFrag_searchView"
-        android:visibility="visible"/>
+        android:layout_marginTop="9dp">
 
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/homeFragmentRV"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="10dp"
+            android:overScrollMode="never"
+            android:visibility="visible" />
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
 </RelativeLayout>
