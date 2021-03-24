@@ -37,7 +37,7 @@
                     android:fontFamily="@font/quicksand_bold"
                     android:text="@string/login"
                     android:textAlignment="center"
-                    android:textColor="@color/black"
+                    android:textColor="@color/black_accent"
                     android:textSize="32sp" />
 
                 <EditText
@@ -81,7 +81,7 @@
                     android:id="@+id/login_button"
                     android:layout_width="280dp"
                     android:layout_height="53dp"
-                    android:backgroundTint="@color/login_button"
+                    android:backgroundTint="@color/palette_2"
                     android:layout_gravity="center_horizontal"
                     android:layout_marginTop="50dp"
                     android:text="@string/login"
@@ -89,7 +89,7 @@
                     android:textColor="@color/white"
                     android:fontFamily="@font/quicksand_bold"
                     android:textSize="18sp"
-                    app:rippleColor="@color/purple_700"
+                    app:rippleColor="@color/burgundy_secondary"
                     android:textAlignment="inherit"/>
 
                 <TextView
@@ -114,7 +114,7 @@
                         android:layout_gravity="center_horizontal"
                         android:textSize="16sp"
                         android:fontFamily="@font/quicksand_bold"
-                        android:textColor="@color/black"
+                        android:textColor="@color/burgundy_secondary"
                         android:text="@string/login_newTo"/>
 
                     <TextView
@@ -124,7 +124,7 @@
                         android:layout_marginStart="5sp"
                         android:fontFamily="@font/quicksand_bold"
                         android:text="@string/login_register"
-                        android:textColor="@color/login_register"
+                        android:textColor="@color/black_accent"
                         android:textSize="16sp" />
                 </LinearLayout>
                 <LinearLayout
@@ -139,7 +139,7 @@
                         android:layout_gravity="center_horizontal"
                         android:textSize="16sp"
                         android:fontFamily="@font/roboto_light"
-                        android:textColor="@color/black"
+                        android:textColor="@color/burgundy_secondary"
                         android:text="@string/verify_forgot"/>
 
                     <TextView
@@ -149,7 +149,7 @@
                         android:layout_marginStart="5sp"
                         android:fontFamily="@font/roboto_bold"
                         android:text="@string/verify_click"
-                        android:textColor="@color/black"
+                        android:textColor="@color/black_accent"
                         android:textSize="16sp" />
                 </LinearLayout>
             </LinearLayout>

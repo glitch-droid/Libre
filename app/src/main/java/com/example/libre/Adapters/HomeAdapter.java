@@ -19,12 +19,17 @@ import java.util.List;
 public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> {
 
     List<BookModel> booksList = new ArrayList<>();
+    private OnBookListenerHome listenerHome;
+
+    public HomeAdapter(OnBookListenerHome listenerHome) {
+        this.listenerHome = listenerHome;
+    }
 
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.home_product_layout,parent,false);
-        ViewHolder holder = new ViewHolder(view);
+        ViewHolder holder = new ViewHolder(view,listenerHome);
         return holder;
     }
 
@@ -34,13 +39,13 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> {
         holder.authorName.setText(booksList.get(position).getAuthor());
         holder.bookDescp.setText(booksList.get(position).getDescription());
         holder.bookPrice.setText(booksList.get(position).getPrice());
-        String base="http://35.193.15.204:3000/";
+        /*String base="http://35.193.15.204:3000/";
         if(booksList.get(position).getUrl().length()!=0){
             Picasso.get().load(base+booksList.get(position).getUrl())
                     .fit()
                     .centerInside()
                     .into(holder.productImage);
-        }
+        }*/
     }
 
     @Override
@@ -52,20 +57,32 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> {
         this.booksList = booksList;
     }
 
-    static public class ViewHolder extends RecyclerView.ViewHolder {
+    static public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         TextView bookName;
         TextView authorName;
         TextView bookDescp;
         TextView bookPrice;
         ImageView productImage;
+        OnBookListenerHome onBookListenerHome;
 
-        public ViewHolder(@NonNull View itemView) {
+        public ViewHolder(@NonNull View itemView,OnBookListenerHome onBookListenerHome) {
             super(itemView);
             bookName = itemView.findViewById(R.id.homeRV_itemNameTV);
             authorName = itemView.findViewById(R.id.homeRV_itemAuthorTV);
             bookDescp = itemView.findViewById(R.id.homeRV_itemDescpTV);
             bookPrice = itemView.findViewById(R.id.homeRV_itemPriceTV);
             productImage=itemView.findViewById(R.id.homeRV_itemIV);
+            this.onBookListenerHome = onBookListenerHome;
+
+            itemView.setOnClickListener(this);
         }
+
+        @Override
+        public void onClick(View v) {
+            onBookListenerHome.onBookClick(getAdapterPosition());
+        }
+    }
+    public interface OnBookListenerHome{
+        void onBookClick(int position);
     }
 }

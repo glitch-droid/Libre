@@ -1,5 +1,6 @@
 package com.example.libre.Fragments;
 
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -15,6 +16,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.libre.Adapters.HomeAdapter;
+import com.example.libre.BookDetail;
 import com.example.libre.Models.BookModel;
 import com.example.libre.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -31,20 +33,26 @@ import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 
-public class HomeFragment extends Fragment {
+public class HomeFragment extends Fragment implements HomeAdapter.OnBookListenerHome{
 
     private Retrofit retrofit;
-
+    private List<BookModel> bookModelList;
     private boolean clicked = false;
+
+    public HomeFragment() {
+    }
+
     @RequiresApi(api = Build.VERSION_CODES.M)
+
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = LayoutInflater.from(getContext()).inflate(R.layout.home_fragment_layout,container,false);
         RecyclerView recyclerView = view.findViewById(R.id.homeFragmentRV);
 
-        HomeAdapter adapter = new HomeAdapter();
-        List<BookModel> bookModelList = new ArrayList<>();
+        HomeAdapter adapter = new HomeAdapter(this);
+        bookModelList = new ArrayList<>();
 
         API_Caller caller=retrofit.create(API_Caller.class);
         Call<UserDetails> call=caller.getUserDetailsAfterLogin("products/?xerox=book");
@@ -73,6 +81,15 @@ public class HomeFragment extends Fragment {
                 System.out.println("ERROR: "+t);
             }
         });
+
+        /*bookModelList.add(new BookModel("Hello","Gaandu","main don hu","420"));
+        bookModelList.add(new BookModel("Hello","Gaandu","main don hu","420"));
+        bookModelList.add(new BookModel("Hello","Gaandu","main don hu","420"));
+        bookModelList.add(new BookModel("Hello","Gaandu","main don hu","420"));
+        bookModelList.add(new BookModel("Hello","Gaandu","main don hu","420"));*/
+
+
+
         adapter.setBooksList(bookModelList);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(view.getContext()));
@@ -85,5 +102,11 @@ public class HomeFragment extends Fragment {
 
     public HomeFragment(Retrofit retrofit) {
         this.retrofit=retrofit;
+    }
+
+    @Override
+    public void onBookClick(int position) {
+        BookModel bookModel = bookModelList.get(position);
+        startActivity(new Intent(getContext(), BookDetail.class));
     }
 }

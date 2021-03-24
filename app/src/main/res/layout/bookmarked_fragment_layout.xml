@@ -1,5 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="match_parent">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <TextView
+        android:id="@+id/homeFragNameTV"
+        android:text="@string/bookmarked"
+        android:layout_marginStart="10dp"
+        android:fontFamily="@font/quicksand_bold"
+        android:textSize="28sp"
+        android:textColor="@color/black_accent"
+        android:layout_marginTop="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
 
+    <androidx.appcompat.widget.SearchView
+        android:id="@+id/bookmarkFrag_searchView"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_below="@+id/homeFragNameTV"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:background="@drawable/searchview_bgr"
+        android:queryHint="hint"
+        app:queryHint="Search"
+        app:defaultQueryHint="hint"
+        android:iconifiedByDefault="false"
+        app:iconifiedByDefault="false"
+        app:closeIcon="@drawable/cross"
+        app:searchIcon="@drawable/search_icon"
+        android:layout_marginTop="20dp"/>
 </RelativeLayout>

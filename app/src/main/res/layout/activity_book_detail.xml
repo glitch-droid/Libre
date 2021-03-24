@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".BookDetail">
+<include layout="@layout/bookdetail_actionbar" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="50dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:weightSum="10">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="3">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="300dp"
+                        android:scaleType="centerCrop"
+                        android:layout_centerInParent="true"
+                        android:src="@drawable/sample_book" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/fade"/>
+                    <TextView
+                        android:id="@+id/bookDetail_bookName2TV"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginEnd="100dp"
+                        android:layout_marginBottom="20dp"
+                        android:fontFamily="@font/quicksand_bold"
+                        android:text="The Book Name Here"
+                        android:textColor="@color/white"
+                        android:textSize="30sp" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:paddingLeft="20dp"
+                    android:paddingRight="20dp"
+                    android:paddingBottom="50dp"
+                    android:layout_weight="7">
+
+                    <com.google.android.material.floatingactionbutton.FloatingActionButton
+                        android:id="@+id/bookDetail_bookmarkFAB"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:backgroundTint="@color/black_accent"
+                        android:src="@drawable/bookmarker_icon_filled"
+                        android:layout_alignParentEnd="true"
+                        app:rippleColor="@color/palette_4"
+                        android:layout_marginTop="10dp"/>
+
+                    <com.google.android.material.floatingactionbutton.FloatingActionButton
+                        android:id="@+id/bookDetail_commentsFAB"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:backgroundTint="@color/burgundy_secondary"
+                        android:src="@drawable/comment_icon"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginEnd="10dp"
+                        android:layout_marginStart="100dp"
+                        app:rippleColor="@color/palette_4"
+                        android:layout_toLeftOf="@id/bookDetail_bookmarkFAB"/>
+
+                    <TextView
+                        android:id="@+id/bookDetail_bookAuthorTV"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:fontFamily="@font/roboto"
+                        android:textColor="@color/burgundy_secondary"
+                        android:text="Author Name Here"
+                        android:layout_toLeftOf="@id/bookDetail_commentsFAB"
+                        android:textSize="20sp" />
+
+                    <TextView
+                        android:id="@+id/bookDetail_descpTagTV"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/descp"
+                        android:layout_below="@id/bookDetail_bookAuthorTV"
+                        android:layout_marginTop="30dp"
+                        android:fontFamily="@font/roboto_bold"
+                        android:textSize="18sp"
+                        android:textColor="@color/red_primary"/>
+
+                    <TextView
+                        android:id="@+id/bookDetail_bookDescriptionTV"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:layout_below="@+id/bookDetail_descpTagTV"
+                        android:text="@string/loren_ipsum"
+                        android:textColor="@color/gray"
+                        android:textSize="16sp"/>
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/bookDetail_getItButton"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/bookDetail_bookDescriptionTV"
+                        android:layout_marginTop="40dp"
+                        android:backgroundTint="@color/palette_3"
+                        android:text="Get it"
+                        android:textColor="@color/burgundy_secondary"
+                        android:fontFamily="@font/quicksand_bold"/>
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+
+        </RelativeLayout>
+
+    </ScrollView>
+
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

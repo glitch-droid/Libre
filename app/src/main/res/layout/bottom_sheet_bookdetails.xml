@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/bottom_sheet"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bottomsheet_bgr"
+    android:orientation="vertical"
+    android:padding="20dp"
+    app:behavior_hideable="true"
+    app:behavior_peekHeight="56dp"
+    android:elevation="10dp"
+    app:layout_behavior="@string/bottom_sheet_behavior">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="center_vertical"
+        android:background="@color/white"
+        android:weightSum="3">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:layout_weight="2"
+            android:text="Seller Details"
+            android:textColor="@color/black_accent"
+            android:fontFamily="@font/roboto_bold"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:gravity="right"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:textColor="@color/white"
+            android:padding="5dp"
+            android:background="@color/palette_2"
+            android:textDirection="rtl"
+            android:fontFamily="@font/quicksand_bold"
+            android:text="₹435.00"/>
+    </LinearLayout>
+
+
+    <TextView
+        android:id="@+id/bookDetail_sellerNameTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Seller Name here"
+        android:drawableStart="@drawable/man_icon"
+        android:textDirection="ltr"
+        android:textAlignment="viewStart"
+        android:drawableTint="@color/black_accent"
+        android:drawablePadding="5dp"
+        android:fontFamily="@font/quicksand_medium"
+        android:background="@color/white"
+        android:textColor="@color/black"/>
+    <TextView
+        android:id="@+id/bookDetail_sellerEmailTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Seller Email here"
+        android:drawableStart="@drawable/mail_filled"
+        android:textDirection="ltr"
+        android:textAlignment="viewStart"
+        android:drawableTint="@color/black_accent"
+        android:drawablePadding="5dp"
+        android:layout_marginTop="5dp"
+        android:fontFamily="@font/quicksand_medium"
+        android:background="@color/white"
+        android:textColor="@color/black"/>
+
+    <TextView
+        android:id="@+id/bookDetail_sellerContactNoTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawableStart="@drawable/phone_icon"
+        android:text="6003477056"
+        android:background="@color/white"
+        android:textDirection="ltr"
+        android:layout_marginTop="5dp"
+        android:textAlignment="viewStart"
+        android:drawableTint="@color/black_accent"
+        android:drawablePadding="5dp"
+        android:fontFamily="@font/quicksand_medium"
+        android:textColor="@color/black" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:drawableStart="@drawable/register_city_icon"
+        android:text="Flat No 404, Skyline Apartments, Vizag - 500576, Andhra Pradesh, India"
+        android:textDirection="ltr"
+        android:layout_marginTop="5dp"
+        android:textAlignment="viewStart"
+        android:drawableTint="@color/black_accent"
+        android:drawablePadding="5dp"
+        android:fontFamily="@font/quicksand_medium"
+        android:textColor="@color/black" />
+
+
+    <Button
+        android:id="@+id/bookDetail_contactSeller"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:backgroundTint="@color/burgundy_secondary"
+        app:rippleColor="@color/white"
+        android:text="Contact Seller"
+        android:textColor="@color/white" />
+
+</LinearLayout>

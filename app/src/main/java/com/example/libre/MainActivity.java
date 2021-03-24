@@ -88,7 +88,7 @@ public class MainActivity extends AppCompatActivity {
                         if(!(fragment instanceof HomeFragment)){
                             fragment = new HomeFragment(retrofit);
                             item.setIcon(R.drawable.explore_icon_filled);
-                            actionBarBG.setBackgroundColor(getResources().getColor(R.color.red_primary));
+
                             navigationBar.getMenu().getItem(1).setIcon(R.drawable.reading_icon_outline);
                             navigationBar.getMenu().getItem(2).setIcon(R.drawable.bookmarked_icon_outlined);
                         }
@@ -97,7 +97,7 @@ public class MainActivity extends AppCompatActivity {
                         if(!(fragment instanceof ReadingFragment)){
                             fragment = new ReadingFragment();
                             item.setIcon(R.drawable.reading_icon_filled);
-                            actionBarBG.setBackgroundColor(getResources().getColor(R.color.palette_2));
+
                             navigationBar.getMenu().getItem(0).setIcon(R.drawable.explore_icon_outline);
                             navigationBar.getMenu().getItem(2).setIcon(R.drawable.bookmarked_icon_outlined);
                         }
@@ -107,7 +107,7 @@ public class MainActivity extends AppCompatActivity {
                         if(!(fragment instanceof BookmarkedFragment)){
                             fragment = new BookmarkedFragment();
                             item.setIcon(R.drawable.bookmarker_icon_filled);
-                            actionBarBG.setBackgroundColor(getResources().getColor(R.color.palette_4));
+
                             navigationBar.getMenu().getItem(0).setIcon(R.drawable.explore_icon_outline);
                             navigationBar.getMenu().getItem(1).setIcon(R.drawable.reading_icon_outline);
                         }
