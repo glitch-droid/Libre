@@ -1,5 +1,6 @@
 package com.example.libre.Retrofit_Modules;
 
+import com.example.libre.Retrofit_Modules.Models.CurrentUser;
 import com.example.libre.Retrofit_Modules.Models.LoginFormat;
 import com.example.libre.Retrofit_Modules.Models.MessageFormat;
 import com.example.libre.Retrofit_Modules.Models.Products;
@@ -48,4 +49,10 @@ public interface API_Caller {
                                       @Query("state") String state,
                                       @Query("country") String country,
                                       @Part MultipartBody.Part image);
+
+    @GET
+    Call<Products> getProductFromID(@Url String url);
+
+    @GET
+    Call<CurrentUser> getUserFromID(@Url String url);
 }

@@ -94,7 +94,6 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/roboto_bold"
                     android:maxHeight="30dp"
-                    android:maxLength="6"
                     android:maxLines="1"
                     android:paddingTop="5dp"
                     android:paddingBottom="5dp"
