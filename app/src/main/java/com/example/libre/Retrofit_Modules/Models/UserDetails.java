@@ -4,15 +4,15 @@ import java.util.List;
 
 public class UserDetails {
 
-    private List<Products> products = null;
+    private List<AllProducts> products = null;
 
     private CurrentUser currentUser;
 
-    public List<Products> getProducts() {
+    public List<AllProducts> getProducts() {
         return products;
     }
 
-    public void setProducts(List<Products> products) {
+    public void setProducts(List<AllProducts> products) {
         this.products = products;
     }
 
