@@ -6,12 +6,13 @@
     <TextView
         android:id="@+id/homeFragNameTV"
         android:text="@string/bookmarked"
-        android:layout_marginStart="10dp"
+        android:layout_marginStart="20dp"
         android:fontFamily="@font/quicksand_bold"
         android:textSize="28sp"
         android:textColor="@color/black_accent"
         android:layout_marginTop="20dp"
         android:layout_width="wrap_content"
+        android:drawableBottom="@drawable/underline_3"
         android:layout_height="wrap_content"/>
 
 </RelativeLayout>

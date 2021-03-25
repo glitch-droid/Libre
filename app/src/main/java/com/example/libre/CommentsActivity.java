@@ -2,6 +2,7 @@ package com.example.libre;
 
 import android.content.Intent;
 import android.os.Bundle;
+
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -50,9 +51,11 @@ public class CommentsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.comments_activity_layout);
 
+
         Intent intent=getIntent();
         currentUid=intent.getStringExtra("uid");
         productId=intent.getStringExtra("prodId");
+
 
         ((MyApplication)getApplication()).getApiComponent().injectInCommentsActivity(this);
 

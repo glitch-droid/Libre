@@ -6,7 +6,7 @@
     android:layout_height="match_parent">
 
     <LinearLayout
-        android:background="@color/light_gray"
+        android:background="@android:color/transparent"
         android:layout_width="match_parent"
         android:paddingLeft="5dp"
         android:paddingRight="5dp"
@@ -28,6 +28,7 @@
             android:textColor="@color/black_accent"
             android:textSize="18sp"
             android:layout_marginEnd="10dp"
+            android:hapticFeedbackEnabled="false"
             android:background="@drawable/comments_edittext_bgr"
             android:layout_weight="14"/>
 

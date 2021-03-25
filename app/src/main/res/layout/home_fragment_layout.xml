@@ -7,12 +7,13 @@
     <TextView
         android:id="@+id/homeFragNameTV"
         android:text="@string/Wlecome"
-        android:layout_marginStart="10dp"
+        android:layout_marginStart="20dp"
         android:fontFamily="@font/quicksand_bold"
         android:textSize="28sp"
         android:textColor="@color/black_accent"
         android:layout_marginTop="20dp"
         android:layout_width="wrap_content"
+        android:drawableBottom="@drawable/underline_2"
         android:layout_height="wrap_content"/>
 
     <androidx.appcompat.widget.SearchView
@@ -20,8 +21,8 @@
         android:layout_width="match_parent"
         android:layout_height="45dp"
         android:layout_below="@+id/homeFragNameTV"
-        android:layout_marginStart="10dp"
-        android:layout_marginEnd="10dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
         android:background="@drawable/searchview_bgr"
         android:queryHint="hint"
         app:queryHint="Search"

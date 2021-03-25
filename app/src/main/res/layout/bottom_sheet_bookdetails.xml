@@ -36,7 +36,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:background="@color/palette_2"
+            android:background="@drawable/book_details_price_bgr"
             android:fontFamily="@font/quicksand_bold"
             android:gravity="right"
             android:padding="5dp"
@@ -111,10 +111,11 @@
     <Button
         android:id="@+id/bookDetail_contactSeller"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="60dp"
         android:layout_marginTop="30dp"
-        android:backgroundTint="@color/burgundy_secondary"
+        android:backgroundTint="@color/palette_1"
         app:rippleColor="@color/white"
+        android:fontFamily="@font/quicksand_bold"
         android:text="Contact Seller"
         android:textColor="@color/white" />
 
