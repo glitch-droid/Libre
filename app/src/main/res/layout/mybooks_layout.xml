@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="200dp"
+    android:layout_height="250dp"
+    android:layout_margin="20dp"
+    android:padding="20dp"
+    app:cardElevation="10dp"
+    app:cardCornerRadius="20dp"
+    android:backgroundTint="@color/white"
+    app:rippleColor="@color/palette_4"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:id="@+id/LL_1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:id="@+id/myBook_image"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/sample_book" />
+    </LinearLayout>
+    <RelativeLayout
+        android:layout_below="@+id/LL_1"
+        android:layout_width="match_parent"
+        android:padding="10dp"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <TextView
+            android:id="@+id/myBook_name"
+            android:layout_width="match_parent"
+            android:text="Book Name here"
+            android:fontFamily="@font/quicksand_bold"
+            android:textColor="@color/black_accent"
+            android:layout_alignParentStart="true"
+            android:textSize="20sp"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:id="@+id/myBook_price"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="bottom"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="20dp"
+            android:textDirection="rtl"
+            android:fontFamily="@font/roboto_bold"
+            android:textSize="18sp"
+            android:textColor="@color/black_accent"
+            android:text="₹450" />
+    </RelativeLayout>
+</RelativeLayout>
+
+
+</com.google.android.material.card.MaterialCardView>
