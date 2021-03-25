@@ -12,6 +12,15 @@ public class Author {
         public Author(){
 
         }
+
+        public void setId(String id) {
+                this.id = id;
+        }
+
+        public void setUsername(String username) {
+                this.username = username;
+        }
+
         public String getId() {
             return id;
         }

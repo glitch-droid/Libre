@@ -1,5 +1,7 @@
 package com.example.libre.Retrofit_Modules.Models;
 
+import com.google.gson.annotations.SerializedName;
+
 import java.util.List;
 
 public class CurrentUser {
@@ -10,6 +12,7 @@ public class CurrentUser {
 
     private List<Object> ordered = null;
 
+    @SerializedName("_id")
     private String id;
 
     private String username;
