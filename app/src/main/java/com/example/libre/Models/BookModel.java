@@ -21,10 +21,8 @@ public class BookModel {
     }
 
     //Constructor for testing purposes
-    public BookModel(String book, String author, String description, String price) {
+    public BookModel(String book,  String price) {
         this.book = book;
-        this.author = author;
-        this.description = description;
         this.price = price;
     }
 

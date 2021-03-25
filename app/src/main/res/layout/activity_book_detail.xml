@@ -89,6 +89,31 @@
                         android:layout_marginStart="100dp"
                         app:rippleColor="@color/palette_4"
                         android:layout_toLeftOf="@id/bookDetail_bookmarkFAB"/>
+                    <com.google.android.material.floatingactionbutton.FloatingActionButton
+                        android:id="@+id/bookDetail_editFAB"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:backgroundTint="@color/palette_3"
+                        android:src="@drawable/edit_icon"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginEnd="10dp"
+                        android:layout_toRightOf="@+id/bookDetail_descpTagTV"
+                        android:layout_below="@id/bookDetail_commentsFAB"
+                        android:layout_marginStart="159dp"
+                        android:visibility="visible"
+                        app:rippleColor="@color/palette_4"/>
+
+                    <com.google.android.material.floatingactionbutton.FloatingActionButton
+                        android:id="@+id/bookDetail_deleteFAB"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:backgroundTint="@color/red_primary"
+                        android:src="@drawable/delete_icon"
+                        android:layout_marginTop="5dp"
+                        android:layout_toRightOf="@+id/bookDetail_editFAB"
+                        android:layout_below="@id/bookDetail_commentsFAB"
+                        android:visibility="visible"
+                        app:rippleColor="@color/palette_4"/>
 
                     <TextView
                         android:id="@+id/bookDetail_bookAuthorTV"
@@ -107,7 +132,7 @@
                         android:layout_height="wrap_content"
                         android:text="@string/descp"
                         android:layout_below="@id/bookDetail_bookAuthorTV"
-                        android:layout_marginTop="30dp"
+                        android:layout_marginTop="40dp"
                         android:fontFamily="@font/roboto_bold"
                         android:textSize="18sp"
                         android:textColor="@color/red_primary"/>
@@ -116,10 +141,11 @@
                         android:id="@+id/bookDetail_bookDescriptionTV"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_below="@+id/bookDetail_descpTagTV"
-                        android:layout_marginTop="20dp"
+                        android:layout_below="@+id/bookDetail_editFAB"
+                        android:layout_marginTop="10dp"
                         android:text="Loading..."
                         android:textColor="@color/gray"
+
                         android:textSize="16sp" />
 
                     <com.google.android.material.button.MaterialButton
