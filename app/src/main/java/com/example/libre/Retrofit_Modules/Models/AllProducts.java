@@ -1,18 +1,15 @@
 package com.example.libre.Retrofit_Modules.Models;
 
-import com.google.gson.annotations.Expose;
-import com.google.gson.annotations.SerializedName;
-
 import java.util.ArrayList;
 import java.util.List;
 
-public class Products {
+public class AllProducts {
 
     private Author author;
 
     private List<String> image = new ArrayList<>();
 
-    private List<FetchedComment> comments = new ArrayList<>();
+    private List<String> comments = new ArrayList<>();
 
     private String _id;
 
@@ -56,11 +53,11 @@ public class Products {
         this.image = image;
     }
 
-    public List<FetchedComment> getComments() {
+    public List<String> getComments() {
         return comments;
     }
 
-    public void setComments(List<FetchedComment> comments) {
+    public void setComments(List<String> comments) {
         this.comments = comments;
     }
 

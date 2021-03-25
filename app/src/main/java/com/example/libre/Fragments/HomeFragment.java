@@ -20,6 +20,7 @@ import com.example.libre.Adapters.HomeAdapter;
 import com.example.libre.BookDetail;
 import com.example.libre.Models.BookModel;
 import com.example.libre.R;
+import com.example.libre.Retrofit_Modules.Models.AllProducts;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.example.libre.Retrofit_Modules.API_Caller;
 import com.example.libre.Retrofit_Modules.Models.CurrentUser;
@@ -40,6 +41,7 @@ public class HomeFragment extends Fragment implements HomeAdapter.OnBookListener
     private List<BookModel> bookModelList;
     private boolean clicked = false;
     private SwipeRefreshLayout refreshLayout;
+    private String currentUid;
     public HomeFragment() {
     }
 
@@ -82,9 +84,11 @@ public class HomeFragment extends Fragment implements HomeAdapter.OnBookListener
             public void onResponse(Call<UserDetails> call, Response<UserDetails> response) {
                 if(response.isSuccessful()&&response.body().getCurrentUser()!=null){
                     bookModelList.clear();
-                    List<Products> books=response.body().getProducts();
+                    List<AllProducts> books=response.body().getProducts();
                     CurrentUser user=response.body().getCurrentUser();
-                    for(Products prod:books){
+                    currentUid=user.getId();
+                    System.out.println("TEST: "+user.getId());
+                    for(AllProducts prod:books){
                         if(prod.getImage().size()!=0){
                             bookModelList.add(new BookModel(prod.getTitle(),prod.getBookauthor(),prod.getDescription(),String.valueOf(prod.getAmount()),prod.getImage().get(0),prod.get_id()));
                         }else{
@@ -116,6 +120,7 @@ public class HomeFragment extends Fragment implements HomeAdapter.OnBookListener
         BookModel bookModel = bookModelList.get(position);
         Intent intent=new Intent(getContext(),BookDetail.class);
         intent.putExtra("id",bookModel.getId());
+        intent.putExtra("uid",currentUid);
         startActivity(intent);
     }
 }

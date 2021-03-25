@@ -35,9 +35,8 @@ public class BookDetail extends AppCompatActivity {
     private Button getItButton;
     private ImageView backButton,productImage;
     private TextView bookName,authorName,description,bookPrice,sellerName,sellerEmail,sellerPhoneNo,sellerAddress;
-    private String sellerUID;
     private FloatingActionButton toComments;
-    private String sellerUID,pNo;
+    private String currentUid,pNo;
 
     @Inject
     Retrofit retrofit;
@@ -58,6 +57,7 @@ public class BookDetail extends AppCompatActivity {
 
         Intent intent=getIntent();
         String id=intent.getStringExtra("id");
+        currentUid=intent.getStringExtra("uid");
         getAllDetails(id);
         getItButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -77,7 +77,11 @@ public class BookDetail extends AppCompatActivity {
         toComments.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getApplicationContext(),CommentsActivity.class));
+                Intent intent1=new Intent(getApplicationContext(),CommentsActivity.class);
+                intent1.putExtra("prodId",id);
+                System.out.println("TEST: "+currentUid);
+                intent1.putExtra("uid",currentUid);
+                startActivity(intent1);
             }
         });
     }
@@ -90,7 +94,6 @@ public class BookDetail extends AppCompatActivity {
             public void onResponse(Call<Products> call, Response<Products> response) {
                 if(response.isSuccessful()){
                     Products currentProduct=response.body();
-                    sellerUID=currentProduct.getAuthor().getId();
                     bookName.setText(currentProduct.getTitle());
                     authorName.setText("A book by: "+currentProduct.getBookauthor());
                     description.setText(currentProduct.getDescription());
