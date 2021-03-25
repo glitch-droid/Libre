@@ -20,7 +20,7 @@
                 android:fontFamily="@font/quicksand_bold"
                 android:textColor="@color/black_accent"
                 android:drawableBottom="@drawable/underline"
-                android:textSize="24sp"
+                android:textSize="28sp"
                 android:layout_marginTop="20dp"
                 android:layout_marginStart="20dp"/>
 
@@ -69,7 +69,7 @@
                 android:layout_width="match_parent"
                 android:padding="10dp"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/account_titleHolder"
+                android:layout_below="@id/account_myBooksRV"
                 android:layout_marginTop="50dp"
                 android:text="User Name"
                 android:textAlignment="viewEnd"
@@ -82,51 +82,13 @@
                 android:drawableStart="@drawable/man_icon"/>
 
             <TextView
-                android:id="@+id/account_userAddressTV"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
-                android:layout_width="match_parent"
-                android:padding="10dp"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/account_userNameTV"
-                android:layout_marginTop="30dp"
-                android:text="User Address"
-                android:textAlignment="viewEnd"
-                android:textDirection="rtl"
-                android:textSize="20sp"
-                android:fontFamily="@font/quicksand_bold"
-                android:textColor="@color/black_accent"
-                android:drawablePadding="20dp"
-                android:background="@drawable/account_details_bgr"
-                android:drawableStart="@drawable/register_area_icon"/>
-
-            <TextView
-                android:id="@+id/account_userNumberTV"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
-                android:layout_width="match_parent"
-                android:padding="10dp"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/account_userAddressTV"
-                android:layout_marginTop="30dp"
-                android:text="User Phone Number"
-                android:textAlignment="viewEnd"
-                android:textDirection="rtl"
-                android:textSize="20sp"
-                android:fontFamily="@font/quicksand_bold"
-                android:textColor="@color/black_accent"
-                android:drawablePadding="20dp"
-                android:background="@drawable/account_details_bgr"
-                android:drawableStart="@drawable/phone_icon"/>
-
-            <TextView
                 android:id="@+id/account_userEmailTV"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
                 android:layout_width="match_parent"
                 android:padding="10dp"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/account_userNumberTV"
+                android:layout_below="@id/account_userNameTV"
                 android:layout_marginTop="30dp"
                 android:text="User Mail Id"
                 android:textAlignment="viewEnd"
@@ -135,16 +97,18 @@
                 android:fontFamily="@font/quicksand_bold"
                 android:textColor="@color/black_accent"
                 android:drawablePadding="20dp"
+                android:layout_marginBottom="30dp"
                 android:background="@drawable/account_details_bgr"
                 android:drawableStart="@drawable/mail_filled"/>
 
 
             <TextView
+                android:id="@+id/myUploads_TAG"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="My Uploads"
                 android:layout_marginStart="30dp"
-                android:layout_below="@id/account_userEmailTV"
+                android:layout_below="@id/account_titleHolder"
                 android:textSize="20sp"
                 android:fontFamily="@font/quicksand_bold"
                 android:textColor="@color/black"
@@ -155,9 +119,9 @@
                 android:scrollbars="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="100dp"
+                android:layout_marginTop="30dp"
                 android:layout_centerHorizontal="true"
-                android:layout_below="@id/account_userEmailTV"/>
+                android:layout_below="@id/myUploads_TAG"/>
 
         </RelativeLayout>
     </ScrollView>

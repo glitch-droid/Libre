@@ -13,9 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_above="@+id/bottomNavBar"
-        android:background="@color/white"
-        android:paddingLeft="10dp"
-        android:paddingRight="10dp" />
+        android:background="@color/white" />
 
 
     <com.google.android.material.bottomnavigation.BottomNavigationView

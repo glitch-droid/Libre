@@ -91,6 +91,7 @@ public class MainActivity extends AppCompatActivity {
 
                             navigationBar.getMenu().getItem(1).setIcon(R.drawable.man_icon_outline);
                             navigationBar.getMenu().getItem(2).setIcon(R.drawable.bookmarked_icon_outlined);
+                            buttonMain.show();
                         }
                         break;
 
@@ -101,6 +102,8 @@ public class MainActivity extends AppCompatActivity {
 
                             navigationBar.getMenu().getItem(0).setIcon(R.drawable.explore_icon_outline);
                             navigationBar.getMenu().getItem(2).setIcon(R.drawable.bookmarked_icon_outlined);
+
+                            buttonMain.hide();
                         }
 
                         break;
@@ -111,6 +114,7 @@ public class MainActivity extends AppCompatActivity {
 
                             navigationBar.getMenu().getItem(0).setIcon(R.drawable.explore_icon_outline);
                             navigationBar.getMenu().getItem(1).setIcon(R.drawable.man_icon_outline);
+                            buttonMain.hide();
                         }
                         break;
 
