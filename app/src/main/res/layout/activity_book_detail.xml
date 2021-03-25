@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/white"
     tools:context=".BookDetail">
-<include layout="@layout/bookdetail_actionbar" />
+    <include layout="@layout/bookdetail_actionbar" />
 
     <ScrollView
         android:layout_width="match_parent"

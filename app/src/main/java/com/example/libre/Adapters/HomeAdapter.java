@@ -9,6 +9,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.libre.Constants.Constants;
 import com.example.libre.Models.BookModel;
 import com.example.libre.R;
 import com.squareup.picasso.Picasso;
@@ -39,7 +40,7 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> {
         holder.authorName.setText(booksList.get(position).getAuthor());
         holder.bookDescp.setText(booksList.get(position).getDescription());
         holder.bookPrice.setText("₹"+booksList.get(position).getPrice()+"/Week");
-        String base="http://35.193.15.204:3000/";
+        String base= Constants.BASE_URL;
         if(booksList.get(position).getUrl().length()!=0){
             Picasso.get().load(base+booksList.get(position).getUrl())
                     .fit()
