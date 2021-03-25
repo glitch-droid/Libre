@@ -101,7 +101,7 @@
                         android:backgroundTint="@color/palette_3"
                         android:src="@drawable/edit_icon"
                         android:visibility="visible"
-                        app:rippleColor="@color/palette_4" />
+                        app:rippleColor="@color/burgundy_secondary" />
 
                     <com.google.android.material.floatingactionbutton.FloatingActionButton
                         android:id="@+id/bookDetail_deleteFAB"
@@ -113,7 +113,7 @@
                         android:layout_alignParentRight="true"
                         android:layout_below="@id/bookDetail_commentsFAB"
                         android:visibility="visible"
-                        app:rippleColor="@color/palette_4"/>
+                        app:rippleColor="@color/burgundy_secondary"/>
 
                     <TextView
                         android:id="@+id/bookDetail_bookAuthorTV"
@@ -131,8 +131,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/descp"
-                        android:layout_below="@id/bookDetail_bookAuthorTV"
-                        android:layout_marginTop="40dp"
+                        android:layout_below="@id/bookDetail_deleteFAB"
                         android:fontFamily="@font/roboto_bold"
                         android:textSize="18sp"
                         android:textColor="@color/red_primary"/>
@@ -141,11 +140,10 @@
                         android:id="@+id/bookDetail_bookDescriptionTV"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_below="@+id/bookDetail_editFAB"
+                        android:layout_below="@+id/bookDetail_descpTagTV"
                         android:layout_marginTop="10dp"
                         android:text="Loading..."
                         android:textColor="@color/gray"
-
                         android:textSize="16sp" />
 
                     <com.google.android.material.button.MaterialButton
