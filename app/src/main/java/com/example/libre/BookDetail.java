@@ -1,8 +1,12 @@
 package com.example.libre;
 
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -37,9 +41,11 @@ public class BookDetail extends AppCompatActivity {
     private TextView bookName,authorName,description,bookPrice,sellerName,sellerEmail,sellerPhoneNo,sellerAddress;
     private FloatingActionButton toComments;
     private String currentUid,pNo;
+    private FloatingActionButton deleteFab;
+    private AlertDialog.Builder builder;
 
     @Inject
-    Retrofit retrofit;
+    public Retrofit retrofit;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,6 +60,9 @@ public class BookDetail extends AppCompatActivity {
         authorName=findViewById(R.id.bookDetail_bookAuthorTV);
         description=findViewById(R.id.bookDetail_bookDescriptionTV);
         toComments = findViewById(R.id.bookDetail_commentsFAB);
+        deleteFab = findViewById(R.id.bookDetail_deleteFAB);
+        builder = new AlertDialog.Builder(this);
+
 
         Intent intent=getIntent();
         String id=intent.getStringExtra("id");
@@ -84,6 +93,32 @@ public class BookDetail extends AppCompatActivity {
                 startActivity(intent1);
             }
         });
+        deleteFab.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                       builder.setTitle("Alert!");
+                        builder.setMessage("Do you want to delete this item ?")
+                                .setCancelable(false)
+                                .setPositiveButton("Delete", new DialogInterface.OnClickListener() {
+                                    public void onClick(DialogInterface dialog, int id) {
+                                        Toast.makeText(getApplicationContext(),"Delete",
+                                                Toast.LENGTH_SHORT).show();
+                                    }
+                                })
+                                .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                                    public void onClick(DialogInterface dialog, int id) {
+                                        //  Action for 'NO' Button
+                                        dialog.cancel();
+                                        Toast.makeText(getApplicationContext(),"Cancel",
+                                                Toast.LENGTH_SHORT).show();
+                                    }
+                                });
+                        AlertDialog alert = builder.create();
+                        alert.show();
+                }
+                }
+        );
     }
 
     private void getAllDetails(String id){
