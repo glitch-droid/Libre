@@ -8,7 +8,13 @@ public class BookModel {
     String price;
     String url;
     String id;
-    public BookModel() {
+
+    //constructor testing
+    public BookModel(String book, String author, String description, String price) {
+        this.book = book;
+        this.author = author;
+        this.description = description;
+        this.price = price;
     }
 
     public BookModel(String book, String author, String description, String price,String url,String id) {
