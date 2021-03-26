@@ -2,6 +2,7 @@ package com.example.libre.DaggerSetupFiles;
 
 import android.content.Context;
 
+import com.example.libre.Constants.Constants;
 import com.franmontiel.persistentcookiejar.PersistentCookieJar;
 import com.franmontiel.persistentcookiejar.cache.SetCookieCache;
 import com.franmontiel.persistentcookiejar.persistence.SharedPrefsCookiePersistor;
@@ -52,7 +53,7 @@ public class RetrofitClientModule {
                 .build();
 
         Retrofit retrofit=new Retrofit.Builder()
-                .baseUrl("http://35.193.15.204:3000/")
+                .baseUrl(Constants.BASE_URL)
                 .addConverterFactory(ScalarsConverterFactory.create())
                 .addConverterFactory(GsonConverterFactory.create(gson))
                 .client(okHttpClient)

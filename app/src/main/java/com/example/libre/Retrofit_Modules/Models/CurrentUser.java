@@ -8,7 +8,7 @@ public class CurrentUser {
 
     private List<Object> myorders = null;
 
-    private List<Object> myproducts = null;
+    private List<String> myproducts = null;
 
     private List<Object> ordered = null;
 
@@ -33,11 +33,11 @@ public class CurrentUser {
         this.myorders = myorders;
     }
 
-    public List<Object> getMyproducts() {
+    public List<String> getMyproducts() {
         return myproducts;
     }
 
-    public void setMyproducts(List<Object> myproducts) {
+    public void setMyproducts(List<String> myproducts) {
         this.myproducts = myproducts;
     }
 

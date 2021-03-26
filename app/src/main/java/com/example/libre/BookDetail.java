@@ -39,7 +39,7 @@ public class BookDetail extends AppCompatActivity {
     private Button getItButton;
     private ImageView backButton,productImage;
     private TextView bookName,authorName,description,bookPrice,sellerName,sellerEmail,sellerPhoneNo,sellerAddress;
-    private FloatingActionButton toComments;
+    private FloatingActionButton toComments,editFAB,deleteFAB;
     private String currentUid,pNo;
     private FloatingActionButton deleteFab;
     private AlertDialog.Builder builder;
@@ -60,13 +60,22 @@ public class BookDetail extends AppCompatActivity {
         authorName=findViewById(R.id.bookDetail_bookAuthorTV);
         description=findViewById(R.id.bookDetail_bookDescriptionTV);
         toComments = findViewById(R.id.bookDetail_commentsFAB);
+      
         deleteFab = findViewById(R.id.bookDetail_deleteFAB);
         builder = new AlertDialog.Builder(this);
-
 
         Intent intent=getIntent();
         String id=intent.getStringExtra("id");
         currentUid=intent.getStringExtra("uid");
+        String status=intent.getStringExtra("status");
+
+        if(status.equals("read")){
+            editFAB.setVisibility(View.INVISIBLE);
+            deleteFAB.setVisibility(View.INVISIBLE);
+            editFAB.setEnabled(false);
+            deleteFAB.setEnabled(false);
+        }
+
         getAllDetails(id);
         getItButton.setOnClickListener(new View.OnClickListener() {
             @Override

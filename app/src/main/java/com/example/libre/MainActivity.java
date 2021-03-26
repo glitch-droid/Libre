@@ -97,7 +97,7 @@ public class MainActivity extends AppCompatActivity {
 
                     case R.id.account :
                         if(!(fragment instanceof AccountFragment)){
-                            fragment = new AccountFragment();
+                            fragment = new AccountFragment(retrofit);
                             item.setIcon(R.drawable.man_icon);
 
                             navigationBar.getMenu().getItem(0).setIcon(R.drawable.explore_icon_outline);

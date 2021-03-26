@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -18,14 +19,18 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.example.libre.Adapters.HomeAdapter;
 import com.example.libre.BookDetail;
+import com.example.libre.Constants.Constants;
 import com.example.libre.Models.BookModel;
 import com.example.libre.R;
 import com.example.libre.Retrofit_Modules.Models.AllProducts;
+import com.example.libre.SharedPrefsManager.SharedPrefManager;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.example.libre.Retrofit_Modules.API_Caller;
 import com.example.libre.Retrofit_Modules.Models.CurrentUser;
 import com.example.libre.Retrofit_Modules.Models.Products;
 import com.example.libre.Retrofit_Modules.Models.UserDetails;
+
+import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -38,6 +43,7 @@ import retrofit2.Retrofit;
 public class HomeFragment extends Fragment implements HomeAdapter.OnBookListenerHome{
 
     private Retrofit retrofit;
+    private SharedPrefManager sharedPrefManager;
     private List<BookModel> bookModelList;
     private boolean clicked = false;
     private SwipeRefreshLayout refreshLayout;
@@ -53,6 +59,7 @@ public class HomeFragment extends Fragment implements HomeAdapter.OnBookListener
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = LayoutInflater.from(getContext()).inflate(R.layout.home_fragment_layout,container,false);
         RecyclerView recyclerView = view.findViewById(R.id.homeFragmentRV);
+        sharedPrefManager=new SharedPrefManager(getContext());
 
         HomeAdapter adapter = new HomeAdapter(this);
         bookModelList = new ArrayList<>();
@@ -87,6 +94,9 @@ public class HomeFragment extends Fragment implements HomeAdapter.OnBookListener
                     List<AllProducts> books=response.body().getProducts();
                     CurrentUser user=response.body().getCurrentUser();
                     currentUid=user.getId();
+                    sharedPrefManager.storeKeyValuePair(Constants.CURRENT_USER,currentUid);
+                    sharedPrefManager.storeKeyValuePair(Constants.USER_NAME,user.getName());
+                    sharedPrefManager.storeKeyValuePair(Constants.USER_EMAIL,user.getUsername());
                     System.out.println("TEST: "+user.getId());
                     for(AllProducts prod:books){
                         if(prod.getImage().size()!=0){
@@ -121,6 +131,7 @@ public class HomeFragment extends Fragment implements HomeAdapter.OnBookListener
         Intent intent=new Intent(getContext(),BookDetail.class);
         intent.putExtra("id",bookModel.getId());
         intent.putExtra("uid",currentUid);
+        intent.putExtra("status","read");
         startActivity(intent);
     }
 }

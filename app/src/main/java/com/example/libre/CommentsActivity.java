@@ -43,6 +43,7 @@ public class CommentsActivity extends AppCompatActivity {
     private String productId;
     private SwipeRefreshLayout refreshLayout;
     private ImageView close;
+
     @Inject
     Retrofit retrofit;
 

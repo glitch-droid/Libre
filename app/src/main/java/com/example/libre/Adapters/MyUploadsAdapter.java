@@ -9,6 +9,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.libre.Constants.Constants;
 import com.example.libre.Models.BookModel;
 import com.example.libre.R;
 import com.squareup.picasso.Picasso;
@@ -38,7 +39,13 @@ public class MyUploadsAdapter extends RecyclerView.Adapter<MyUploadsAdapter.MyBo
     public void onBindViewHolder(@NonNull MyBookHolder holder, int position) {
         holder.bookName.setText(myBooksList.get(position).getBook());
         holder.bookPrice.setText(myBooksList.get(position).getPrice());
-
+        String base= Constants.BASE_URL;
+        if(myBooksList.get(position).getUrl().length()!=0){
+            Picasso.get().load(base+myBooksList.get(position).getUrl())
+                    .fit()
+                    .centerInside()
+                    .into(holder.bookImage);
+        }
     }
 
 

@@ -20,11 +20,6 @@ public class BookModel {
         this.url=url;
     }
 
-    //Constructor for testing purposes
-    public BookModel(String book,  String price) {
-        this.book = book;
-        this.price = price;
-    }
 
     public String getBook() {
         return book;
