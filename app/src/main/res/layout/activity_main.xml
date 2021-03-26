@@ -25,7 +25,7 @@
         android:layout_height="60dp"
         android:background="@drawable/navbar_bgr"
         android:layout_alignParentBottom="true"
-        app:itemRippleColor="@color/palette_4"
+        app:itemRippleColor="@color/burgundy_secondary"
         android:fitsSystemWindows="true"
         app:itemIconTint="@color/black_accent"
         app:labelVisibilityMode="unlabeled"

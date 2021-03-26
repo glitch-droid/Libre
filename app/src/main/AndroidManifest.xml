@@ -17,7 +17,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Libre"
         android:usesCleartextTraffic="true">
-        <activity android:name=".BookDetail"></activity>
+        <activity android:name=".BookDetail" android:theme="@style/Theme.BookActivityTheme"></activity>
         <activity android:name=".CommentsActivity"></activity>
         <activity android:name=".AddBook" />
         <activity

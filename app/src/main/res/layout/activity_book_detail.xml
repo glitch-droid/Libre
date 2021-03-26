@@ -73,7 +73,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:backgroundTint="@color/black_accent"
-                        android:src="@drawable/bookmarker_icon_filled"
+                        android:src="@drawable/bookmark_icon_details"
                         android:layout_alignParentEnd="true"
                         app:rippleColor="@color/palette_4"
                         android:layout_marginTop="10dp"/>
@@ -108,7 +108,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:backgroundTint="@color/red_primary"
-                        android:src="@drawable/delete_icon"
+                        android:src="@drawable/delete_icon_details"
                         android:layout_marginTop="5dp"
                         android:layout_alignParentRight="true"
                         android:layout_below="@id/bookDetail_commentsFAB"
@@ -146,7 +146,7 @@
                         android:textColor="@color/gray"
                         android:textSize="16sp" />
 
-                    <com.google.android.material.button.MaterialButton
+                    <Button
                         android:id="@+id/bookDetail_getItButton"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
