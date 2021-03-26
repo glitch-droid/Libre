@@ -39,7 +39,7 @@ public class BookDetail extends AppCompatActivity {
     private Button getItButton;
     private ImageView backButton,productImage;
     private TextView bookName,authorName,description,bookPrice,sellerName,sellerEmail,sellerPhoneNo,sellerAddress;
-    private FloatingActionButton toComments,editFAB,deleteFAB;
+    private FloatingActionButton toComments,editFAB;
     private String currentUid,pNo;
     private FloatingActionButton deleteFab;
     private AlertDialog.Builder builder;
@@ -60,7 +60,7 @@ public class BookDetail extends AppCompatActivity {
         authorName=findViewById(R.id.bookDetail_bookAuthorTV);
         description=findViewById(R.id.bookDetail_bookDescriptionTV);
         toComments = findViewById(R.id.bookDetail_commentsFAB);
-      
+        editFAB = findViewById(R.id.bookDetail_editFAB);
         deleteFab = findViewById(R.id.bookDetail_deleteFAB);
         builder = new AlertDialog.Builder(this);
 
@@ -71,9 +71,9 @@ public class BookDetail extends AppCompatActivity {
 
         if(status.equals("read")){
             editFAB.setVisibility(View.INVISIBLE);
-            deleteFAB.setVisibility(View.INVISIBLE);
+            deleteFab.setVisibility(View.INVISIBLE);
             editFAB.setEnabled(false);
-            deleteFAB.setEnabled(false);
+            deleteFab.setEnabled(false);
         }
 
         getAllDetails(id);
