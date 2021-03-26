@@ -29,6 +29,7 @@ import com.squareup.picasso.Picasso;
 
 import javax.inject.Inject;
 
+import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -39,10 +40,10 @@ public class BookDetail extends AppCompatActivity {
     private Button getItButton;
     private ImageView backButton,productImage;
     private TextView bookName,authorName,description,bookPrice,sellerName,sellerEmail,sellerPhoneNo,sellerAddress;
-    private FloatingActionButton toComments,editFAB;
+    private FloatingActionButton toComments,editFAB,deleteFab;
     private String currentUid,pNo;
-    private FloatingActionButton deleteFab;
     private AlertDialog.Builder builder;
+    private String area,city,state,country,title,bookauthor,bookdescription,bookphoneno,bookamount;
 
     @Inject
     public Retrofit retrofit;
@@ -65,7 +66,7 @@ public class BookDetail extends AppCompatActivity {
         builder = new AlertDialog.Builder(this);
 
         Intent intent=getIntent();
-        String id=intent.getStringExtra("id");
+        String prodId=intent.getStringExtra("id");
         currentUid=intent.getStringExtra("uid");
         String status=intent.getStringExtra("status");
 
@@ -76,7 +77,7 @@ public class BookDetail extends AppCompatActivity {
             deleteFab.setEnabled(false);
         }
 
-        getAllDetails(id);
+        getAllDetails(prodId);
         getItButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -96,12 +97,32 @@ public class BookDetail extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent1=new Intent(getApplicationContext(),CommentsActivity.class);
-                intent1.putExtra("prodId",id);
+                intent1.putExtra("prodId",prodId);
                 System.out.println("TEST: "+currentUid);
                 intent1.putExtra("uid",currentUid);
                 startActivity(intent1);
             }
         });
+        editFAB.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent editIntent=new Intent(getApplicationContext(),AddBook.class);
+                editIntent.putExtra("status","edit");
+                editIntent.putExtra("area",area);
+                editIntent.putExtra("city",city);
+                editIntent.putExtra("country",country);
+                editIntent.putExtra("state",state);
+                editIntent.putExtra("phone",bookphoneno);
+                editIntent.putExtra("amount",bookamount);
+                editIntent.putExtra("title",title);
+                editIntent.putExtra("author",bookauthor);
+                editIntent.putExtra("desc",bookdescription);
+                editIntent.putExtra("prodID",prodId);
+                startActivity(editIntent);
+            }
+        });
+
+
         deleteFab.setOnClickListener(
                 new View.OnClickListener() {
                     @Override
@@ -111,16 +132,32 @@ public class BookDetail extends AppCompatActivity {
                                 .setCancelable(false)
                                 .setPositiveButton("Delete", new DialogInterface.OnClickListener() {
                                     public void onClick(DialogInterface dialog, int id) {
-                                        Toast.makeText(getApplicationContext(),"Delete",
-                                                Toast.LENGTH_SHORT).show();
+                                        //Action for Yes Button
+                                        API_Caller caller=retrofit.create(API_Caller.class);
+                                        Call<ResponseBody> call=caller.deleteProduct("products/"+prodId+"/?xerox=book");
+                                        call.enqueue(new Callback<ResponseBody>() {
+                                            @Override
+                                            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                                                if(response.isSuccessful()){
+                                                    Toast.makeText(getApplicationContext(),"Product Deleted!",Toast.LENGTH_SHORT).show();
+                                                    finish();
+                                                }else{
+                                                    Toast.makeText(getApplicationContext(),"Failed to delete!",Toast.LENGTH_SHORT).show();
+                                                }
+                                                dialog.cancel();
+                                            }
+
+                                            @Override
+                                            public void onFailure(Call<ResponseBody> call, Throwable t) {
+                                                Toast.makeText(getApplicationContext(),"An error occurred! Failed to delete!",Toast.LENGTH_SHORT).show();
+                                            }
+                                        });
                                     }
                                 })
                                 .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
                                     public void onClick(DialogInterface dialog, int id) {
                                         //  Action for 'NO' Button
                                         dialog.cancel();
-                                        Toast.makeText(getApplicationContext(),"Cancel",
-                                                Toast.LENGTH_SHORT).show();
                                     }
                                 });
                         AlertDialog alert = builder.create();
@@ -138,10 +175,20 @@ public class BookDetail extends AppCompatActivity {
             public void onResponse(Call<Products> call, Response<Products> response) {
                 if(response.isSuccessful()){
                     Products currentProduct=response.body();
+                    area=currentProduct.getAddress().getArea();
+                    city=currentProduct.getAddress().getCity();
+                    state=currentProduct.getAddress().getState();
+                    country=currentProduct.getAddress().getCountry();
+                    bookphoneno=currentProduct.getPhoneNumber();
+                    bookamount=currentProduct.getAmount();
+                    bookauthor=currentProduct.getBookauthor();
+                    title=currentProduct.getTitle();
+                    bookdescription=currentProduct.getDescription();
+
                     bookName.setText(currentProduct.getTitle());
                     authorName.setText("A book by: "+currentProduct.getBookauthor());
                     description.setText(currentProduct.getDescription());
-                    String baseUrl="http://35.193.15.204:3000/";
+                    String baseUrl=Constants.BASE_URL;
                     if(currentProduct.getImage().size()!=0){
                         Picasso.get().load(baseUrl+currentProduct.getImage().get(0))
                                 .fit()
@@ -180,9 +227,9 @@ public class BookDetail extends AppCompatActivity {
                 if(response.isSuccessful()){
                     Products currentProd=response.body();
                     sellerAddress.setText("Country: "+currentProd.getAddress().getCountry()+
-                            "\tState: "+currentProd.getAddress().getState()+
-                            "\tCity: "+currentProd.getAddress().getCity()+
-                            "\tArea: "+currentProd.getAddress().getArea());
+                            "\t State: "+currentProd.getAddress().getState()+
+                            "\t City: "+currentProd.getAddress().getCity()+
+                            "\t Area: "+currentProd.getAddress().getArea());
                     bookPrice.setText("₹"+currentProd.getAmount()+"/Week");
                     sellerEmail.setText("Email: "+currentProd.getAuthor().getUsername());
                     sellerPhoneNo.setText("Contact No.: "+currentProd.getPhoneNumber());
