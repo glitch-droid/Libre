@@ -13,6 +13,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.airbnb.lottie.LottieAnimationView;
 import com.example.libre.Adapters.MyUploadsAdapter;
 import com.example.libre.BookDetail;
 import com.example.libre.Constants.Constants;

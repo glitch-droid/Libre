@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="40dp"
+    android:padding="20dp"
+    app:cardElevation="10dp"
+    app:cardCornerRadius="10dp"
+    android:backgroundTint="@color/white"
+    app:rippleColor="@color/palette_4"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+<LinearLayout
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:paddingBottom="20dp"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="240dp"
+        android:orientation="horizontal"
+        android:paddingBottom="20dp"
+        android:padding="10dp"
+        android:elevation="10dp"
+        android:weightSum="2">
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/bookmarkRV_itemCV"
+            android:layout_width="150dp"
+            android:layout_height="match_parent"
+            android:backgroundTint="@color/black"
+            app:cardCornerRadius="10dp"
+            app:cardElevation="10dp">
+            <ImageView
+                android:id="@+id/bookmarkRV_itemIV"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/sample_book"
+                android:scaleType="centerCrop"/>
+        </com.google.android.material.card.MaterialCardView>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="10dp">
+
+            <TextView
+                android:id="@+id/bookmarkRV_itemNameTV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto_bold"
+                android:text="Modern Control Engineering"
+                android:textAlignment="viewStart"
+                android:textColor="@color/black"
+                android:maxHeight="70dp"
+                android:textSize="20sp"
+                android:maxLength="40"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/bookmarkRV_itemAuthorTV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto_medium"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                android:maxHeight="40dp"
+                android:maxLength="50"
+                android:text="By  Katsuhiko Ogata"
+                android:textAlignment="viewStart"
+                android:textColor="@color/gray"
+                android:textSize="12sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/bookmarkRV_itemNameTV" />
+
+            <TextView
+                android:id="@+id/bookmarkRV_itemDescpTV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto"
+                android:maxHeight="70dp"
+                android:maxLines="3"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                android:maxLength="150"
+                android:text="@string/loren_ipsum"
+                android:textColor="@color/gray"
+                android:textSize="10sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/bookmarkRV_itemAuthorTV" />
+
+            <TextView
+                android:id="@+id/bookmarkRV_itemPriceTV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto_bold"
+                android:maxHeight="30dp"
+                android:maxLines="1"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                android:text="₹ 579"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.87" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+    </LinearLayout>
+
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:paddingRight="10dp"
+        android:paddingLeft="10dp"
+        android:layout_height="50dp">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/removeBookmarkButton"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            app:backgroundTint="@color/palette_4"
+            android:text="REmove Bookmark"
+            app:cornerRadius="7dp"
+            app:rippleColor="@color/burgundy_secondary"
+            android:layout_centerInParent="true"/>
+    </RelativeLayout>
+
+</LinearLayout>
+
+</com.google.android.material.card.MaterialCardView>
