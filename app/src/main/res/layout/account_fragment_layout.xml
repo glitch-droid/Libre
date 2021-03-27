@@ -17,57 +17,27 @@
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-                <TextView
-                    android:id="@+id/account_titleTV"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginTop="20dp"
-                    android:drawableBottom="@drawable/underline"
-                    android:fontFamily="@font/quicksand_bold"
-                    android:text="Account"
-                    android:textColor="@color/black_accent"
-                    android:textSize="28sp" />
-
-
-                <com.airbnb.lottie.LottieAnimationView
-                    android:id="@+id/account_anim"
-                    android:layout_width="match_parent"
-                    android:layout_height="200dp"
-                    android:layout_below="@id/account_titleTV"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:lottie_autoPlay="true"
-                    app:lottie_loop="true"
-                    app:lottie_rawRes="@raw/profile_bgr_anim"
-                    app:lottie_speed="0.3" />
-
-                <androidx.cardview.widget.CardView
-                    android:id="@+id/account_titleHolder"
-                    android:layout_width="130dp"
-                    android:layout_height="130dp"
-                    android:layout_below="@id/account_titleTV"
-                    android:layout_centerHorizontal="true"
-                    android:layout_marginTop="40dp"
-                    android:backgroundTint="@color/black_accent"
-                    android:outlineSpotShadowColor="@color/palette_3"
-                    app:cardCornerRadius="65dp"
-                    app:cardElevation="20dp">
-
-                    <TextView
-                        android:id="@+id/account_firstLetterTV"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:fontFamily="@font/quicksand_bold"
-                        android:gravity="center"
-                        android:text="M"
-                        android:textColor="@color/white"
-                        android:textSize="50sp" />
-
-                </androidx.cardview.widget.CardView>
+                android:layout_height="200dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:lottie_rawRes="@raw/profile_anim"
+                android:layout_below="@id/account_titleTV"
+                app:lottie_speed="0.3"
+                app:lottie_autoPlay="true"
+                app:lottie_loop="true"
+                />
+            <androidx.cardview.widget.CardView
+                android:id="@+id/account_titleHolder"
+                android:layout_width="130dp"
+                app:cardCornerRadius="65dp"
+                android:backgroundTint="@color/black_accent"
+                android:layout_below="@id/account_titleTV"
+                android:layout_marginTop="40dp"
+                android:layout_centerHorizontal="true"
+                app:cardElevation="20dp"
+                android:outlineSpotShadowColor="@color/palette_3"
+                android:layout_height="130dp">
 
                 <TextView
                     android:id="@+id/account_userNameTV"
