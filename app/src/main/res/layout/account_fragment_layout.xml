@@ -31,7 +31,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:lottie_rawRes="@raw/profile_bgr_anim"
+                app:lottie_rawRes="@raw/profile_anim"
                 android:layout_below="@id/account_titleTV"
                 app:lottie_speed="0.3"
                 app:lottie_autoPlay="true"

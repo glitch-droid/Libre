@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".SplashScreen">
+    <TextView
+        android:id="@+id/splash_title"
+        android:layout_above="@id/splash_logo"
+        android:layout_marginBottom="100dp"
+        android:layout_width="wrap_content"
+        android:text="@string/app_name_caps"
+        android:fontFamily="@font/quicksand_bold"
+        android:textSize="52sp"
+        android:layout_centerHorizontal="true"
+        android:textColor="@color/burgundy_secondary"
+        android:layout_height="wrap_content"/>
+
+    <ImageView
+        android:id="@+id/splash_logo"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_centerInParent="true"
+        android:scaleType="fitCenter"
+        android:src="@raw/logo" />
+
+    <TextView
+        android:id="@+id/splash_msg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/splash_msg"
+        android:layout_below="@id/splash_logo"
+        android:textSize="24sp"
+        android:layout_centerHorizontal="true"
+        android:fontFamily="@font/quicksand_medium"
+        android:textColor="@color/black_accent"
+
+        android:layout_marginTop="50dp"/>
+    <com.airbnb.lottie.LottieAnimationView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/splash_msg"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        app:lottie_colorFilter="@color/palette_4"
+        app:lottie_speed="0.5"
+        app:lottie_rawRes="@raw/splash_bgr"/>
+
+</RelativeLayout>

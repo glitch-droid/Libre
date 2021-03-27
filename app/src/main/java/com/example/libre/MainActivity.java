@@ -1,16 +1,22 @@
 package com.example.libre;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.AlertDialogLayout;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.Button;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
@@ -34,9 +40,9 @@ public class MainActivity extends AppCompatActivity {
     private FrameLayout container;
     private LinearLayout actionBarBG;
     FloatingActionButton buttonMain;
-    FloatingActionButton fab1;
-    FloatingActionButton fab2;
+    private ImageView logout;
     private boolean clicked = false;
+    private AlertDialog.Builder builder;
     @Inject
     public Retrofit retrofit;
 
@@ -49,35 +55,18 @@ public class MainActivity extends AppCompatActivity {
         container = findViewById(R.id.fragmentContainer);
         navigationBar = findViewById(R.id.bottomNavBar);
         buttonMain = findViewById(R.id.floatingActionButton_main);
-        fab1 = findViewById(R.id.floatingActionButton_1);
-        fab2 = findViewById(R.id.floatingActionButton_2);
+        logout = findViewById(R.id.logoutButton);
+        builder = new AlertDialog.Builder(this);
 
         ((MyApplication) getApplication()).getApiComponent().injectMain(this);
 
         buttonMain.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                onMainClicked();
-            }
-        });
-
-        fab1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
                 Intent intent=new Intent(getApplicationContext(),AddBook.class);
                 startActivity(intent);
             }
         });
-
-        fab2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(getApplicationContext(), "Fab2", Toast.LENGTH_SHORT).show();
-            }
-        });
-
-
-
 
         navigationBar.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -102,7 +91,6 @@ public class MainActivity extends AppCompatActivity {
 
                             navigationBar.getMenu().getItem(0).setIcon(R.drawable.explore_icon_outline);
                             navigationBar.getMenu().getItem(2).setIcon(R.drawable.bookmarked_icon_outlined);
-
                             buttonMain.hide();
                         }
 
@@ -127,43 +115,37 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer,new HomeFragment(retrofit)).commit();
-    }
-    private void onMainClicked() {
-        setVisibility(clicked);
-        setAnimation(clicked);
-        clicked = !clicked;
-    }
 
-    private void setAnimation(boolean clicked) {
-        if(clicked){
-            fab1.setVisibility(View.GONE);
-            fab1.setEnabled(false);
-            fab2.setVisibility(View.GONE);
-            fab2.setEnabled(false);
-        }else{
-            fab1.setVisibility(View.VISIBLE);
-            fab1.setEnabled(true);
-            fab2.setVisibility(View.VISIBLE);
-            fab2.setEnabled(true);
-        }
-    }
 
-    private void setVisibility(boolean clicked) {
-
-        Animation rotateOpen = AnimationUtils.loadAnimation(this,R.anim.rotate_open);
-        Animation rotateClose = AnimationUtils.loadAnimation(this,R.anim.rotate_close);
-        Animation toBottom = AnimationUtils.loadAnimation(this,R.anim.to_bottom);
-        Animation fromBottom = AnimationUtils.loadAnimation(this,R.anim.from_bottom);
-
-        if(!clicked){
-            fab1.startAnimation(fromBottom);
-            fab2.startAnimation(fromBottom);
-            buttonMain.startAnimation(rotateOpen);
-        }else{
-            fab1.startAnimation(toBottom);
-            fab2.startAnimation(toBottom);
-            buttonMain.startAnimation(rotateClose);
-        }
+        logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(MainActivity.this, "Logout", Toast.LENGTH_SHORT).show();
+                builder.setTitle("Hey!");
+                builder.setMessage("Do you want to Logout ?")
+                        .setCancelable(false)
+                        .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                Toast.makeText(getApplicationContext(),"No",
+                                        Toast.LENGTH_SHORT).show();
+                            }
+                        })
+                        .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                //  Action for 'NO' Button
+                                dialog.cancel();
+                                Toast.makeText(getApplicationContext(),"No",
+                                        Toast.LENGTH_SHORT).show();
+                            }
+                        });
+                AlertDialog alert = builder.create();
+                alert.show();
+                Button buttonPositive = alert.getButton(DialogInterface.BUTTON_POSITIVE);
+                buttonPositive.setTextColor(ContextCompat.getColor(MainActivity.this, R.color.white));
+                Button buttonNegative = alert.getButton(DialogInterface.BUTTON_NEGATIVE);
+                buttonNegative.setTextColor(ContextCompat.getColor(MainActivity.this, R.color.white));
+            }
+        });
     }
 
 

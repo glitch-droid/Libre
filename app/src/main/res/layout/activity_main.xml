@@ -7,11 +7,14 @@
     android:layout_height="match_parent"
     android:background="@color/white"
     tools:context=".MainActivity">
+    <include layout="@layout/custom_actionbar"
+        android:id="@+id/action_bar_main"/>
 
     <FrameLayout
         android:id="@+id/fragmentContainer"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_below="@+id/action_bar_main"
         android:layout_above="@+id/bottomNavBar"
         android:background="@color/white" />
 
@@ -36,7 +39,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:clickable="true"
-        app:srcCompat="@drawable/reading_icon_filled"
+        app:srcCompat="@drawable/ic_round_add_24"
         android:backgroundTint="@color/red_primary"
         android:layout_alignParentEnd="true"
         app:backgroundTint="@color/red_primary"
@@ -46,34 +49,6 @@
         android:layout_marginBottom="100dp"
         />
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/floatingActionButton_1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/floatingActionButton_main"
-        android:layout_alignEnd="@+id/floatingActionButton_main"
-        android:layout_marginEnd="-1dp"
-        android:layout_marginBottom="24dp"
-        android:focusable="true"
-        android:backgroundTint="@color/burgundy_secondary"
-        android:visibility="gone"
-        android:clickable="true"
-        android:tint="@color/red_primary"
-        app:srcCompat="@drawable/sell_fab" />
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/floatingActionButton_2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/floatingActionButton_1"
-        android:layout_alignEnd="@+id/floatingActionButton_1"
-        android:layout_marginEnd="0dp"
-        android:layout_marginBottom="11dp"
-        android:visibility="gone"
-        android:focusable="true"
-        android:tint="@color/red_primary"
-        android:backgroundTint="@color/black_accent"
-        android:clickable="true"
-        app:srcCompat="@drawable/bookmarker_icon_filled" />
 
 </RelativeLayout>
