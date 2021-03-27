@@ -6,11 +6,10 @@ import java.util.List;
 
 public class CurrentUser {
 
-    private List<Object> myorders = null;
+    private List<String> bookmarks = null;
 
     private List<String> myproducts = null;
 
-    private List<Object> ordered = null;
 
     @SerializedName("_id")
     private String id;
@@ -25,12 +24,12 @@ public class CurrentUser {
 
     private Integer v;
 
-    public List<Object> getMyorders() {
-        return myorders;
+    public List<String> getBookmarks() {
+        return bookmarks;
     }
 
-    public void setMyorders(List<Object> myorders) {
-        this.myorders = myorders;
+    public void setBookmarks(List<String> bookmarks) {
+        this.bookmarks = bookmarks;
     }
 
     public List<String> getMyproducts() {
@@ -41,13 +40,7 @@ public class CurrentUser {
         this.myproducts = myproducts;
     }
 
-    public List<Object> getOrdered() {
-        return ordered;
-    }
 
-    public void setOrdered(List<Object> ordered) {
-        this.ordered = ordered;
-    }
 
     public String getId() {
         return id;

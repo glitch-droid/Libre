@@ -32,6 +32,7 @@ public class LoginActivity extends AppCompatActivity {
     TextView verify;
     TextView emailTV;
     TextView passwordTV;
+
     @Inject
     Retrofit retrofit;
 
@@ -82,7 +83,7 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<String> call, Response<String> response) {
                 String responseBody=response.body();
-                Headers receivedHeader=response.headers();
+
                 System.out.println("USERNAME: "+responseBody);
                 Document document= Jsoup.parse(responseBody);
                 Elements elements=document.select("input");
