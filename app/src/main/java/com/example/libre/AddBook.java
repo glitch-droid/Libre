@@ -103,6 +103,7 @@ public class AddBook extends AppCompatActivity {
 
                 selectedImage.setVisibility(View.GONE);
                 selectImageButton.setVisibility(View.GONE);
+                
                 selectImageButton.setEnabled(false);
             }
         }

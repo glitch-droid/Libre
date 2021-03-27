@@ -3,6 +3,7 @@ package com.example.libre;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -20,7 +21,9 @@ import android.widget.Toast;
 import com.example.libre.Constants.Constants;
 import com.example.libre.DaggerSetupFiles.MyApplication;
 import com.example.libre.Retrofit_Modules.API_Caller;
+import com.example.libre.Retrofit_Modules.Models.BookmarkMessage;
 import com.example.libre.Retrofit_Modules.Models.CurrentUser;
+import com.example.libre.Retrofit_Modules.Models.MessageFormat;
 import com.example.libre.Retrofit_Modules.Models.Products;
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
@@ -40,10 +43,11 @@ public class BookDetail extends AppCompatActivity {
     private Button getItButton;
     private ImageView backButton,productImage;
     private TextView bookName,authorName,description,bookPrice,sellerName,sellerEmail,sellerPhoneNo,sellerAddress;
-    private FloatingActionButton toComments,editFAB,deleteFab;
+    private FloatingActionButton toComments,editFAB,deleteFab,bookmarkFAB;
     private String currentUid,pNo;
     private AlertDialog.Builder builder;
     private String area,city,state,country,title,bookauthor,bookdescription,bookphoneno,bookamount;
+    private SwipeRefreshLayout refreshLayout;
 
     @Inject
     public Retrofit retrofit;
@@ -56,6 +60,7 @@ public class BookDetail extends AppCompatActivity {
 
         ((MyApplication)getApplication()).getApiComponent().injectInBookDetails(this);
 
+        refreshLayout=findViewById(R.id.bookmark_swipeToRefresh);
         productImage=findViewById(R.id.product_Image_IV);
         bookName=findViewById(R.id.bookDetail_bookName2TV);
         authorName=findViewById(R.id.bookDetail_bookAuthorTV);
@@ -63,6 +68,7 @@ public class BookDetail extends AppCompatActivity {
         toComments = findViewById(R.id.bookDetail_commentsFAB);
         editFAB = findViewById(R.id.bookDetail_editFAB);
         deleteFab = findViewById(R.id.bookDetail_deleteFAB);
+        bookmarkFAB=findViewById(R.id.bookDetail_bookmarkFAB);
         builder = new AlertDialog.Builder(this);
 
         Intent intent=getIntent();
@@ -77,6 +83,19 @@ public class BookDetail extends AppCompatActivity {
             deleteFab.setEnabled(false);
         }
 
+        refreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                getAllDetails(prodId);
+            }
+        });
+
+        bookmarkFAB.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                bookmarkCurrentBook(currentUid,prodId);
+            }
+        });
         getAllDetails(prodId);
         getItButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -167,6 +186,30 @@ public class BookDetail extends AppCompatActivity {
         );
     }
 
+    private void bookmarkCurrentBook(String userID,String prodID){
+        API_Caller caller=retrofit.create(API_Caller.class);
+        BookmarkMessage message=new BookmarkMessage();
+        message.setBookmark("N");
+        Call<MessageFormat> call=caller.addBookmark("bookmark/"+prodID+"/"+userID+"/?xerox=book",message);
+        call.enqueue(new Callback<MessageFormat>() {
+            @Override
+            public void onResponse(Call<MessageFormat> call, Response<MessageFormat> response) {
+                if(response.isSuccessful()){
+                    if(response.body().getMessage().equals("Added to Bookmarks")){
+                        Toast.makeText(getApplicationContext(),"Added to bookmarks!",Toast.LENGTH_SHORT).show();
+                    }else{
+                        Toast.makeText(getApplicationContext(),"Failed to add to bookmarks!",Toast.LENGTH_SHORT).show();
+                    }
+                }
+            }
+
+            @Override
+            public void onFailure(Call<MessageFormat> call, Throwable t) {
+                Toast.makeText(getApplicationContext(),"Failed to add to bookmarks!",Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
     private void getAllDetails(String id){
         API_Caller caller=retrofit.create(API_Caller.class);
         Call<Products> call=caller.getProductFromID("products/"+id+"/?xerox=book");
@@ -195,12 +238,16 @@ public class BookDetail extends AppCompatActivity {
                                 .centerInside()
                                 .into(productImage);
                     }
+                    refreshLayout.setRefreshing(false);
+                }else {
+                    refreshLayout.setRefreshing(false);
                 }
             }
 
             @Override
             public void onFailure(Call<Products> call, Throwable t) {
                 Toast.makeText(getApplicationContext(),"Failed to get details!",Toast.LENGTH_SHORT).show();
+                refreshLayout.setRefreshing(false);
             }
         });
     }

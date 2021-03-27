@@ -1,28 +1,44 @@
 package com.example.libre.Adapters;
 
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.libre.Constants.Constants;
 import com.example.libre.Models.BookModel;
 import com.example.libre.R;
+import com.example.libre.Retrofit_Modules.API_Caller;
+import com.example.libre.Retrofit_Modules.Models.BookmarkMessage;
+import com.example.libre.Retrofit_Modules.Models.MessageFormat;
+import com.example.libre.SharedPrefsManager.SharedPrefManager;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
 
 public class BookmarkAdapter extends RecyclerView.Adapter<BookmarkAdapter.BookmarkHolder> {
 
     private List<BookModel> booksMarkedList;
     private OnBookClicked bmListener;
-
-    public BookmarkAdapter(List<BookModel> booksMarkedList, OnBookClicked bmListener) {
+    private Retrofit retrofit;
+    private Context context;
+    public BookmarkAdapter(List<BookModel> booksMarkedList, OnBookClicked bmListener, Context context,Retrofit retrofit) {
         this.booksMarkedList = booksMarkedList;
         this.bmListener = bmListener;
+        this.context=context;
+        this.retrofit=retrofit;
     }
 
     @NonNull
@@ -39,6 +55,39 @@ public class BookmarkAdapter extends RecyclerView.Adapter<BookmarkAdapter.Bookma
         holder.authorBM.setText(booksMarkedList.get(position).getAuthor());
         holder.bookPriceBM.setText(booksMarkedList.get(position).getPrice());
         holder.descpBM.setText(booksMarkedList.get(position).getDescription());
+        BookModel currentBook=booksMarkedList.get(position);
+        String base= Constants.BASE_URL;
+        if(currentBook.getUrl().length()!=0) {
+            Picasso.get().load(base + currentBook.getUrl())
+                    .fit()
+                    .centerInside()
+                    .into(holder.imageBM);
+        }
+        holder.clearBookMark.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                API_Caller caller=retrofit.create(API_Caller.class);
+                SharedPrefManager manager=new SharedPrefManager(context);
+                BookmarkMessage bookmarkMessage=new BookmarkMessage();
+                bookmarkMessage.setBookmark("Y");
+                Call<MessageFormat> deleteCall=caller.deleteBookmark("bookmark/"+currentBook.getId()+"/"+manager.getValue(Constants.CURRENT_USER)+"/?xerox=book",bookmarkMessage);
+                deleteCall.enqueue(new Callback<MessageFormat>() {
+                    @Override
+                    public void onResponse(Call<MessageFormat> call, Response<MessageFormat> response) {
+                        if(response.isSuccessful()){
+                            Toast.makeText(context,"Bookmark deleted! Please refresh to see changes",Toast.LENGTH_SHORT).show();
+                        }else{
+                            Toast.makeText(context,"Failed to delete!",Toast.LENGTH_SHORT).show();
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(Call<MessageFormat> call, Throwable t) {
+                        Toast.makeText(context,"Failed to delete bookmarked item!",Toast.LENGTH_SHORT).show();
+                    }
+                });
+            }
+        });
     }
 
     @Override

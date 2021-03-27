@@ -35,7 +35,6 @@
                 android:id="@+id/bookmarkRV_itemIV"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:src="@drawable/sample_book"
                 android:scaleType="centerCrop"/>
         </com.google.android.material.card.MaterialCardView>
 
