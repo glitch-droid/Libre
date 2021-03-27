@@ -67,7 +67,7 @@
                 android:layout_width="match_parent"
                 android:padding="10dp"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/account_myBooksRV"
+                android:layout_below="@id/swipe_Refresh_Layout"
                 android:layout_marginTop="50dp"
                 android:text="User Name"
                 android:textAlignment="viewEnd"
@@ -111,15 +111,20 @@
                 android:fontFamily="@font/quicksand_bold"
                 android:textColor="@color/black"
                 android:layout_marginTop="50dp"/>
-
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+            android:layout_below="@id/myUploads_TAG"
+            android:id="@+id/swipe_Refresh_Layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/account_myBooksRV"
                 android:scrollbars="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="30dp"
-                android:layout_centerHorizontal="true"
-                android:layout_below="@id/myUploads_TAG"/>
+                android:layout_centerHorizontal="true"/>
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
 
         </RelativeLayout>
     </ScrollView>
