@@ -12,6 +12,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.airbnb.lottie.LottieAnimationView;
 import com.example.libre.Adapters.MyUploadsAdapter;
@@ -43,6 +44,7 @@ public class AccountFragment extends Fragment implements MyUploadsAdapter.MyBook
     private SharedPrefManager manager;
     private Retrofit retrofit;
     private API_Caller api_caller;
+    private SwipeRefreshLayout swipeRefreshLayout;
 
     public AccountFragment(Retrofit retrofit) {
         this.retrofit=retrofit;
@@ -53,6 +55,7 @@ public class AccountFragment extends Fragment implements MyUploadsAdapter.MyBook
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = LayoutInflater.from(getContext()).inflate(R.layout.account_fragment_layout,container,false);
 
+        swipeRefreshLayout=view.findViewById(R.id.swipe_Refresh_Layout);
         api_caller=retrofit.create(API_Caller.class);
         manager=new SharedPrefManager(getContext());
 
@@ -75,6 +78,12 @@ public class AccountFragment extends Fragment implements MyUploadsAdapter.MyBook
         myBooksRV.setLayoutManager(horizontalLayout);
         myBooksRV.hasFixedSize();
         fillAllDetails(currentUID);
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                fillAllDetails(currentUID);
+            }
+        });
         return view;
     }
 
@@ -84,10 +93,12 @@ public class AccountFragment extends Fragment implements MyUploadsAdapter.MyBook
             @Override
             public void onResponse(Call<CurrentUser> call, Response<CurrentUser> response) {
                 if(response.isSuccessful()){
+                    myBooks.clear();
                     CurrentUser currentUser=response.body();
                     FillMyProducts fillMyProducts=new FillMyProducts(retrofit);
                     fillMyProducts.fillIntoList(currentUser.getMyproducts(),myBooks,myAdapter);
                     myAdapter.notifyDataSetChanged();
+                    swipeRefreshLayout.setRefreshing(false);
                 }
             }
 

@@ -1,5 +1,7 @@
 package com.example.libre.Retrofit_Modules;
 
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.example.libre.Adapters.MyUploadsAdapter;
 import com.example.libre.Models.BookModel;
 import com.example.libre.Retrofit_Modules.Models.Products;
@@ -17,7 +19,7 @@ public class FillMyProducts {
         this.retrofit=retrofit;
     }
 
-    public void fillIntoList(List<String> productIdList, List<BookModel> myBooks, MyUploadsAdapter adapter){
+    public void fillIntoList(List<String> productIdList, List<BookModel> myBooks, RecyclerView.Adapter adapter){
         API_Caller caller=retrofit.create(API_Caller.class);
         for(String id:productIdList){
             Call<Products> productsCall=caller.getProductFromID("products/"+id+"/?xerox=book");

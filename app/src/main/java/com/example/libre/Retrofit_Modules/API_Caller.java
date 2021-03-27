@@ -1,6 +1,8 @@
 package com.example.libre.Retrofit_Modules;
 
+import com.example.libre.Retrofit_Modules.Models.BookmarkMessage;
 import com.example.libre.Retrofit_Modules.Models.CurrentUser;
+import com.example.libre.Retrofit_Modules.Models.EditProductFormat;
 import com.example.libre.Retrofit_Modules.Models.LoginFormat;
 import com.example.libre.Retrofit_Modules.Models.MessageFormat;
 import com.example.libre.Retrofit_Modules.Models.PostCommentFormat;
@@ -19,6 +21,7 @@ import retrofit2.http.DELETE;
 import retrofit2.http.GET;
 import retrofit2.http.Multipart;
 import retrofit2.http.POST;
+import retrofit2.http.PUT;
 import retrofit2.http.Part;
 import retrofit2.http.Query;
 import retrofit2.http.Url;
@@ -64,4 +67,16 @@ public interface API_Caller {
 
     @DELETE
     Call<ResponseBody> deleteComment(@Url String url);
+
+    @DELETE
+    Call<ResponseBody> deleteProduct(@Url String url);
+
+    @PUT
+    Call<MessageFormat> editProduct(@Url String url,@Body EditProductFormat product);
+
+    @POST
+    Call<MessageFormat> addBookmark(@Url String url,@Body BookmarkMessage message);
+
+    @POST
+    Call<MessageFormat> deleteBookmark(@Url String url, @Body BookmarkMessage message);
 }
