@@ -1,5 +1,6 @@
 package com.example.libre.Retrofit_Modules;
 
+import com.example.libre.Retrofit_Modules.Models.BookmarkMessage;
 import com.example.libre.Retrofit_Modules.Models.CurrentUser;
 import com.example.libre.Retrofit_Modules.Models.EditProductFormat;
 import com.example.libre.Retrofit_Modules.Models.LoginFormat;
@@ -72,4 +73,10 @@ public interface API_Caller {
 
     @PUT
     Call<MessageFormat> editProduct(@Url String url,@Body EditProductFormat product);
+
+    @POST
+    Call<MessageFormat> addBookmark(@Url String url,@Body BookmarkMessage message);
+
+    @POST
+    Call<MessageFormat> deleteBookmark(@Url String url, @Body BookmarkMessage message);
 }

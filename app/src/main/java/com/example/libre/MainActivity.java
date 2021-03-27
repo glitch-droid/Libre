@@ -109,7 +109,7 @@ public class MainActivity extends AppCompatActivity {
                         break;
                     case R.id.bookmark :
                         if(!(fragment instanceof BookmarkedFragment)){
-                            fragment = new BookmarkedFragment();
+                            fragment = new BookmarkedFragment(retrofit);
                             item.setIcon(R.drawable.bookmarker_icon_filled);
 
                             navigationBar.getMenu().getItem(0).setIcon(R.drawable.explore_icon_outline);
