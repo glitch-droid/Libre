@@ -55,14 +55,9 @@ public class RetrofitClientModule {
                 .create();
 
 
-        File cacheFile = new File(context.getCacheDir(), "responses");
-        long cacheSize = 10 * 1024 * 1024;
-        Cache cache = new Cache(cacheFile, cacheSize);
-
         CookieJar cookieJar = new PersistentCookieJar(new SetCookieCache(), new SharedPrefsCookiePersistor(context));
 
         OkHttpClient okHttpClient = new OkHttpClient.Builder()
-                .cache(cache)
                 .connectTimeout(60 * 5, TimeUnit.MINUTES)
                 .readTimeout(30 * 5, TimeUnit.SECONDS)
                 .retryOnConnectionFailure(true)
