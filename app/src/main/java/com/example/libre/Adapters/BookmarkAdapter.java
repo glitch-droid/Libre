@@ -31,7 +31,7 @@ import retrofit2.Retrofit;
 public class BookmarkAdapter extends RecyclerView.Adapter<BookmarkAdapter.BookmarkHolder> {
 
     private List<BookModel> booksMarkedList;
-    private OnBookClicked bmListener;
+    private static OnBookClicked bmListener;
     private Retrofit retrofit;
     private Context context;
     public BookmarkAdapter(List<BookModel> booksMarkedList, OnBookClicked bmListener, Context context,Retrofit retrofit) {
@@ -120,7 +120,7 @@ public class BookmarkAdapter extends RecyclerView.Adapter<BookmarkAdapter.Bookma
 
         @Override
         public void onClick(View v) {
-
+            bmListener.onBookClick(getAdapterPosition());
         }
     }
     public interface OnBookClicked{
