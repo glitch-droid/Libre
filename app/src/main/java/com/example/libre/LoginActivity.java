@@ -9,9 +9,11 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.libre.Constants.Constants;
 import com.example.libre.DaggerSetupFiles.MyApplication;
 import com.example.libre.Retrofit_Modules.API_Caller;
 import com.example.libre.Retrofit_Modules.Models.LoginFormat;
+import com.example.libre.SharedPrefsManager.SharedPrefManager;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -70,6 +72,7 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
     }
+
     public void loginUser(View view){
         String email=emailTV.getText().toString();
         String password=passwordTV.getText().toString();
@@ -91,6 +94,9 @@ public class LoginActivity extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(),"Login Failed! Please enter correct credentials or check your network connection",Toast.LENGTH_SHORT).show();
                 }else{
                     Toast.makeText(getApplicationContext(),"Login Successful!",Toast.LENGTH_SHORT).show();
+                    SharedPrefManager manager=new SharedPrefManager(getApplicationContext());
+                    manager.storeKeyValuePair(Constants.LOGIN_EMAIL,email);
+                    manager.storeKeyValuePair(Constants.LOGIN_PASS,password);
                     Intent intent=new Intent(getApplicationContext(),MainActivity.class);
                     startActivity(intent);
                     finish();

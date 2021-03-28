@@ -5,4 +5,6 @@ public class Constants {
     public static String CURRENT_USER="current_user";
     public static String USER_NAME="user_name";
     public static String USER_EMAIL="user_email";
+    public static String LOGIN_EMAIL="user_email";
+    public static String LOGIN_PASS="user_pass";
 }

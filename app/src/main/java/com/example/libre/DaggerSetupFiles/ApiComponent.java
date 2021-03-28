@@ -7,6 +7,7 @@ import com.example.libre.CommentsActivity;
 import com.example.libre.LoginActivity;
 import com.example.libre.MainActivity;
 import com.example.libre.RegisterActivity;
+import com.example.libre.SplashScreen;
 
 import javax.inject.Singleton;
 
@@ -29,4 +30,6 @@ public interface ApiComponent {
     void injectInBookDetails(BookDetail bookDetail);
 
     void injectInCommentsActivity(CommentsActivity commentsActivity);
+
+    void injectInSplashScreen(SplashScreen splashScreen);
 }
