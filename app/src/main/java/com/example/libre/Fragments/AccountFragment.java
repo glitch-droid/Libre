@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -45,6 +46,7 @@ public class AccountFragment extends Fragment implements MyUploadsAdapter.MyBook
     private Retrofit retrofit;
     private API_Caller api_caller;
     private SwipeRefreshLayout swipeRefreshLayout;
+    private ProgressBar accountProgress;
 
     public AccountFragment(Retrofit retrofit) {
         this.retrofit=retrofit;
@@ -63,6 +65,7 @@ public class AccountFragment extends Fragment implements MyUploadsAdapter.MyBook
         userNameTV=view.findViewById(R.id.account_userNameTV);
         userEmailTV=view.findViewById(R.id.account_userEmailTV);
         firstLetterTV=view.findViewById(R.id.account_firstLetterTV);
+        accountProgress = view.findViewById(R.id.accountProgress);
 
         currentUID=manager.getValue(Constants.CURRENT_USER);
         String username=manager.getValue(Constants.USER_NAME);
@@ -96,15 +99,17 @@ public class AccountFragment extends Fragment implements MyUploadsAdapter.MyBook
                     myBooks.clear();
                     CurrentUser currentUser=response.body();
                     FillMyProducts fillMyProducts=new FillMyProducts(retrofit);
-                    fillMyProducts.fillIntoList(currentUser.getMyproducts(),myBooks,myAdapter);
+                    fillMyProducts.fillIntoList(currentUser.getMyproducts(),myBooks,myAdapter,getContext());
                     myAdapter.notifyDataSetChanged();
                     swipeRefreshLayout.setRefreshing(false);
+                    accountProgress.setVisibility(View.INVISIBLE);
                 }
             }
 
             @Override
             public void onFailure(Call<CurrentUser> call, Throwable t) {
                 System.out.println("ERROR: Cant load the products!");
+                accountProgress.setVisibility(View.INVISIBLE);
             }
         });
     }

@@ -30,31 +30,6 @@
                 android:layout_centerHorizontal="true"
                 android:textColor="@color/palette_2"
                 android:fontFamily="@font/quicksand_bold"
-                android:visibility="visible"
-                />
-            <TextView
-                android:id="@+id/noBookmarksTV"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="No bookmarks yet"
-                android:textSize="24sp"
-                android:layout_marginTop="20dp"
-                android:layout_centerHorizontal="true"
-                android:textColor="@color/palette_2"
-                android:fontFamily="@font/quicksand_bold"
-                android:visibility="invisible"
-                />
-            <com.airbnb.lottie.LottieAnimationView
-                android:id="@+id/noBookmarksAnim"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_below="@+id/noBookmarksTV"
-                android:layout_centerHorizontal="true"
-                app:lottie_rawRes="@raw/empty_box_anim"
-                app:lottie_speed="0.5"
-                app:lottie_autoPlay="true"
-                android:visibility="invisible"
-                app:lottie_loop="true"
                 />
 
             <androidx.swiperefreshlayout.widget.SwipeRefreshLayout

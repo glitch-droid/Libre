@@ -1,5 +1,10 @@
 package com.example.libre.Retrofit_Modules;
 
+import android.content.Context;
+import android.view.View;
+import android.widget.TextView;
+import android.widget.Toast;
+
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.libre.Adapters.MyUploadsAdapter;
@@ -19,7 +24,8 @@ public class FillMyProducts {
         this.retrofit=retrofit;
     }
 
-    public void fillIntoList(List<String> productIdList, List<BookModel> myBooks, RecyclerView.Adapter adapter){
+    public void fillIntoList(List<String> productIdList, List<BookModel> myBooks, RecyclerView.Adapter adapter, Context context){
+
         API_Caller caller=retrofit.create(API_Caller.class);
         for(String id:productIdList){
             Call<Products> productsCall=caller.getProductFromID("products/"+id+"/?xerox=book");
@@ -30,8 +36,10 @@ public class FillMyProducts {
                         Products currentProduct=response.body();
                         myBooks.add(new BookModel(currentProduct.getTitle(),currentProduct.getBookauthor(),currentProduct.getDescription(),"₹"+currentProduct.getAmount(),currentProduct.getImage().get(0),currentProduct.get_id()));
                         adapter.notifyDataSetChanged();
+
                     }else{
                         System.out.println("ERROR: Cant load the products!");
+                        Toast.makeText(context, "No Bookmarks Yet!!", Toast.LENGTH_SHORT).show();
                     }
                 }
 

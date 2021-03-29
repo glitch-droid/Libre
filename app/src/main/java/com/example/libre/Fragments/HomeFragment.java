@@ -49,6 +49,7 @@ public class HomeFragment extends Fragment implements HomeAdapter.OnBookListener
     private boolean clicked = false;
     private SwipeRefreshLayout refreshLayout;
     private String currentUid;
+    private ProgressBar homeProgress;
     public HomeFragment() {
     }
 
@@ -62,6 +63,8 @@ public class HomeFragment extends Fragment implements HomeAdapter.OnBookListener
         RecyclerView recyclerView = view.findViewById(R.id.homeFragmentRV);
         sharedPrefManager=new SharedPrefManager(getContext());
 
+        homeProgress = view.findViewById(R.id.homeProgress);
+
         HomeAdapter adapter = new HomeAdapter(this);
         bookModelList = new ArrayList<>();
         refreshLayout= view.findViewById(R.id.swipeRefreshLayout);
@@ -71,7 +74,6 @@ public class HomeFragment extends Fragment implements HomeAdapter.OnBookListener
         recyclerView.hasFixedSize();
         loadDataIntoRecyclerView(adapter);
         adapter.notifyDataSetChanged();
-
 
         refreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
@@ -107,9 +109,11 @@ public class HomeFragment extends Fragment implements HomeAdapter.OnBookListener
                     }
                     adapter.notifyDataSetChanged();
                     refreshLayout.setRefreshing(false);
+                    homeProgress.setVisibility(View.INVISIBLE);
                 }else{
                     Toast.makeText(getContext(),"Internal server error! Please restart the app or wait till the error gets resolved!",Toast.LENGTH_LONG).show();
                     refreshLayout.setRefreshing(false);
+                    homeProgress.setVisibility(View.INVISIBLE);
                 }
             }
 

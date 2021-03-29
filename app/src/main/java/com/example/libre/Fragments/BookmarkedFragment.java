@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -13,6 +14,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
+import com.airbnb.lottie.LottieAnimationView;
 import com.example.libre.Adapters.BookmarkAdapter;
 import com.example.libre.BookDetail;
 import com.example.libre.Constants.Constants;
@@ -34,6 +36,7 @@ import retrofit2.Retrofit;
 public class BookmarkedFragment extends Fragment implements BookmarkAdapter.OnBookClicked{
 
     private List<BookModel> bookMarksList = new ArrayList<>();
+    private List<BookModel> checkingList = new ArrayList<>();
     private RecyclerView bookmarkRV;
     private BookmarkAdapter adapter;
     private SwipeRefreshLayout refreshLayout;
@@ -50,15 +53,14 @@ public class BookmarkedFragment extends Fragment implements BookmarkAdapter.OnBo
         View view = LayoutInflater.from(getContext()).inflate(R.layout.bookmarked_fragment_layout,container,false);
 
         bookmarkRV = view.findViewById(R.id.bookmarks_RV);
-
         refreshLayout=view.findViewById(R.id.bookmark_swipeToRefresh);
         SharedPrefManager manager=new SharedPrefManager(getContext());
         currentUID=manager.getValue(Constants.CURRENT_USER);
-
         adapter = new BookmarkAdapter(bookMarksList,this,getContext(),retrofit);
         bookmarkRV.setAdapter(adapter);
         bookmarkRV.setLayoutManager(new LinearLayoutManager(getContext()));
         bookmarkRV.hasFixedSize();
+
         refreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
@@ -79,7 +81,7 @@ public class BookmarkedFragment extends Fragment implements BookmarkAdapter.OnBo
                     bookMarksList.clear();
                     CurrentUser user=response.body();
                     FillMyProducts products=new FillMyProducts(retrofit);
-                    products.fillIntoList(user.getBookmarks(),bookMarksList,adapter);
+                    products.fillIntoList(user.getBookmarks(),bookMarksList,adapter,getContext());
                     refreshLayout.setRefreshing(false);
                 }
             }

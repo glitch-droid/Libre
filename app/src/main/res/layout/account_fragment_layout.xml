@@ -74,7 +74,7 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@id/account_myBooksRV"
                     android:layout_marginLeft="20dp"
-                    android:layout_marginTop="50dp"
+                    android:layout_marginTop="60dp"
                     android:layout_marginRight="20dp"
                     android:background="@drawable/account_details_bgr"
                     android:drawableStart="@drawable/man_icon"
@@ -119,6 +119,13 @@
                     android:text="My Uploads"
                     android:textColor="@color/black"
                     android:textSize="20sp" />
+                <ProgressBar
+                    android:id="@+id/accountProgress"
+                    android:layout_width="wrap_content"
+                    android:layout_below="@id/myUploads_TAG"
+                    android:layout_marginTop="15dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_height="wrap_content"/>
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/account_myBooksRV"

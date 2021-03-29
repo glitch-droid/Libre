@@ -34,22 +34,33 @@
         app:closeIcon="@drawable/cross"
         app:searchIcon="@drawable/search_icon"
         android:layout_marginTop="20dp"/>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/homeFrag_searchView">
+        <ProgressBar
+            android:id="@+id/homeProgress"
+            android:layout_width="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_height="wrap_content"/>
         <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
             android:id="@+id/swipeRefreshLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/homeFrag_searchView"
+            android:layout_centerInParent="true"
             android:layout_marginTop="9dp">
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/homeFragmentRV"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="10dp"
-            android:overScrollMode="never"
-            android:visibility="visible" />
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/homeFragmentRV"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="10dp"
+                android:overScrollMode="never"
+                android:visibility="visible" />
 
         </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+    </RelativeLayout>
+
 
 
 </RelativeLayout>
