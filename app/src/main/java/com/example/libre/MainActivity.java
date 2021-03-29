@@ -159,6 +159,7 @@ public class MainActivity extends AppCompatActivity {
                     SharedPrefManager manager=new SharedPrefManager(getApplicationContext());
                     manager.clearAll();
                     startActivity(new Intent(getApplicationContext(),LoginActivity.class));
+                    finish();
                 }
             }
 

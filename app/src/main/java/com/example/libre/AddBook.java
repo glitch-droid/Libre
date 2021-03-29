@@ -14,6 +14,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.example.libre.DaggerSetupFiles.MyApplication;
@@ -53,7 +54,7 @@ public class AddBook extends AppCompatActivity {
     private Uri imagePath;
     private String status;
     private String prodID;
-
+    private ProgressBar addBookProgress;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -72,6 +73,8 @@ public class AddBook extends AppCompatActivity {
         areaET=findViewById(R.id.addBook_sellerAreaET);
         cityET=findViewById(R.id.addBook_sellerCityET);
         selectImageButton=findViewById(R.id.addBook_fabAddImage);
+        addBookProgress = findViewById(R.id.addBookProgress);
+        addBookProgress.setVisibility(View.INVISIBLE);
 
         Intent intent=getIntent();
         status=intent.getStringExtra("status");
@@ -179,6 +182,7 @@ public class AddBook extends AppCompatActivity {
     }
 
     public void saveChangesToBook(View view){
+        addBookProgress.setVisibility(View.VISIBLE);
         if(status!=null){
             if(status.equals("edit")){
                 editBook();
@@ -220,9 +224,11 @@ public class AddBook extends AppCompatActivity {
                                 String message=response.body().getMessage();
                                 if(message.equals("Success")){
                                     Toast.makeText(getApplicationContext(),"Product added successfully!",Toast.LENGTH_SHORT).show();
+                                    addBookProgress.setVisibility(View.INVISIBLE);
                                     finish();
                                 }else{
                                     Toast.makeText(getApplicationContext(),"Failed to create product!",Toast.LENGTH_SHORT).show();
+                                    addBookProgress.setVisibility(View.INVISIBLE);
                                 }
                             }
                             submitButton.setEnabled(true);
@@ -231,15 +237,19 @@ public class AddBook extends AppCompatActivity {
                         @Override
                         public void onFailure(Call<MessageFormat> call, Throwable t) {
                             Toast.makeText(getApplicationContext(),"Failed to add the book!",Toast.LENGTH_SHORT).show();
+                            addBookProgress.setVisibility(View.INVISIBLE);
                             submitButton.setEnabled(true);
                         }
                     });
                 }else{
                     Toast.makeText(getApplicationContext(),"Please enter all the details!",Toast.LENGTH_SHORT).show();
+                    addBookProgress.setVisibility(View.INVISIBLE);
                 }
 
             }catch (Exception e){
-                Toast.makeText(getApplicationContext(),"Unexpected error occurred!",Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(),"Unexpected error occurred! Please Try Again",Toast.LENGTH_SHORT).show();
+                addBookProgress.setVisibility(View.INVISIBLE);
+                finish();
             }
         }
     }

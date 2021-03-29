@@ -298,6 +298,13 @@
                 android:text="Done"
                 android:textColor="@color/white"
                 app:rippleColor="@color/palette_4" />
+            <ProgressBar
+                android:id="@+id/addBookProgress"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/addBook_done"
+                android:layout_marginTop="30dp"
+                android:layout_centerHorizontal="true"/>
 
         </RelativeLayout>
     </ScrollView>

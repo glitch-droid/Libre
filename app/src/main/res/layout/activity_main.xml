@@ -43,6 +43,7 @@
         android:backgroundTint="@color/red_primary"
         android:layout_alignParentEnd="true"
         app:backgroundTint="@color/red_primary"
+        app:rippleColor="@color/burgundy_secondary"
         android:focusable="true"
         android:layout_alignParentBottom="true"
         android:layout_marginEnd="20dp"

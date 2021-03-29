@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -64,14 +65,13 @@ public class HomeFragment extends Fragment implements HomeAdapter.OnBookListener
         HomeAdapter adapter = new HomeAdapter(this);
         bookModelList = new ArrayList<>();
         refreshLayout= view.findViewById(R.id.swipeRefreshLayout);
-
-
         adapter.setBooksList(bookModelList);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(view.getContext()));
         recyclerView.hasFixedSize();
         loadDataIntoRecyclerView(adapter);
         adapter.notifyDataSetChanged();
+
 
         refreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override

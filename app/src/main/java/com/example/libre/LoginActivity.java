@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -34,6 +35,7 @@ public class LoginActivity extends AppCompatActivity {
     TextView verify;
     TextView emailTV;
     TextView passwordTV;
+    ProgressBar loginProgress;
 
     @Inject
     Retrofit retrofit;
@@ -46,6 +48,8 @@ public class LoginActivity extends AppCompatActivity {
         emailTV=findViewById(R.id.login_emailTV);
         passwordTV=findViewById(R.id.login_passwordTV);
         login = findViewById(R.id.login_button);
+        loginProgress = findViewById(R.id.loginProgress);
+        loginProgress.setVisibility(View.INVISIBLE);
 
         ((MyApplication)getApplication()).getApiComponent().injectLogin(this);
 
@@ -53,6 +57,7 @@ public class LoginActivity extends AppCompatActivity {
            @Override
            public void onClick(View v) {
                loginUser(v);
+               loginProgress.setVisibility(View.VISIBLE);
            }
        });
 
@@ -61,6 +66,7 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(getApplicationContext(),RegisterActivity.class));
+                finish();
             }
         });
 
@@ -74,6 +80,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     public void loginUser(View view){
+        login.setEnabled(false);
         String email=emailTV.getText().toString();
         String password=passwordTV.getText().toString();
         LoginFormat loginFormat=new LoginFormat();
@@ -92,6 +99,7 @@ public class LoginActivity extends AppCompatActivity {
                 Elements elements=document.select("input");
                 if(elements.size()!=0){
                     Toast.makeText(getApplicationContext(),"Login Failed! Please enter correct credentials or check your network connection",Toast.LENGTH_SHORT).show();
+                    login.setEnabled(true);
                 }else{
                     Toast.makeText(getApplicationContext(),"Login Successful!",Toast.LENGTH_SHORT).show();
                     SharedPrefManager manager=new SharedPrefManager(getApplicationContext());
@@ -105,7 +113,8 @@ public class LoginActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<String> call, Throwable t) {
-                Toast.makeText(getApplicationContext(),"Login Failed! Please enter correct credentials or check your network connection",Toast.LENGTH_SHORT).show();;
+                Toast.makeText(getApplicationContext(),"Login Failed! Please enter correct credentials or check your network connection",Toast.LENGTH_SHORT).show();
+                login.setEnabled(true);
             }
         });
     }
