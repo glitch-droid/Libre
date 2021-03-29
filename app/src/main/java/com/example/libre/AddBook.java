@@ -26,6 +26,7 @@ import com.example.libre.Retrofit_Modules.Models.FileUtils;
 import com.example.libre.Retrofit_Modules.Models.MessageFormat;
 import com.example.libre.Retrofit_Modules.Models.Products;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.iceteck.silicompressorr.SiliCompressor;
 
 import java.io.File;
 import java.io.IOException;
@@ -289,19 +290,13 @@ public class AddBook extends AppCompatActivity {
                 && data.getData() != null) {
             selectedImage.setVisibility(View.VISIBLE);
             imagePath = data.getData();
+            Bitmap compressedImage = null;
             try {
-                Bitmap bitmap = MediaStore
-                        .Images
-                        .Media
-                        .getBitmap(
-                                getContentResolver(),
-                                imagePath);
-                selectedImage.setImageBitmap(bitmap);
-            }
-
-            catch (IOException e) {
+                compressedImage = SiliCompressor.with(getApplicationContext()).getCompressBitmap(String.valueOf(imagePath));
+            } catch (IOException e) {
                 e.printStackTrace();
             }
+            selectedImage.setImageBitmap(compressedImage);
         }
     }
 
