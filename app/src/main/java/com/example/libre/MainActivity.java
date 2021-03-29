@@ -26,11 +26,17 @@ import com.example.libre.Fragments.AccountFragment;
 import com.example.libre.Fragments.BookmarkedFragment;
 import com.example.libre.Fragments.HomeFragment;
 import com.example.libre.Fragments.ReadingFragment;
+import com.example.libre.Retrofit_Modules.API_Caller;
+import com.example.libre.SharedPrefsManager.SharedPrefManager;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import javax.inject.Inject;
 
+import okhttp3.ResponseBody;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 import retrofit2.Retrofit;
 
 public class MainActivity extends AppCompatActivity {
@@ -120,33 +126,47 @@ public class MainActivity extends AppCompatActivity {
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(MainActivity.this, "Logout", Toast.LENGTH_SHORT).show();
                 builder.setTitle("Hey!");
                 builder.setMessage("Do you want to Logout ?")
-                        .setCancelable(false)
+                        .setCancelable(true)
                         .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
-                                Toast.makeText(getApplicationContext(),"No",
-                                        Toast.LENGTH_SHORT).show();
+                                logoutUser();
+                                dialog.cancel();
                             }
                         })
                         .setNegativeButton("No", new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
                                 //  Action for 'NO' Button
                                 dialog.cancel();
-                                Toast.makeText(getApplicationContext(),"No",
-                                        Toast.LENGTH_SHORT).show();
                             }
                         });
                 AlertDialog alert = builder.create();
                 alert.show();
-                Button buttonPositive = alert.getButton(DialogInterface.BUTTON_POSITIVE);
-                buttonPositive.setTextColor(ContextCompat.getColor(MainActivity.this, R.color.white));
-                Button buttonNegative = alert.getButton(DialogInterface.BUTTON_NEGATIVE);
-                buttonNegative.setTextColor(ContextCompat.getColor(MainActivity.this, R.color.white));
             }
         });
     }
 
+    private void logoutUser(){
+        Toast.makeText(getApplicationContext(),"Please wait... Logging out!", Toast.LENGTH_SHORT).show();
+
+        API_Caller caller=retrofit.create(API_Caller.class);
+        Call<ResponseBody> call=caller.logoutUSer("logout");
+        call.enqueue(new Callback<ResponseBody>() {
+            @Override
+            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                if(response.isSuccessful()){
+                    SharedPrefManager manager=new SharedPrefManager(getApplicationContext());
+                    manager.clearAll();
+                    startActivity(new Intent(getApplicationContext(),LoginActivity.class));
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ResponseBody> call, Throwable t) {
+                Toast.makeText(getApplicationContext(),"Failed to logout!", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
 
 }

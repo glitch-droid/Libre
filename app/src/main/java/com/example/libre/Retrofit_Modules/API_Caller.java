@@ -79,4 +79,7 @@ public interface API_Caller {
 
     @POST
     Call<MessageFormat> deleteBookmark(@Url String url, @Body BookmarkMessage message);
+
+    @GET
+    Call<ResponseBody> logoutUSer(@Url String url);
 }

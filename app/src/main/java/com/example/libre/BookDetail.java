@@ -148,7 +148,7 @@ public class BookDetail extends AppCompatActivity {
                     public void onClick(View v) {
                        builder.setTitle("Alert!");
                         builder.setMessage("Do you want to delete this item ?")
-                                .setCancelable(false)
+                                .setCancelable(true)
                                 .setPositiveButton("Delete", new DialogInterface.OnClickListener() {
                                     public void onClick(DialogInterface dialog, int id) {
                                         //Action for Yes Button
