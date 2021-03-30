@@ -130,7 +130,7 @@
                     android:hint="Description (max. 300 )"
                     android:gravity="start"
                     android:textColorHint="@color/gray"
-                    android:maxLength="200"
+                    android:maxLength="300"
                     android:inputType="textMultiLine"
                     android:pointerIcon="arrow"
                     android:padding="10dp"
@@ -304,7 +304,8 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/addBook_done"
                 android:layout_marginTop="30dp"
-                android:layout_centerHorizontal="true"/>
+                android:layout_centerHorizontal="true"
+                android:indeterminateDrawable="@drawable/progress_layout"/>
 
         </RelativeLayout>
     </ScrollView>

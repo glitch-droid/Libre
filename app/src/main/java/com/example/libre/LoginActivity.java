@@ -53,13 +53,13 @@ public class LoginActivity extends AppCompatActivity {
 
         ((MyApplication)getApplication()).getApiComponent().injectLogin(this);
 
-       login.setOnClickListener(new View.OnClickListener() {
-           @Override
-           public void onClick(View v) {
-               loginUser(v);
-               loginProgress.setVisibility(View.VISIBLE);
-           }
-       });
+        login.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                loginUser(v);
+                loginProgress.setVisibility(View.VISIBLE);
+            }
+        });
 
         register = findViewById(R.id.login_register);
         register.setOnClickListener(new View.OnClickListener() {
