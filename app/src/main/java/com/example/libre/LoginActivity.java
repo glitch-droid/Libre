@@ -96,6 +96,7 @@ public class LoginActivity extends AppCompatActivity {
 
                 if(responseBody.length()==3533){
                     Toast.makeText(getApplicationContext(),"Login Failed! Please enter correct credentials or check your network connection",Toast.LENGTH_SHORT).show();
+                    loginProgress.setVisibility(View.INVISIBLE);
                     login.setEnabled(true);
                 }else{
                     Toast.makeText(getApplicationContext(),"Login Successful!",Toast.LENGTH_SHORT).show();
@@ -111,6 +112,7 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onFailure(Call<String> call, Throwable t) {
                 Toast.makeText(getApplicationContext(),"Login Failed! Please enter correct credentials or check your network connection",Toast.LENGTH_SHORT).show();
+                loginProgress.setVisibility(View.INVISIBLE);
                 login.setEnabled(true);
             }
         });

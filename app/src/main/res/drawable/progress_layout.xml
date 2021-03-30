@@ -17,7 +17,8 @@
             android:type="sweep"
             android:useLevel="false"
             android:startColor="#D81B60"
-            android:endColor="@color/palette_4"
+            android:centerColor="@color/palette_4"
+            android:endColor="#D81B60"
             android:angle="0"/>
 
     </shape>
