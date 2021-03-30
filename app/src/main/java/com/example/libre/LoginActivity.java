@@ -94,10 +94,7 @@ public class LoginActivity extends AppCompatActivity {
             public void onResponse(Call<String> call, Response<String> response) {
                 String responseBody=response.body();
 
-                System.out.println("USERNAME: "+responseBody);
-                Document document= Jsoup.parse(responseBody);
-                Elements elements=document.select("input");
-                if(elements.size()!=0){
+                if(responseBody.length()==3533){
                     Toast.makeText(getApplicationContext(),"Login Failed! Please enter correct credentials or check your network connection",Toast.LENGTH_SHORT).show();
                     login.setEnabled(true);
                 }else{
