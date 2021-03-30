@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -38,6 +39,7 @@ public class BookmarkedFragment extends Fragment implements BookmarkAdapter.OnBo
     private List<BookModel> bookMarksList = new ArrayList<>();
     private List<BookModel> checkingList = new ArrayList<>();
     private RecyclerView bookmarkRV;
+    private ProgressBar loadingProgressBar;
     private BookmarkAdapter adapter;
     private SwipeRefreshLayout refreshLayout;
     private String currentUID;
@@ -54,6 +56,8 @@ public class BookmarkedFragment extends Fragment implements BookmarkAdapter.OnBo
 
         bookmarkRV = view.findViewById(R.id.bookmarks_RV);
         refreshLayout=view.findViewById(R.id.bookmark_swipeToRefresh);
+        loadingProgressBar=view.findViewById(R.id.progressBar);
+        loadingProgressBar.setVisibility(View.VISIBLE);
         SharedPrefManager manager=new SharedPrefManager(getContext());
         currentUID=manager.getValue(Constants.CURRENT_USER);
         adapter = new BookmarkAdapter(bookMarksList,this,getContext(),retrofit);
@@ -68,6 +72,7 @@ public class BookmarkedFragment extends Fragment implements BookmarkAdapter.OnBo
             }
         });
         fetchBookmarks();
+        System.out.println("SIZE: "+adapter.getItemCount());
         return view;
     }
 
@@ -80,7 +85,7 @@ public class BookmarkedFragment extends Fragment implements BookmarkAdapter.OnBo
                 if(response.isSuccessful()){
                     bookMarksList.clear();
                     CurrentUser user=response.body();
-                    FillMyProducts products=new FillMyProducts(retrofit);
+                    FillMyProducts products=new FillMyProducts(retrofit,loadingProgressBar);
                     products.fillIntoList(user.getBookmarks(),bookMarksList,adapter,getContext());
                     refreshLayout.setRefreshing(false);
                 }

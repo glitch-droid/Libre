@@ -66,6 +66,7 @@ public class AccountFragment extends Fragment implements MyUploadsAdapter.MyBook
         userEmailTV=view.findViewById(R.id.account_userEmailTV);
         firstLetterTV=view.findViewById(R.id.account_firstLetterTV);
         accountProgress = view.findViewById(R.id.accountProgress);
+        accountProgress.setVisibility(View.VISIBLE);
 
         currentUID=manager.getValue(Constants.CURRENT_USER);
         String username=manager.getValue(Constants.USER_NAME);
@@ -98,7 +99,7 @@ public class AccountFragment extends Fragment implements MyUploadsAdapter.MyBook
                 if(response.isSuccessful()){
                     myBooks.clear();
                     CurrentUser currentUser=response.body();
-                    FillMyProducts fillMyProducts=new FillMyProducts(retrofit);
+                    FillMyProducts fillMyProducts=new FillMyProducts(retrofit,accountProgress);
                     fillMyProducts.fillIntoList(currentUser.getMyproducts(),myBooks,myAdapter,getContext());
                     myAdapter.notifyDataSetChanged();
                     swipeRefreshLayout.setRefreshing(false);

@@ -38,11 +38,15 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/homeFrag_searchView">
+
         <ProgressBar
             android:id="@+id/homeProgress"
             android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:layout_height="wrap_content"/>
+            android:visibility="visible"
+            android:progressTint="@color/palette_1"
+            android:indeterminateDrawable="@drawable/progress_layout"/>
         <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
             android:id="@+id/swipeRefreshLayout"
             android:layout_width="match_parent"

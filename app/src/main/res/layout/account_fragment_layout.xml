@@ -125,7 +125,9 @@
                     android:layout_below="@id/myUploads_TAG"
                     android:layout_marginTop="15dp"
                     android:layout_centerHorizontal="true"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="wrap_content"
+                    android:progressTint="@color/palette_1"
+                    android:indeterminateDrawable="@drawable/progress_layout"/>
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/account_myBooksRV"

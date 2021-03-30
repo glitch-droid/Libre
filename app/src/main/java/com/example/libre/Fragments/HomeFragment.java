@@ -64,7 +64,7 @@ public class HomeFragment extends Fragment implements HomeAdapter.OnBookListener
         sharedPrefManager=new SharedPrefManager(getContext());
 
         homeProgress = view.findViewById(R.id.homeProgress);
-
+        homeProgress.setVisibility(View.VISIBLE);
         HomeAdapter adapter = new HomeAdapter(this);
         bookModelList = new ArrayList<>();
         refreshLayout= view.findViewById(R.id.swipeRefreshLayout);

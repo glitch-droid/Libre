@@ -4,6 +4,15 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:indeterminateDrawable="@drawable/progress_layout"/>
+
     <TextView
         android:id="@+id/bookmarkFragNameTV"
         android:text="@string/bookmarked"
@@ -16,7 +25,7 @@
         android:drawableBottom="@drawable/underline_3"
         android:layout_height="wrap_content"/>
 
-        <RelativeLayout
+    <RelativeLayout
             android:layout_width="match_parent"
             android:layout_below="@id/bookmarkFragNameTV"
             android:layout_height="match_parent">
@@ -44,6 +53,8 @@
                     android:layout_height="match_parent"
                     android:layout_below="@id/BookmarksTV"
                     android:layout_marginTop="30dp" />
+
+
 
             </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
