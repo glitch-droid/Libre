@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
+import android.util.Log;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
@@ -81,15 +82,16 @@ public class SplashScreen extends AppCompatActivity {
         call.enqueue(new Callback<String>() {
             @Override
             public void onResponse(Call<String> call, Response<String> response) {
-                String responseBody=response.body();
 
-                System.out.println("USERNAME: "+responseBody);
-                if(responseBody.length()==3533){
-                    Toast.makeText(getApplicationContext(),"Login Failed! Please enter correct credentials or check your network connection",Toast.LENGTH_SHORT).show();
-                    startActivity(new Intent(getApplicationContext(),LoginActivity.class));
+                String responseBody=response.body();
+                System.out.println("LOGIN RES: "+responseBody);
+                System.out.println("LOGIN RES: "+responseBody.length());
+
+                if(responseBody.length()==3400){
+                    Intent intent=new Intent(getApplicationContext(),LoginActivity.class);
+                    startActivity(intent);
                     finish();
                 }else{
-                    SharedPrefManager manager=new SharedPrefManager(getApplicationContext());
                     Intent intent=new Intent(getApplicationContext(),MainActivity.class);
                     startActivity(intent);
                     finish();
@@ -98,8 +100,8 @@ public class SplashScreen extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<String> call, Throwable t) {
-                Toast.makeText(getApplicationContext(),"Login Failed! Please enter correct credentials or check your network connection",Toast.LENGTH_SHORT).show();;
-                startActivity(new Intent(getApplicationContext(),LoginActivity.class));
+                Intent intent=new Intent(getApplicationContext(), LoginActivity.class);
+                startActivity(intent);
                 finish();
             }
         });

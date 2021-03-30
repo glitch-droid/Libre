@@ -1,5 +1,6 @@
 package com.example.libre.Retrofit_Modules;
 
+import com.example.libre.Retrofit_Modules.Models.AllProducts;
 import com.example.libre.Retrofit_Modules.Models.BookmarkMessage;
 import com.example.libre.Retrofit_Modules.Models.CurrentUser;
 import com.example.libre.Retrofit_Modules.Models.EditProductFormat;
@@ -82,4 +83,7 @@ public interface API_Caller {
 
     @GET
     Call<ResponseBody> logoutUSer(@Url String url);
+
+    @GET
+    Call<List<AllProducts>> searchProducts(@Url String url);
 }

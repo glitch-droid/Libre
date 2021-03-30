@@ -80,39 +80,42 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     public void loginUser(View view){
-        login.setEnabled(false);
         String email=emailTV.getText().toString();
         String password=passwordTV.getText().toString();
-        LoginFormat loginFormat=new LoginFormat();
-        loginFormat.setPassword(password);
-        loginFormat.setUsername(email);
+        if(!email.equals("")&&!password.equals("")){
+            LoginFormat loginFormat=new LoginFormat();
+            loginFormat.setPassword(password);
+            loginFormat.setUsername(email);
 
-        API_Caller api_caller=retrofit.create(API_Caller.class);
-        Call<String> call=api_caller.loginUser(loginFormat);
-        call.enqueue(new Callback<String>() {
-            @Override
-            public void onResponse(Call<String> call, Response<String> response) {
-                String responseBody=response.body();
-
-                if(responseBody.length()==3533){
-                    Toast.makeText(getApplicationContext(),"Login Failed! Please enter correct credentials or check your network connection",Toast.LENGTH_SHORT).show();
-                    login.setEnabled(true);
-                }else{
-                    Toast.makeText(getApplicationContext(),"Login Successful!",Toast.LENGTH_SHORT).show();
-                    SharedPrefManager manager=new SharedPrefManager(getApplicationContext());
-                    manager.storeKeyValuePair(Constants.LOGIN_EMAIL,email);
-                    manager.storeKeyValuePair(Constants.LOGIN_PASS,password);
-                    Intent intent=new Intent(getApplicationContext(),MainActivity.class);
-                    startActivity(intent);
-                    finish();
+            API_Caller api_caller=retrofit.create(API_Caller.class);
+            Call<String> call=api_caller.loginUser(loginFormat);
+            call.enqueue(new Callback<String>() {
+                @Override
+                public void onResponse(Call<String> call, Response<String> response) {
+                    String responseBody=response.body();
+                    System.out.println("LOGIN RES: "+responseBody);
+                    System.out.println("LOGIN RES: "+responseBody.length());
+                    if(responseBody.length()==3400){
+                        Toast.makeText(getApplicationContext(),"Login Failed! Please enter correct credentials or check your network connection",Toast.LENGTH_SHORT).show();
+                    }else{
+                        Toast.makeText(getApplicationContext(),"Login Successful!",Toast.LENGTH_SHORT).show();
+                        SharedPrefManager manager=new SharedPrefManager(getApplicationContext());
+                        manager.storeKeyValuePair(Constants.LOGIN_EMAIL,email);
+                        manager.storeKeyValuePair(Constants.LOGIN_PASS,password);
+                        Intent intent=new Intent(getApplicationContext(),MainActivity.class);
+                        startActivity(intent);
+                        finish();
+                    }
                 }
-            }
 
-            @Override
-            public void onFailure(Call<String> call, Throwable t) {
-                Toast.makeText(getApplicationContext(),"Login Failed! Please enter correct credentials or check your network connection",Toast.LENGTH_SHORT).show();
-                login.setEnabled(true);
-            }
-        });
+                @Override
+                public void onFailure(Call<String> call, Throwable t) {
+                    Toast.makeText(getApplicationContext(),"Login Failed! Please enter correct credentials or check your network connection",Toast.LENGTH_SHORT).show();
+                }
+            });
+        }else{
+            Toast.makeText(getApplicationContext(),"Please enter all details!",Toast.LENGTH_SHORT).show();
+        }
+
     }
 }

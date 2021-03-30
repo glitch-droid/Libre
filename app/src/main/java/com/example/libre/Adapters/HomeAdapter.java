@@ -1,10 +1,15 @@
 package com.example.libre.Adapters;
 
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Filter;
+import android.widget.Filterable;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -12,14 +17,22 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.libre.Constants.Constants;
 import com.example.libre.Models.BookModel;
 import com.example.libre.R;
+import com.example.libre.Retrofit_Modules.API_Caller;
+import com.example.libre.Retrofit_Modules.Models.AllProducts;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> {
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+
+public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder>{
 
     List<BookModel> booksList = new ArrayList<>();
+
     private OnBookListenerHome listenerHome;
 
     public HomeAdapter(OnBookListenerHome listenerHome) {
@@ -58,6 +71,7 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> {
         this.booksList = booksList;
     }
 
+
     static public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         TextView bookName;
         TextView authorName;
@@ -86,4 +100,5 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> {
     public interface OnBookListenerHome{
         void onBookClick(int position);
     }
+
 }

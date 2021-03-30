@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ProgressBar;
+import android.widget.SearchView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -30,7 +31,9 @@ import com.example.libre.Retrofit_Modules.API_Caller;
 import com.example.libre.Retrofit_Modules.Models.CurrentUser;
 import com.example.libre.Retrofit_Modules.Models.Products;
 import com.example.libre.Retrofit_Modules.Models.UserDetails;
-
+import android.app.SearchManager;
+import android.widget.SearchView;
+import android.widget.SearchView.OnQueryTextListener;
 import org.w3c.dom.Text;
 
 import java.util.ArrayList;
@@ -41,7 +44,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 
-public class HomeFragment extends Fragment implements HomeAdapter.OnBookListenerHome{
+public class HomeFragment extends Fragment implements HomeAdapter.OnBookListenerHome {
 
     private Retrofit retrofit;
     private SharedPrefManager sharedPrefManager;
@@ -50,6 +53,9 @@ public class HomeFragment extends Fragment implements HomeAdapter.OnBookListener
     private SwipeRefreshLayout refreshLayout;
     private String currentUid;
     private ProgressBar homeProgress;
+    private androidx.appcompat.widget.SearchView searchView;
+
+
     public HomeFragment() {
     }
 
@@ -68,6 +74,8 @@ public class HomeFragment extends Fragment implements HomeAdapter.OnBookListener
         HomeAdapter adapter = new HomeAdapter(this);
         bookModelList = new ArrayList<>();
         refreshLayout= view.findViewById(R.id.swipeRefreshLayout);
+        searchView=view.findViewById(R.id.homeFrag_searchView);
+
         adapter.setBooksList(bookModelList);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(view.getContext()));
@@ -82,7 +90,54 @@ public class HomeFragment extends Fragment implements HomeAdapter.OnBookListener
             }
         });
 
+        searchView.setOnQueryTextListener(new androidx.appcompat.widget.SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                searchProduct(newText,adapter);
+                return false;
+            }
+        });
+
         return view;
+    }
+
+    private void searchProduct(String queryText,HomeAdapter adapter){
+        if(queryText.equals("")){
+            loadDataIntoRecyclerView(adapter);
+        }else{
+            bookModelList.clear();
+            adapter.notifyDataSetChanged();
+            homeProgress.setVisibility(View.VISIBLE);
+            API_Caller caller=retrofit.create(API_Caller.class);
+            Call<List<AllProducts>> searchCall=caller.searchProducts("search?xerox=book&search="+queryText);
+            searchCall.enqueue(new Callback<List<AllProducts>>() {
+                @Override
+                public void onResponse(Call<List<AllProducts>> call, Response<List<AllProducts>> response) {
+                    bookModelList.clear();
+                    List<AllProducts> searchProdList=response.body();
+                    for(AllProducts products:searchProdList){
+                        if(products.getImage().size()!=0){
+                            bookModelList.add(new BookModel(products.getTitle(),products.getBookauthor(),products.getDescription(),products.getAmount(),products.getImage().get(0),products.get_id()));
+                        }else{
+                            bookModelList.add(new BookModel(products.getTitle(),products.getBookauthor(),products.getDescription(),products.getAmount(),"",products.get_id()));
+                        }
+                    }
+                    adapter.notifyDataSetChanged();
+                    homeProgress.setVisibility(View.INVISIBLE);
+                }
+
+                @Override
+                public void onFailure(Call<List<AllProducts>> call, Throwable t) {
+                    homeProgress.setVisibility(View.INVISIBLE);
+                }
+            });
+        }
+
     }
 
     private void loadDataIntoRecyclerView(HomeAdapter adapter){
