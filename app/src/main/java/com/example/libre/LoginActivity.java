@@ -92,6 +92,7 @@ public class LoginActivity extends AppCompatActivity {
             call.enqueue(new Callback<String>() {
                 @Override
                 public void onResponse(Call<String> call, Response<String> response) {
+                    loginProgress.setVisibility(View.INVISIBLE);
                     String responseBody=response.body();
                     System.out.println("LOGIN RES: "+responseBody);
                     System.out.println("LOGIN RES: "+responseBody.length());
@@ -110,6 +111,7 @@ public class LoginActivity extends AppCompatActivity {
 
                 @Override
                 public void onFailure(Call<String> call, Throwable t) {
+                    loginProgress.setVisibility(View.INVISIBLE);
                     Toast.makeText(getApplicationContext(),"Login Failed! Please enter correct credentials or check your network connection",Toast.LENGTH_SHORT).show();
                 }
             });
