@@ -1,7 +1,7 @@
 # Libre
 ## Google Solution Challenge 2021
 <p align="center">
-  <img height="300px" src="./uploads/log.png">
+  <img height="300px" src="https://github.com/glitch-droid/Libre/blob/master/app/src/main/res/raw/logo.png">
 <p>
   For any human being, education is one of the most important needs in life. It not only enables us to understand and live in this world, but also to help the society in moving forward in general, and even helping yourself in particular. And what would education be without having books? Many-a-times, we don't have libraries nearby, and have to purchase books costing thousands of rupees only for it to lie dormant after its usage time. But what if, instead of having to buy the book, you could rent it for a set period of time for a much much lower cost? You own a book that cost you 1500 bucks. But what to do now, as it sits collecting dust. What if you could give it temporarily to someone for something monetary? Enter Libre
 
