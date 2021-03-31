@@ -18,6 +18,11 @@ The web portal is an alternative for people who are not on Android Devices, it o
 # Use Case
 We are trying to include the book owners and the interested readers in a friendly ecosystem that can benefit both the parties in play.
 
+# Tech Stack
+<p align="center">
+  <img height="300px" src="./Stack.png">
+ </p>
+
 # Running the Android App Locally
 1.  Clone the [Repository](https://github.com/glitch-droid/Libre)
 2.  Now launch Android Studio
