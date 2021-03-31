@@ -15,6 +15,9 @@ The app lets you see books that are out for rent by other people. You just need 
 # Web Portal
 The web portal is an alternative for people who are not on Android Devices, it offers the same services on any web browser instead.
 
+# Github Link for Web App
+https://github.com/adityabhura/Libre
+
 # Use Case
 We are trying to include the book owners and the interested readers in a friendly ecosystem that can benefit both the parties in play.
 
