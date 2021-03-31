@@ -54,7 +54,7 @@ The website is now live at: http://35.193.15.204:3000/products
 </p>
 -My Profiles Page including the my uploads section
  <p align="center">
- ![Alt text](https://github.com/glitch-droid/Libre/blob/master/app/src/main/res/raw/account_gif.gif)
+ <img src="https://github.com/glitch-droid/Libre/blob/master/app/src/main/res/raw/account_gif.gif">
 
 </p>
 
