@@ -47,7 +47,7 @@
 
     //Book Details
     <string name="detail">Book Details</string>
-    <string name="descp">Description</string>
+    <string name="descp">DESCRIPTION</string>
 
     //Splash
     <string name="splash_msg">Welcome to Libre!!</string>
