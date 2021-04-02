@@ -30,7 +30,6 @@
                    app:cardElevation="10dp"
                    app:cardCornerRadius="10dp"
                    android:background="@color/white"
-                   android:outlineSpotShadowColor="@color/palette_2"
                    android:layout_height="180dp">
                    <RelativeLayout
                        android:layout_width="match_parent"
@@ -41,7 +40,6 @@
                            android:id="@+id/addBook_bookImageIV"
                            android:layout_width="match_parent"
                            android:layout_height="match_parent"
-                           android:src="@drawable/sample_book"
                            android:layout_centerInParent="true"
                            android:scaleType="centerInside"/>
 
@@ -287,17 +285,18 @@
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/addBook_done"
-                android:layout_width="100dp"
-                android:layout_height="wrap_content"
+                android:layout_width="150dp"
+                android:layout_height="50dp"
                 android:layout_below="@id/addBook_sellerAreaET"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="50dp"
-                android:backgroundTint="@color/black_accent"
+                android:backgroundTint="@color/palette_1"
+                app:cornerRadius="20dp"
                 android:fontFamily="@font/quicksand_bold"
                 android:onClick="saveChangesToBook"
                 android:text="Done"
                 android:textColor="@color/white"
-                app:rippleColor="@color/palette_4" />
+                app:rippleColor="@color/burgundy_secondary" />
             <ProgressBar
                 android:id="@+id/addBookProgress"
                 android:layout_width="wrap_content"

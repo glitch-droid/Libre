@@ -278,8 +278,8 @@ public class BookDetail extends AppCompatActivity {
                             "\t City: "+currentProd.getAddress().getCity()+
                             "\t Area: "+currentProd.getAddress().getArea());
                     bookPrice.setText("₹"+currentProd.getAmount()+"/Week");
-                    sellerEmail.setText("Email: "+currentProd.getAuthor().getUsername());
-                    sellerPhoneNo.setText("Contact No.: "+currentProd.getPhoneNumber());
+                    sellerEmail.setText(currentProd.getAuthor().getUsername());
+                    sellerPhoneNo.setText(currentProd.getPhoneNumber());
                     pNo=currentProd.getPhoneNumber();
                     Call<CurrentUser> seller=caller.getUserFromID("profiles/"+currentProd.getAuthor().getId()+"/?xerox=book");
                     seller.enqueue(new Callback<CurrentUser>() {
@@ -287,7 +287,7 @@ public class BookDetail extends AppCompatActivity {
                         public void onResponse(Call<CurrentUser> call, Response<CurrentUser> response1) {
                             if(response1.isSuccessful()){
                                 CurrentUser user=response1.body();
-                                sellerName.setText("Seller Name: "+user.getName());
+                                sellerName.setText(user.getName());
                             }
                         }
 
