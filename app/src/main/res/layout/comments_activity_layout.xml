@@ -18,17 +18,13 @@
         android:id="@+id/comment_swipe_to_refresh"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/comment_edittext_bar"
         android:layout_below="@+id/comment_bar_layout">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/comments_rv"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_above="@id/comment_edittext_bar"
-            android:layout_below="@id/comment_bar_layout"
-            android:background="@color/white"
-            android:padding="10dp" />
+            android:layout_below="@id/comment_bar_layout" />
 
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 

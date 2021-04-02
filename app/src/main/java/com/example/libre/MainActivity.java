@@ -10,8 +10,11 @@ import androidx.fragment.app.Fragment;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.DisplayMetrics;
+import android.util.TypedValue;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
@@ -28,6 +31,7 @@ import com.example.libre.Fragments.HomeFragment;
 import com.example.libre.Fragments.ReadingFragment;
 import com.example.libre.Retrofit_Modules.API_Caller;
 import com.example.libre.SharedPrefsManager.SharedPrefManager;
+import com.google.android.material.bottomnavigation.BottomNavigationMenuView;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
@@ -71,6 +75,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent=new Intent(getApplicationContext(),AddBook.class);
                 startActivity(intent);
+                overridePendingTransition(R.anim.slide_up,R.anim.slide_down);
             }
         });
 
@@ -115,7 +120,12 @@ public class MainActivity extends AppCompatActivity {
 
                 }
 
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer,fragment).commit();
+                getSupportFragmentManager().beginTransaction()
+                        .setCustomAnimations(
+                        R.anim.fade_in,
+                        R.anim.fade_out)
+                        .replace(R.id.fragmentContainer,fragment)
+                        .commit();
 
                 return true;
             }

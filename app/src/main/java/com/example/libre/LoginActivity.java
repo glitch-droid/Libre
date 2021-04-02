@@ -46,7 +46,28 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.login_activity);
 
         emailTV=findViewById(R.id.login_emailTV);
+        emailTV.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if(hasFocus){
+                    emailTV.setCompoundDrawablesWithIntrinsicBounds(R.drawable.mail_filled,0,0,0);
+                }else{
+                    emailTV.setCompoundDrawablesWithIntrinsicBounds(R.drawable.mail_icon,0,0,0);
+                }
+            }
+        });
         passwordTV=findViewById(R.id.login_passwordTV);
+        passwordTV.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (hasFocus){
+                    passwordTV.setCompoundDrawablesWithIntrinsicBounds(R.drawable.password_filled,0,0,0);
+
+                }else{
+                    passwordTV.setCompoundDrawablesWithIntrinsicBounds(R.drawable.password_icon,0,0,0);
+                }
+            }
+        });
         login = findViewById(R.id.login_button);
         loginProgress = findViewById(R.id.loginProgress);
         loginProgress.setVisibility(View.INVISIBLE);

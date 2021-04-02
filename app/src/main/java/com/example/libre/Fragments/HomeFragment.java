@@ -15,9 +15,11 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
+import androidx.interpolator.view.animation.FastOutLinearInInterpolator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
+import androidx.transition.Explode;
 
 import com.example.libre.Adapters.HomeAdapter;
 import com.example.libre.BookDetail;
@@ -192,5 +194,6 @@ public class HomeFragment extends Fragment implements HomeAdapter.OnBookListener
         intent.putExtra("uid",currentUid);
         intent.putExtra("status","read");
         startActivity(intent);
+        getActivity().overridePendingTransition(R.anim.slide_in,R.anim.slide_out);
     }
 }

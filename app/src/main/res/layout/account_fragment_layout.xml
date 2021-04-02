@@ -68,44 +68,59 @@
 
                 </androidx.cardview.widget.CardView>
 
-                <TextView
-                    android:id="@+id/account_userNameTV"
+                <RelativeLayout
+                    android:id="@+id/account_holder_1"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
                     android:layout_below="@id/account_myBooksRV"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginTop="60dp"
-                    android:layout_marginRight="20dp"
-                    android:background="@drawable/account_details_bgr"
-                    android:drawableStart="@drawable/man_icon"
-                    android:drawablePadding="20dp"
-                    android:fontFamily="@font/quicksand_bold"
-                    android:padding="10dp"
-                    android:text="User Name"
-                    android:textAlignment="viewEnd"
-                    android:textColor="@color/black_accent"
-                    android:textDirection="rtl"
-                    android:textSize="20sp" />
+                    android:gravity="center"
+                    android:layout_marginTop="50dp"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:id="@+id/account_userNameTV"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:background="@drawable/account_details_bgr"
+                        android:drawableStart="@drawable/man_icon"
+                        android:drawableTint="@color/palette_1"
+                        android:drawablePadding="20dp"
+                        android:fontFamily="@font/quicksand_bold"
+                        android:padding="10dp"
+                        android:text="User Name"
+                        android:textAlignment="viewEnd"
+                        android:textColor="@color/palette_1"
+                        android:textDirection="rtl"
+                        android:textSize="20sp" />
+                </RelativeLayout>
 
-                <TextView
-                    android:id="@+id/account_userEmailTV"
+                <RelativeLayout
+                    android:id="@+id/account_holder_2"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/account_userNameTV"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginTop="30dp"
-                    android:layout_marginRight="20dp"
-                    android:layout_marginBottom="30dp"
-                    android:background="@drawable/account_details_bgr"
-                    android:drawableStart="@drawable/mail_filled"
-                    android:drawablePadding="20dp"
-                    android:fontFamily="@font/quicksand_bold"
-                    android:padding="10dp"
-                    android:text="User Mail Id"
-                    android:textAlignment="viewEnd"
-                    android:textColor="@color/black_accent"
-                    android:textDirection="rtl"
-                    android:textSize="20sp" />
+                    android:layout_below="@id/account_holder_1"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="20dp"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:id="@+id/account_userEmailTV"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:drawableStart="@drawable/mail_filled"
+                        android:drawableTint="@color/palette_3"
+                        android:drawablePadding="20dp"
+                        android:fontFamily="@font/quicksand_bold"
+                        android:padding="10dp"
+                        android:background="@drawable/account_details_bgr_2"
+                        android:text="User Mail Id"
+                        android:textAlignment="viewEnd"
+                        android:textColor="@color/palette_2"
+                        android:textDirection="rtl"
+                        android:textSize="20sp" />
+                </RelativeLayout>
+
+
 
 
                 <TextView

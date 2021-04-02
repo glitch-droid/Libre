@@ -7,20 +7,17 @@
     android:backgroundTint="@color/white"
     android:background="@color/white"
     tools:context=".AddBook">
-    <include layout="@layout/add_book_actionbar"/>
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:backgroundTint="@color/white"
-        android:layout_marginTop="50dp"
-        android:background="@color/white">
+        android:background="@android:color/transparent">
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:paddingBottom="20dp"
             android:paddingLeft="10dp"
-            android:background="@color/white"
-            android:backgroundTint="@color/white"
+            android:layout_marginTop="50dp"
+            android:background="@android:color/transparent"
             android:paddingRight="10dp"
             android:paddingTop="20dp">
                <androidx.cardview.widget.CardView
@@ -28,20 +25,19 @@
                    android:layout_margin="20dp"
                    android:layout_width="match_parent"
                    app:cardElevation="10dp"
+                   android:layout_marginTop="50dp"
                    app:cardCornerRadius="10dp"
-                   android:background="@color/white"
-                   android:outlineSpotShadowColor="@color/palette_2"
+                   android:backgroundTint="@color/white"
                    android:layout_height="180dp">
                    <RelativeLayout
                        android:layout_width="match_parent"
-                       android:background="@color/white"
+                       android:background="@android:color/transparent"
                        android:backgroundTint="@color/white"
                        android:layout_height="match_parent">
                        <ImageView
                            android:id="@+id/addBook_bookImageIV"
                            android:layout_width="match_parent"
                            android:layout_height="match_parent"
-                           android:src="@drawable/sample_book"
                            android:layout_centerInParent="true"
                            android:scaleType="centerInside"/>
 
@@ -54,12 +50,12 @@
                            android:layout_alignParentBottom="true"
                            android:layout_marginEnd="10dp"
                            android:layout_marginBottom="10dp"
-                           android:backgroundTint="@color/black_accent"
+                           android:backgroundTint="@color/palette_1"
                            android:clickable="true"
                            android:focusable="true"
                            android:onClick="selectImage"
                            android:translationZ="10dp"
-                           app:backgroundTint="@color/white"
+                           app:backgroundTint="@color/palette_1"
                            app:elevation="5dp"
                            app:srcCompat="@drawable/add_photo_icon" />
                    </RelativeLayout>
@@ -287,17 +283,18 @@
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/addBook_done"
-                android:layout_width="100dp"
-                android:layout_height="wrap_content"
+                android:layout_width="150dp"
+                android:layout_height="50dp"
                 android:layout_below="@id/addBook_sellerAreaET"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="50dp"
-                android:backgroundTint="@color/black_accent"
+                android:backgroundTint="@color/palette_1"
+                app:cornerRadius="20dp"
                 android:fontFamily="@font/quicksand_bold"
                 android:onClick="saveChangesToBook"
                 android:text="Done"
                 android:textColor="@color/white"
-                app:rippleColor="@color/palette_4" />
+                app:rippleColor="@color/burgundy_secondary" />
             <ProgressBar
                 android:id="@+id/addBookProgress"
                 android:layout_width="wrap_content"
@@ -309,4 +306,5 @@
 
         </RelativeLayout>
     </ScrollView>
+    <include layout="@layout/add_book_actionbar"/>
 </RelativeLayout>

@@ -56,6 +56,7 @@ public class BookDetail extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_book_detail);
+
         getItButton = findViewById(R.id.bookDetail_getItButton);
 
         ((MyApplication)getApplication()).getApiComponent().injectInBookDetails(this);
@@ -109,6 +110,7 @@ public class BookDetail extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 finish();
+                overridePendingTransition(R.anim.slide_in,R.anim.slide_out);
             }
         });
 
@@ -120,6 +122,7 @@ public class BookDetail extends AppCompatActivity {
                 System.out.println("TEST: "+currentUid);
                 intent1.putExtra("uid",currentUid);
                 startActivity(intent1);
+                overridePendingTransition(R.anim.slide_up,R.anim.slide_down);
             }
         });
         editFAB.setOnClickListener(new View.OnClickListener() {
@@ -278,8 +281,8 @@ public class BookDetail extends AppCompatActivity {
                             "\t City: "+currentProd.getAddress().getCity()+
                             "\t Area: "+currentProd.getAddress().getArea());
                     bookPrice.setText("₹"+currentProd.getAmount()+"/Week");
-                    sellerEmail.setText("Email: "+currentProd.getAuthor().getUsername());
-                    sellerPhoneNo.setText("Contact No.: "+currentProd.getPhoneNumber());
+                    sellerEmail.setText(currentProd.getAuthor().getUsername());
+                    sellerPhoneNo.setText(currentProd.getPhoneNumber());
                     pNo=currentProd.getPhoneNumber();
                     Call<CurrentUser> seller=caller.getUserFromID("profiles/"+currentProd.getAuthor().getId()+"/?xerox=book");
                     seller.enqueue(new Callback<CurrentUser>() {
@@ -287,7 +290,7 @@ public class BookDetail extends AppCompatActivity {
                         public void onResponse(Call<CurrentUser> call, Response<CurrentUser> response1) {
                             if(response1.isSuccessful()){
                                 CurrentUser user=response1.body();
-                                sellerName.setText("Seller Name: "+user.getName());
+                                sellerName.setText(user.getName());
                             }
                         }
 

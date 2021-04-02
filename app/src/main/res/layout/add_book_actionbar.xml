@@ -1,34 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/actionBar_bg"
     android:layout_width="match_parent"
-    android:layout_height="50dp"
+    android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:padding="10dp"
-    android:background="@drawable/add_book_actionbar_bgr">
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+    android:elevation="10dp"
+    android:background="@android:color/white">
+
         <ImageView
             android:id="@+id/close_addBook"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_gravity="center_vertical"
             android:layout_marginStart="10dp"
+            android:padding="5dp"
             android:layout_centerVertical="true"
-            android:src='@drawable/cut_activity_icon' />
+            android:src='@drawable/cut_activity_icon'
+            android:background="@drawable/add_close_bgr"
+            app:tint="@color/red_primary" />
+    <androidx.cardview.widget.CardView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        app:cardCornerRadius="20dp"
+        android:backgroundTint="#ffbb78">
         <TextView
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="40dp"
             android:text="@string/addBook"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
             android:textSize="24sp"
-            android:layout_centerInParent="true"
-            android:textColor="@color/white"
+            android:textColor="@color/palette_2"
             android:fontFamily="@font/quicksand_bold"/>
 
-
-    </RelativeLayout>
-
+    </androidx.cardview.widget.CardView>
 
 
-</LinearLayout>
+
+</RelativeLayout>

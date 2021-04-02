@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/comment_edittext_id"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:background="@android:color/transparent"
+    android:layout_height="wrap_content">
 
     <LinearLayout
         android:background="@android:color/transparent"
@@ -13,8 +14,10 @@
         android:paddingTop="10dp"
         android:paddingBottom="10dp"
         android:layout_height="wrap_content"
+        android:backgroundTint="@android:color/transparent"
         android:weightSum="20"
         android:orientation="horizontal">
+
 
         <EditText
             android:id="@+id/comment_commentET"
@@ -35,23 +38,25 @@
         <ImageView
             android:id="@+id/clear"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_gravity="center_vertical"
+            android:layout_height="50dp"
+            android:layout_gravity="bottom"
             android:layout_marginEnd="10dp"
             android:layout_weight="3"
-            android:background="@color/light_gray"
+            android:background="@drawable/comment_options_bgr"
             android:onClick="clearTextView"
             android:scaleType="center"
-            android:src="@drawable/delete_icon" />
+            android:src="@drawable/delete_icon"
+            app:tint="@color/white" />
 
         <ImageView
             android:id="@+id/submitComment"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_gravity="center_vertical"
+            android:layout_height="50dp"
+            android:layout_gravity="bottom"
             android:layout_weight="3"
-            android:background="@color/light_gray"
+            android:background="@drawable/comment_options_bgr"
             android:onClick="submitComment"
+            app:tint="@color/white"
             android:scaleType="center"
             android:src="@drawable/send_icon" />
 

@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
     tools:context=".BookDetail">
 
     <include layout="@layout/bookdetail_actionbar" />
@@ -17,10 +16,10 @@
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="50dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
+            android:background="@color/white"
             app:layout_constraintTop_toTopOf="parent">
 
             <RelativeLayout
@@ -32,7 +31,6 @@
                     android:layout_height="match_parent"
                     android:orientation="vertical"
                     android:weightSum="10">
-
                     <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
@@ -66,14 +64,12 @@
                             android:textSize="30sp" />
 
                     </RelativeLayout>
-
                     <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_weight="7"
                         android:paddingLeft="20dp"
-                        android:paddingRight="20dp"
-                        android:paddingBottom="50dp">
+                        android:paddingRight="20dp">
 
                         <com.google.android.material.floatingactionbutton.FloatingActionButton
                             android:id="@+id/bookDetail_bookmarkFAB"
@@ -81,7 +77,7 @@
                             android:layout_height="wrap_content"
                             android:layout_alignParentEnd="true"
                             android:layout_marginTop="10dp"
-                            android:backgroundTint="@color/black_accent"
+                            android:backgroundTint="#0000FF"
                             android:src="@drawable/bookmark_icon_details"
                             app:rippleColor="@color/palette_4" />
 
@@ -93,7 +89,7 @@
                             android:layout_marginTop="10dp"
                             android:layout_marginEnd="10dp"
                             android:layout_toLeftOf="@id/bookDetail_bookmarkFAB"
-                            android:backgroundTint="@color/burgundy_secondary"
+                            android:backgroundTint="@color/palette_3"
                             android:src="@drawable/comment_icon"
                             app:rippleColor="@color/palette_4" />
 
@@ -105,7 +101,7 @@
                             android:layout_marginTop="5dp"
                             android:layout_marginEnd="10dp"
                             android:layout_toLeftOf="@id/bookDetail_deleteFAB"
-                            android:backgroundTint="@color/palette_3"
+                            android:backgroundTint="#000C66"
                             android:src="@drawable/edit_icon"
                             android:visibility="visible"
                             app:rippleColor="@color/burgundy_secondary" />
@@ -155,14 +151,20 @@
 
                         <Button
                             android:id="@+id/bookDetail_getItButton"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
+                            android:layout_width="300dp"
+                            android:layout_centerHorizontal="true"
+                            android:layout_height="45dp"
                             android:layout_below="@id/bookDetail_bookDescriptionTV"
                             android:layout_marginTop="40dp"
-                            android:backgroundTint="@color/palette_3"
+                            android:layout_marginBottom="50dp"
+                            app:cornerRadius="20dp"
+                            android:shadowDy="10"
+                            android:shadowRadius="5"
+                            android:background="@drawable/getit_button"
                             android:fontFamily="@font/quicksand_bold"
                             android:text="Get it"
-                            android:textColor="@color/burgundy_secondary" />
+                            android:textSize="18sp"
+                            android:textColor="@color/white" />
 
                     </RelativeLayout>
 

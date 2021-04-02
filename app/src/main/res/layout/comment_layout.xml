@@ -10,16 +10,14 @@
         android:layout_width="match_parent"
         app:cardElevation="10dp"
         app:cardCornerRadius="20dp"
-        android:background="@color/white"
         android:layout_margin="20dp"
-        app:rippleColor="@color/palette_3"
         android:layout_height="wrap_content">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:padding="7dp"
-            android:background="@color/light_yellow"
+            android:padding="12dp"
+            android:background="#000C66"
             android:orientation="vertical">
 
             <TextView
@@ -29,7 +27,7 @@
                 android:text="User Name"
                 android:layout_marginStart="5dp"
                 android:fontFamily="@font/quicksand_bold"
-                android:textColor="@color/black_accent"
+                android:textColor="#7EC8E3"
                 android:textSize="18sp"
                 android:textDirection="ltr"
                 android:textAlignment="viewStart"/>
@@ -43,7 +41,7 @@
                 android:layout_marginLeft="5dp"
                 android:text="@string/loren_ipsum"
                 android:textSize="14sp"
-                android:textColor="@color/black_accent"/>
+                android:textColor="@color/white"/>
 
             <ImageView
                 android:id="@+id/comment_deleteIconMyComment"

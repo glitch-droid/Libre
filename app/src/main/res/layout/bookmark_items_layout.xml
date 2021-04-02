@@ -22,7 +22,6 @@
         android:orientation="horizontal"
         android:paddingBottom="20dp"
         android:padding="10dp"
-        android:elevation="10dp"
         android:weightSum="2">
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/bookmarkRV_itemCV"
@@ -130,11 +129,12 @@
         <com.google.android.material.button.MaterialButton
             android:id="@+id/removeBookmarkButton"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:gravity="center"
-            app:backgroundTint="@color/palette_4"
+            app:backgroundTint="@color/red_primary"
             android:text="REmove Bookmark"
-            app:cornerRadius="7dp"
+            android:textColor="@color/white"
+            app:cornerRadius="20dp"
             app:rippleColor="@color/burgundy_secondary"
             android:layout_centerInParent="true"/>
     </RelativeLayout>
