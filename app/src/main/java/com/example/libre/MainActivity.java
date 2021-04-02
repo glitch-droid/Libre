@@ -75,6 +75,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent=new Intent(getApplicationContext(),AddBook.class);
                 startActivity(intent);
+                overridePendingTransition(R.anim.slide_up,R.anim.slide_down);
             }
         });
 
@@ -119,7 +120,12 @@ public class MainActivity extends AppCompatActivity {
 
                 }
 
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer,fragment).commit();
+                getSupportFragmentManager().beginTransaction()
+                        .setCustomAnimations(
+                        R.anim.fade_in,
+                        R.anim.fade_out)
+                        .replace(R.id.fragmentContainer,fragment)
+                        .commit();
 
                 return true;
             }

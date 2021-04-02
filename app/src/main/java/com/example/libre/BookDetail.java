@@ -56,6 +56,7 @@ public class BookDetail extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_book_detail);
+
         getItButton = findViewById(R.id.bookDetail_getItButton);
 
         ((MyApplication)getApplication()).getApiComponent().injectInBookDetails(this);
@@ -109,6 +110,7 @@ public class BookDetail extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 finish();
+                overridePendingTransition(R.anim.slide_in,R.anim.slide_out);
             }
         });
 
@@ -120,6 +122,7 @@ public class BookDetail extends AppCompatActivity {
                 System.out.println("TEST: "+currentUid);
                 intent1.putExtra("uid",currentUid);
                 startActivity(intent1);
+                overridePendingTransition(R.anim.slide_up,R.anim.slide_down);
             }
         });
         editFAB.setOnClickListener(new View.OnClickListener() {
