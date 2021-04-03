@@ -19,7 +19,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Libre"
         android:usesCleartextTraffic="true">
-        <activity android:name=".SplashScreen">
+        <activity android:name=".SplashScreen"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -28,18 +29,22 @@
         </activity>
         <activity
             android:name=".BookDetail"
-            android:theme="@style/Theme.BookActivityTheme" />
-        <activity android:name=".CommentsActivity" />
-        <activity android:name=".AddBook" />
+            android:theme="@style/Theme.BookActivityTheme"
+            android:screenOrientation="portrait" />
+        <activity android:name=".CommentsActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".AddBook"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".MainActivity"
-            android:windowSoftInputMode="adjustPan"/>
-        <activity android:name=".RegisterActivity" />
-        <activity android:name=".AuthenticationActivity" />
-        <activity android:name=".LoginActivity">
-
-        </activity>
-
+            android:windowSoftInputMode="adjustPan"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".RegisterActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".AuthenticationActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name=".LoginActivity"
+            android:screenOrientation="portrait"/>
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
