@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.AnimationUtils;
+import android.view.animation.LayoutAnimationController;
 import android.widget.ProgressBar;
 import android.widget.SearchView;
 import android.widget.TextView;
@@ -41,6 +43,11 @@ import org.w3c.dom.Text;
 import java.util.ArrayList;
 import java.util.List;
 
+import jp.wasabeef.recyclerview.adapters.AlphaInAnimationAdapter;
+import jp.wasabeef.recyclerview.adapters.SlideInLeftAnimationAdapter;
+import jp.wasabeef.recyclerview.animators.OvershootInLeftAnimator;
+import jp.wasabeef.recyclerview.animators.SlideInLeftAnimator;
+import jp.wasabeef.recyclerview.animators.SlideInUpAnimator;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -69,6 +76,7 @@ public class HomeFragment extends Fragment implements HomeAdapter.OnBookListener
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = LayoutInflater.from(getContext()).inflate(R.layout.home_fragment_layout,container,false);
         RecyclerView recyclerView = view.findViewById(R.id.homeFragmentRV);
+        recyclerView.setItemAnimator(new SlideInLeftAnimator());
         sharedPrefManager=new SharedPrefManager(getContext());
 
         homeProgress = view.findViewById(R.id.homeProgress);
@@ -79,11 +87,11 @@ public class HomeFragment extends Fragment implements HomeAdapter.OnBookListener
         searchView=view.findViewById(R.id.homeFrag_searchView);
 
         adapter.setBooksList(bookModelList);
-        recyclerView.setAdapter(adapter);
+        recyclerView.setAdapter(new AlphaInAnimationAdapter(adapter));
         recyclerView.setLayoutManager(new LinearLayoutManager(view.getContext()));
         recyclerView.hasFixedSize();
-        loadDataIntoRecyclerView(adapter);
         adapter.notifyDataSetChanged();
+        loadDataIntoRecyclerView(adapter);
 
         refreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
@@ -194,6 +202,6 @@ public class HomeFragment extends Fragment implements HomeAdapter.OnBookListener
         intent.putExtra("uid",currentUid);
         intent.putExtra("status","read");
         startActivity(intent);
-        getActivity().overridePendingTransition(R.anim.slide_in,R.anim.slide_out);
+        getActivity().overridePendingTransition(R.anim.slide_in,R.anim.cover_fade);
     }
 }

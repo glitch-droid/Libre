@@ -120,7 +120,7 @@ public class AddBook extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 finish();
-                overridePendingTransition(R.anim.slide_up,R.anim.slide_down);
+                overridePendingTransition(R.anim.cover_fade_in,R.anim.slide_down);
             }
         });
     }
