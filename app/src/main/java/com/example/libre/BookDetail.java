@@ -13,6 +13,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -110,7 +111,7 @@ public class BookDetail extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 finish();
-                overridePendingTransition(R.anim.slide_in,R.anim.slide_out);
+                overridePendingTransition(R.anim.cover_fade_in,R.anim.slide_out);
             }
         });
 
@@ -122,7 +123,7 @@ public class BookDetail extends AppCompatActivity {
                 System.out.println("TEST: "+currentUid);
                 intent1.putExtra("uid",currentUid);
                 startActivity(intent1);
-                overridePendingTransition(R.anim.slide_up,R.anim.slide_down);
+                overridePendingTransition(R.anim.slide_up, R.anim.cover_fade);
             }
         });
         editFAB.setOnClickListener(new View.OnClickListener() {
@@ -141,6 +142,7 @@ public class BookDetail extends AppCompatActivity {
                 editIntent.putExtra("desc",bookdescription);
                 editIntent.putExtra("prodID",prodId);
                 startActivity(editIntent);
+                overridePendingTransition(R.anim.slide_in, R.anim.cover_fade);
             }
         });
 

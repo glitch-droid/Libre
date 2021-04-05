@@ -80,7 +80,7 @@ public class CommentsActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 finish();
-                overridePendingTransition(R.anim.slide_up,R.anim.slide_down);
+                overridePendingTransition(R.anim.cover_fade_in,R.anim.slide_down);
             }
         });
         fillCommentsRV(productId);
