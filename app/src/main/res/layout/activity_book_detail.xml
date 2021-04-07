@@ -149,22 +149,39 @@
                             android:textColor="@color/gray"
                             android:textSize="16sp" />
 
-                        <Button
-                            android:id="@+id/bookDetail_getItButton"
-                            android:layout_width="300dp"
-                            android:layout_centerHorizontal="true"
-                            android:layout_height="45dp"
+
+                        <com.balysv.materialripple.MaterialRippleLayout
+                            android:id="@+id/details_getit_ripple"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
                             android:layout_below="@id/bookDetail_bookDescriptionTV"
+                            android:layout_centerHorizontal="true"
                             android:layout_marginTop="40dp"
                             android:layout_marginBottom="50dp"
-                            app:cornerRadius="20dp"
-                            android:shadowDy="10"
-                            android:shadowRadius="5"
-                            android:background="@drawable/getit_button"
-                            android:fontFamily="@font/quicksand_bold"
-                            android:text="Get it"
-                            android:textSize="18sp"
-                            android:textColor="@color/white" />
+                            app:mrl_rippleRoundedCorners="20dp"
+                            app:mrl_rippleOverlay="true"
+                            app:mrl_rippleColor="@color/burgundy_secondary"
+                            app:mrl_rippleAlpha="0.5"
+                            app:mrl_rippleDimension="10dp"
+                            app:mrl_rippleHover="true"
+                            app:mrl_rippleDuration="350"
+                            app:mrl_rippleFadeDuration="200"
+                            app:mrl_ripplePersistent="false">
+                            <Button
+                                android:id="@+id/bookDetail_getItButton"
+                                android:layout_width="300dp"
+                                android:layout_height="45dp"
+                                app:cornerRadius="20dp"
+                                android:shadowDy="10"
+                                android:shadowRadius="5"
+                                android:background="@drawable/getit_button"
+                                android:fontFamily="@font/quicksand_bold"
+                                android:text="Get it"
+                                android:textSize="18sp"
+                                android:textColor="@color/white" />
+
+                        </com.balysv.materialripple.MaterialRippleLayout>
+
 
                     </RelativeLayout>
 

@@ -9,7 +9,7 @@
     tools:context=".AddBook">
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:background="@android:color/transparent">
         <RelativeLayout
             android:layout_width="match_parent"
@@ -66,7 +66,7 @@
                 android:id="@+id/addBook_filldetailTV"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:paddingLeft="10dp"
+                android:paddingLeft="15dp"
                 android:layout_marginTop="10dp"
                 android:layout_below="@id/addBook_bookImageHolderCV"
                 android:text="@string/fiillDetail"
@@ -77,8 +77,9 @@
             <EditText
                 android:id="@+id/addBook_bookNameET"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="50dp"
                 android:maxLines="1"
+                android:paddingStart="10dp"
                 android:layout_marginStart="10dp"
                 android:layout_marginEnd="10dp"
                 android:layout_marginTop="20dp"
@@ -89,7 +90,7 @@
                 android:textColorHint="@color/gray"
                 android:textAlignment="viewStart"
                 android:textColor="@color/black"
-                android:backgroundTint="@color/black"
+                android:background="@drawable/add_book_bgr"
                 android:hapticFeedbackEnabled="true"
                 android:layout_below="@+id/addBook_filldetailTV"
                 android:textSize="19sp" />
@@ -98,7 +99,9 @@
             <EditText
                 android:id="@+id/addBook_bookAuthorET"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="50dp"
+                android:background="@drawable/add_book_bgr"
+                android:paddingStart="10dp"
                 android:maxLines="1"
                 android:layout_marginStart="10dp"
                 android:layout_marginEnd="10dp"
@@ -110,7 +113,6 @@
                 android:textColorHint="@color/gray"
                 android:textAlignment="viewStart"
                 android:textColor="@color/black"
-                android:backgroundTint="@color/black"
                 android:hapticFeedbackEnabled="true"
                 android:layout_below="@+id/addBook_bookNameET"
                 android:textSize="19sp" />
@@ -121,12 +123,15 @@
                     android:layout_width="match_parent"
                     android:layout_marginTop="20dp"
                     android:layout_height="200dp"
-                    android:background="@drawable/verification_edittext"
-                    android:fontFamily="@font/roboto"
-                    android:hint="Description (max. 300 )"
+                    android:background="@drawable/add_book_bgr"
+                    android:paddingStart="10dp"
+                    android:fontFamily="@font/roboto_medium"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:hint="Description (max. 1000 )"
                     android:gravity="start"
                     android:textColorHint="@color/gray"
-                    android:maxLength="300"
+                    android:maxLength="1000"
                     android:inputType="textMultiLine"
                     android:pointerIcon="arrow"
                     android:padding="10dp"
@@ -135,34 +140,28 @@
                     android:textSize="20sp"  />
 
 
-            <androidx.cardview.widget.CardView
-                android:id="@+id/CV_4"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                app:cardCornerRadius="7dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginBottom="10dp"
-                android:layout_below="@id/addBook_bookDescpET">
+
 
                 <EditText
                     android:id="@+id/addBook_bookPriceET"
                     android:layout_width="match_parent"
-                    android:layout_height="55dp"
+                    android:layout_height="50dp"
+                    android:layout_below="@id/addBook_bookDescpET"
+                    android:background="@drawable/add_book_bgr"
+                    android:paddingStart="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
                     android:fontFamily="@font/roboto_medium"
-                    android:background="@drawable/verification_edittext"
                     android:hint="Price"
                     android:inputType="number"
+                    android:layout_marginTop="20dp"
                     android:textColorHint="@color/gray"
                     android:pointerIcon="arrow"
                     android:hapticFeedbackEnabled="true"
                     android:padding="10dp"
                     android:textColor="@color/black"
-                    android:outlineSpotShadowColor="@color/black"
                     android:textSize="20sp"  />
 
-            </androidx.cardview.widget.CardView>
 
             <TextView
                 android:id="@+id/addBook_additionalTV"
@@ -171,9 +170,9 @@
                 android:fontFamily="@font/quicksand_bold"
                 android:textSize="20sp"
                 android:layout_marginTop="40dp"
-                android:layout_marginStart="10dp"
+                android:layout_marginStart="15dp"
                 android:layout_height="50dp"
-                android:layout_below="@+id/CV_4"
+                android:layout_below="@+id/addBook_bookPriceET"
                 android:textColor="@color/black_accent"/>
 
 
@@ -181,7 +180,9 @@
             <EditText
                 android:id="@+id/addBook_sellerPhoneET"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="50dp"
+                android:background="@drawable/add_book_bgr"
+                android:paddingStart="10dp"
                 android:maxLines="1"
                 android:layout_marginStart="10dp"
                 android:layout_marginEnd="10dp"
@@ -193,7 +194,6 @@
                 android:textColorHint="@color/gray"
                 android:textAlignment="viewStart"
                 android:textColor="@color/black"
-                android:backgroundTint="@color/black"
                 android:hapticFeedbackEnabled="true"
                 android:layout_below="@+id/addBook_additionalTV"
                 android:textSize="19sp" />
@@ -201,7 +201,9 @@
             <EditText
                 android:id="@+id/addBook_sellerCountryET"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="50dp"
+                android:background="@drawable/add_book_bgr"
+                android:paddingStart="10dp"
                 android:maxLines="1"
                 android:layout_marginStart="10dp"
                 android:layout_marginEnd="10dp"
@@ -213,7 +215,6 @@
                 android:textColorHint="@color/gray"
                 android:textAlignment="viewStart"
                 android:textColor="@color/black"
-                android:backgroundTint="@color/black"
                 android:hapticFeedbackEnabled="true"
                 android:layout_below="@+id/addBook_sellerPhoneET"
                 android:textSize="19sp" />
@@ -222,7 +223,9 @@
             <EditText
                 android:id="@+id/addBook_sellerStateET"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="50dp"
+                android:background="@drawable/add_book_bgr"
+                android:paddingStart="10dp"
                 android:maxLines="1"
                 android:layout_marginStart="10dp"
                 android:layout_marginEnd="10dp"
@@ -234,7 +237,6 @@
                 android:textColorHint="@color/gray"
                 android:textAlignment="viewStart"
                 android:textColor="@color/black"
-                android:backgroundTint="@color/black"
                 android:hapticFeedbackEnabled="true"
                 android:layout_below="@+id/addBook_sellerCountryET"
                 android:textSize="19sp" />
@@ -243,7 +245,9 @@
             <EditText
                 android:id="@+id/addBook_sellerCityET"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="50dp"
+                android:background="@drawable/add_book_bgr"
+                android:paddingStart="10dp"
                 android:maxLines="1"
                 android:layout_marginStart="10dp"
                 android:layout_marginEnd="10dp"
@@ -255,7 +259,6 @@
                 android:textColorHint="@color/gray"
                 android:textAlignment="viewStart"
                 android:textColor="@color/black"
-                android:backgroundTint="@color/black"
                 android:hapticFeedbackEnabled="true"
                 android:layout_below="@+id/addBook_sellerStateET"
                 android:textSize="19sp" />
@@ -263,7 +266,9 @@
             <EditText
                 android:id="@+id/addBook_sellerAreaET"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="50dp"
+                android:background="@drawable/add_book_bgr"
+                android:paddingStart="10dp"
                 android:maxLines="1"
                 android:layout_marginStart="10dp"
                 android:layout_marginEnd="10dp"
@@ -275,7 +280,6 @@
                 android:textColorHint="@color/gray"
                 android:textAlignment="viewStart"
                 android:textColor="@color/black"
-                android:backgroundTint="@color/black"
                 android:hapticFeedbackEnabled="true"
                 android:layout_below="@+id/addBook_sellerCityET"
                 android:textSize="19sp" />
@@ -300,7 +304,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/addBook_done"
-                android:layout_marginTop="30dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="30dp"
                 android:layout_centerHorizontal="true"
                 android:indeterminateDrawable="@drawable/progress_layout"/>
 

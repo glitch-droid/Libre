@@ -29,6 +29,7 @@ import com.example.libre.SharedPrefsManager.SharedPrefManager;
 import java.util.ArrayList;
 import java.util.List;
 
+import jp.wasabeef.recyclerview.animators.SlideInUpAnimator;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -62,6 +63,7 @@ public class AccountFragment extends Fragment implements MyUploadsAdapter.MyBook
         manager=new SharedPrefManager(getContext());
 
         myBooksRV = view.findViewById(R.id.account_myBooksRV);
+        myBooksRV.setItemAnimator(new SlideInUpAnimator());
         userNameTV=view.findViewById(R.id.account_userNameTV);
         userEmailTV=view.findViewById(R.id.account_userEmailTV);
         firstLetterTV=view.findViewById(R.id.account_firstLetterTV);

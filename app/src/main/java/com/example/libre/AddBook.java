@@ -7,6 +7,7 @@ import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -19,6 +20,7 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
+import com.balysv.materialripple.MaterialRippleLayout;
 import com.example.libre.DaggerSetupFiles.MyApplication;
 import com.example.libre.Retrofit_Modules.API_Caller;
 import com.example.libre.Retrofit_Modules.Models.Address;
@@ -27,6 +29,7 @@ import com.example.libre.Retrofit_Modules.Models.EditProductFormat;
 import com.example.libre.Retrofit_Modules.Models.FileUtils;
 import com.example.libre.Retrofit_Modules.Models.MessageFormat;
 import com.example.libre.Retrofit_Modules.Models.Products;
+import com.google.android.material.button.MaterialButton;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.iceteck.silicompressorr.SiliCompressor;
 
@@ -116,7 +119,8 @@ public class AddBook extends AppCompatActivity {
 
         ((MyApplication)getApplication()).getApiComponent().injectInAddBook(this);
 
-        cutAddBook.setOnClickListener(new View.OnClickListener() {
+        MaterialRippleLayout rippleLayout = findViewById(R.id.cut_add_book_ripple);
+        rippleLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 finish();

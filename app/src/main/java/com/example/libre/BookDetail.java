@@ -19,6 +19,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.balysv.materialripple.MaterialRippleLayout;
 import com.example.libre.Constants.Constants;
 import com.example.libre.DaggerSetupFiles.MyApplication;
 import com.example.libre.Retrofit_Modules.API_Caller;
@@ -41,8 +42,7 @@ import retrofit2.Retrofit;
 
 public class BookDetail extends AppCompatActivity {
     private BottomSheetDialog bottomSheetDialog;
-    private Button getItButton;
-    private ImageView backButton,productImage;
+    private ImageView productImage;
     private TextView bookName,authorName,description,bookPrice,sellerName,sellerEmail,sellerPhoneNo,sellerAddress;
     private FloatingActionButton toComments,editFAB,deleteFab,bookmarkFAB;
     private String currentUid,pNo;
@@ -58,7 +58,6 @@ public class BookDetail extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_book_detail);
 
-        getItButton = findViewById(R.id.bookDetail_getItButton);
 
         ((MyApplication)getApplication()).getApiComponent().injectInBookDetails(this);
 
@@ -99,15 +98,17 @@ public class BookDetail extends AppCompatActivity {
             }
         });
         getAllDetails(prodId);
-        getItButton.setOnClickListener(new View.OnClickListener() {
+        MaterialRippleLayout getItRipple = findViewById(R.id.details_getit_ripple);
+        getItRipple.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 showModalSheet();
             }
         });
 
-        backButton = findViewById(R.id.close_bookDetails);
-        backButton.setOnClickListener(new View.OnClickListener() {
+
+        MaterialRippleLayout closeDetails = findViewById(R.id.close_details_ripple);
+        closeDetails.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 finish();
