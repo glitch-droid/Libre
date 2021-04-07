@@ -7,18 +7,30 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@android:color/white">
-
+<com.balysv.materialripple.MaterialRippleLayout
+    android:id="@+id/close_comment_ripple"
+    android:layout_width="30dp"
+    android:layout_height="30dp"
+    app:mrl_rippleOverlay="true"
+    app:mrl_rippleColor="@color/burgundy_secondary"
+    app:mrl_rippleAlpha="0.5"
+    app:mrl_rippleDimension="10dp"
+    app:mrl_rippleHover="true"
+    app:mrl_rippleDuration="150"
+    app:mrl_ripplePersistent="true"
+    android:layout_centerVertical="true"
+    app:mrl_rippleRoundedCorners="15dp"
+    android:layout_marginTop="10dp"
+    android:layout_marginStart="10dp">
     <ImageView
         android:id="@+id/close_comments"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:src="@drawable/cross"
-        android:padding="5dp"
-        android:layout_marginTop="10dp"
         android:background="@drawable/comment_close_bgr"
-        android:layout_marginStart="10dp"
-        android:layout_centerVertical="true"
         app:tint="@color/white" />
+</com.balysv.materialripple.MaterialRippleLayout>
+
     <androidx.cardview.widget.CardView
         android:layout_width="200dp"
         android:layout_height="wrap_content"

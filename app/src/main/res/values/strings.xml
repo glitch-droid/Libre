@@ -43,7 +43,7 @@
 
     //AddBook
     <string name="addBook">Add Book</string>
-    <string name="fiillDetail"><u>Fill the details</u></string>
+    <string name="fiillDetail">Fill the details</string>
 
     //Book Details
     <string name="detail">Book Details</string>

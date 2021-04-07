@@ -29,6 +29,7 @@ import com.example.libre.SharedPrefsManager.SharedPrefManager;
 import java.util.ArrayList;
 import java.util.List;
 
+import jp.wasabeef.recyclerview.animators.SlideInDownAnimator;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -55,6 +56,7 @@ public class BookmarkedFragment extends Fragment implements BookmarkAdapter.OnBo
         View view = LayoutInflater.from(getContext()).inflate(R.layout.bookmarked_fragment_layout,container,false);
 
         bookmarkRV = view.findViewById(R.id.bookmarks_RV);
+        bookmarkRV.setItemAnimator(new SlideInDownAnimator());
         refreshLayout=view.findViewById(R.id.bookmark_swipeToRefresh);
         loadingProgressBar=view.findViewById(R.id.progressBar);
         loadingProgressBar.setVisibility(View.VISIBLE);

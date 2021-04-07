@@ -51,4 +51,5 @@ dependencies {
     implementation "androidx.swiperefreshlayout:swiperefreshlayout:1.1.0"
     implementation 'com.iceteck.silicompressorr:silicompressor:2.2.4'
     implementation 'jp.wasabeef:recyclerview-animators:4.0.2'
+    implementation 'com.balysv:material-ripple:1.0.2'
 }

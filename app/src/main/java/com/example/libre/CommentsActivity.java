@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
+import com.balysv.materialripple.MaterialRippleLayout;
 import com.example.libre.Adapters.CommentsAdapter;
 import com.example.libre.DaggerSetupFiles.MyApplication;
 import com.example.libre.Models.CommentModel;
@@ -29,6 +30,7 @@ import java.util.List;
 
 import javax.inject.Inject;
 
+import jp.wasabeef.recyclerview.animators.SlideInUpAnimator;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -62,6 +64,7 @@ public class CommentsActivity extends AppCompatActivity {
 
         close=findViewById(R.id.close_comments);
         commentsRV = findViewById(R.id.comments_rv);
+        commentsRV.setItemAnimator(new SlideInUpAnimator());
         commentET=findViewById(R.id.comment_commentET);
         commentsAdapter = new CommentsAdapter(commentModelList,getApplicationContext(),retrofit,productId);
         commentsRV.setAdapter(commentsAdapter);
@@ -76,7 +79,8 @@ public class CommentsActivity extends AppCompatActivity {
             }
         });
 
-        close.setOnClickListener(new View.OnClickListener() {
+        MaterialRippleLayout closeComment = findViewById(R.id.close_comment_ripple);
+        closeComment.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 finish();
