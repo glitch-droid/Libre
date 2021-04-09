@@ -107,5 +107,6 @@ public class BookmarkedFragment extends Fragment implements BookmarkAdapter.OnBo
         intent.putExtra("uid",currentUID);
         intent.putExtra("status","read");
         startActivity(intent);
+        getActivity().overridePendingTransition(R.anim.slide_in,R.anim.cover_fade);
     }
 }

@@ -125,5 +125,6 @@ public class AccountFragment extends Fragment implements MyUploadsAdapter.MyBook
         intent.putExtra("uid",currentUID);
         intent.putExtra("status","edit");
         startActivity(intent);
+        getActivity().overridePendingTransition(R.anim.slide_in,R.anim.cover_fade);
     }
 }
