@@ -78,7 +78,6 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 loginUser(v);
-                loginProgress.setVisibility(View.VISIBLE);
             }
         });
 
@@ -101,6 +100,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     public void loginUser(View view){
+        loginProgress.setVisibility(View.VISIBLE);
         String email=emailTV.getText().toString();
         String password=passwordTV.getText().toString();
         if(!email.equals("")&&!password.equals("")){
@@ -115,10 +115,9 @@ public class LoginActivity extends AppCompatActivity {
                 public void onResponse(Call<String> call, Response<String> response) {
                     loginProgress.setVisibility(View.INVISIBLE);
                     String responseBody=response.body();
-                    System.out.println("LOGIN RES: "+responseBody);
-                    System.out.println("LOGIN RES: "+responseBody.length());
                     if(responseBody.length()==3400){
                         Toast.makeText(getApplicationContext(),"Login Failed! Please enter correct credentials or check your network connection",Toast.LENGTH_SHORT).show();
+                        loginProgress.setVisibility(View.INVISIBLE);
                     }else{
                         Toast.makeText(getApplicationContext(),"Login Successful!",Toast.LENGTH_SHORT).show();
                         SharedPrefManager manager=new SharedPrefManager(getApplicationContext());
@@ -138,6 +137,7 @@ public class LoginActivity extends AppCompatActivity {
             });
         }else{
             Toast.makeText(getApplicationContext(),"Please enter all details!",Toast.LENGTH_SHORT).show();
+            loginProgress.setVisibility(View.INVISIBLE);
         }
 
     }

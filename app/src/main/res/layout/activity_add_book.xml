@@ -20,47 +20,52 @@
             android:background="@android:color/transparent"
             android:paddingRight="10dp"
             android:paddingTop="20dp">
-               <androidx.cardview.widget.CardView
-                   android:id="@+id/addBook_bookImageHolderCV"
-                   android:layout_margin="20dp"
-                   android:layout_width="match_parent"
-                   app:cardElevation="10dp"
-                   android:layout_marginTop="50dp"
-                   app:cardCornerRadius="10dp"
-                   android:backgroundTint="@color/white"
-                   android:layout_height="180dp">
-                   <RelativeLayout
-                       android:layout_width="match_parent"
-                       android:background="@android:color/transparent"
-                       android:backgroundTint="@color/white"
-                       android:layout_height="match_parent">
-                       <ImageView
-                           android:id="@+id/addBook_bookImageIV"
-                           android:layout_width="match_parent"
-                           android:layout_height="match_parent"
-                           android:layout_centerInParent="true"
-                           android:scaleType="centerInside"/>
 
-                       <com.google.android.material.floatingactionbutton.FloatingActionButton
-                           android:id="@+id/addBook_fabAddImage"
-                           android:layout_width="wrap_content"
-                           android:layout_height="wrap_content"
-                           android:layout_alignParentLeft="true"
-                           android:layout_alignParentEnd="true"
-                           android:layout_alignParentBottom="true"
-                           android:layout_marginEnd="10dp"
-                           android:layout_marginBottom="10dp"
-                           android:backgroundTint="@color/palette_1"
-                           android:clickable="true"
-                           android:focusable="true"
-                           android:onClick="selectImage"
-                           android:translationZ="10dp"
-                           app:backgroundTint="@color/palette_1"
-                           app:elevation="5dp"
-                           app:srcCompat="@drawable/add_photo_icon" />
-                   </RelativeLayout>
+            <androidx.cardview.widget.CardView
+                android:id="@+id/addBook_bookImageHolderCV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginBottom="20dp"
+                android:backgroundTint="@color/white"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="10dp">
 
-               </androidx.cardview.widget.CardView>
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@android:color/transparent"
+                    android:backgroundTint="@color/white">
+
+                    <ImageView
+                        android:id="@+id/addBook_bookImageIV"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_centerInParent="true"
+                        android:scaleType="centerInside" />
+
+                    <com.google.android.material.floatingactionbutton.FloatingActionButton
+                        android:id="@+id/addBook_fabAddImage"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginEnd="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:backgroundTint="@color/palette_1"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:onClick="selectImage"
+                        android:translationZ="10dp"
+                        app:backgroundTint="@color/palette_1"
+                        app:elevation="5dp"
+                        app:srcCompat="@drawable/add_photo_icon" />
+                </RelativeLayout>
+
+            </androidx.cardview.widget.CardView>
 
             <TextView
                 android:id="@+id/addBook_filldetailTV"

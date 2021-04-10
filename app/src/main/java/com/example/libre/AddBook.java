@@ -18,6 +18,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.balysv.materialripple.MaterialRippleLayout;
@@ -53,6 +54,7 @@ public class AddBook extends AppCompatActivity {
     Retrofit retrofit;
 
     private ImageView selectedImage;
+    private TextView actionbarTitle;
     private EditText bookNameET,authorNameET,descriptionET,priceET,phoneNumberET,countryET,stateET,areaET,cityET;
     private FloatingActionButton selectImageButton;
     private ImageView cutAddBook;
@@ -66,6 +68,7 @@ public class AddBook extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_book);
 
+        actionbarTitle=findViewById(R.id.addBookTitle);
         submitButton=findViewById(R.id.addBook_done);
         cutAddBook = findViewById(R.id.close_addBook);
         bookNameET=findViewById(R.id.addBook_bookNameET);
@@ -103,14 +106,14 @@ public class AddBook extends AppCompatActivity {
                 cityET.setText(address_city);
                 stateET.setText(address_state);
                 countryET.setText(address_country);
-
+                actionbarTitle.setText("Edit Book");
                 phoneNumberET.setText(phoneNumber);
                 bookNameET.setText(title);
                 priceET.setText(amt);
                 authorNameET.setText(bookAuthor);
                 descriptionET.setText(description);
 
-                selectedImage.setVisibility(View.GONE);
+                selectedImage.setVisibility(View.INVISIBLE);
                 selectImageButton.setVisibility(View.GONE);
                 
                 selectImageButton.setEnabled(false);
